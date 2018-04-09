@@ -29,7 +29,7 @@ Statement st;
 
         try {
 
-            st.executeUpdate("UPDATE kattMat SET kattmatvikt='1337' WHERE kattMat_id = '1' ");
+            st.executeUpdate("UPDATE kattMat SET kattmatvikt='1234' WHERE kattMat_id = '1' ");
 
         }catch (Exception ex){
 
