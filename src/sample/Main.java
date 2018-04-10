@@ -11,14 +11,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("CatFood!");
+        primaryStage.setTitle("Hello you");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 
         DataBase myDB = new DataBase();
 
-
-        myDB.getUpdate();
         myDB.showItems();
 
 
