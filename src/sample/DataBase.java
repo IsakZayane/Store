@@ -19,7 +19,7 @@ public class DataBase {
     }
 
 
-    public void showItems() {   //SELECT statement. ResultSet används och executeQuery
+    public void showItems() {                                                       //SELECT statement. ResultSet används och executeQuery
 
         try {
 
@@ -27,7 +27,7 @@ public class DataBase {
             System.out.println();
 
             while (rs.next()) {
-                System.out.println(rs.getString(2));   //Column index = vilken kolumn i databasen
+                System.out.println(rs.getString(2));                    //Column index = vilken kolumn i databasen
             }
 
 
