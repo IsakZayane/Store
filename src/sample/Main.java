@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("databaseSample.fxml"));
 
         primaryStage.setTitle("CatFood!");
 
@@ -20,7 +20,6 @@ public class Main extends Application {
         DataBase myDB = new DataBase();
 
 
-        myDB.getUpdate();
         myDB.showItems();
 
 
