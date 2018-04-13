@@ -4,12 +4,14 @@ import java.sql.*;
 
 public class DataBase {
 
+
     String url = "jdbc:mysql://den1.mysql6.gear.host/TheStoreDB?user=thestoredb&password=kattmat!"; //githost address
     Statement st;
 
     //TODO planera databasen, hur vill vi ha den (Till en början i alla fall)
 
     public DataBase() {
+
         try {
             Connection c = DriverManager.getConnection(url);
             st = c.createStatement();
@@ -19,6 +21,7 @@ public class DataBase {
     }
 
     public void addItem(String name, String type, Integer price){
+
 
         try {
             st.execute("INSERT INTO " + type + "VALUES (" + price + ", " + name +  ")");

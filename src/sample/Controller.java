@@ -38,7 +38,15 @@ public class Controller implements Initializable {
 
     }
 
-    public void RegisterAction() {
+    public void RegisterAction(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateAccountSample.fxml"));
+        Parent root = loader.load();
+
+        stage.setTitle("Create Account");
+        stage.setScene(new Scene(root));
+        stage.show();
 
     }
 
