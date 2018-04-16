@@ -85,5 +85,12 @@ public class DataBase {
 
         }
     }
+    public void createUser(String uName){
+        try {
+            st.execute("INSERT INTO user (userName) VALUES("+uName+")");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
