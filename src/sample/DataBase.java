@@ -85,12 +85,15 @@ public class DataBase {
 
         }
     }
-    public void createUser(String uName){
+   public void createUser(String uName,String eMail){
         try {
-            st.execute("INSERT INTO user (userName) VALUES("+uName+")");
+            System.out.println(uName+eMail);
+           st.execute("INSERT INTO user "+ "(userName , userEmail)"+"VALUES('"+uName+"','"+eMail+"')");
+
         } catch (SQLException e) {
+            System.out.println("INSERT INTO user"+ "VALUES('"+uName+"','"+eMail+"')");
             e.printStackTrace();
-        }
-    }
+       }
+   }
 
 }

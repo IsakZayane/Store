@@ -29,14 +29,14 @@ public class CreateAccountController implements Initializable {
     }
 
     public void EnterName() {
-        member.setName(usernameField.getText());
+        //member.setName(usernameField.getText());
 
 
     }
 
 
     public void EnterEmail() {
-        member.setEmail(emailTextField.getText());
+        //member.setEmail(emailTextField.getText());
 
     }
 
@@ -48,7 +48,8 @@ public class CreateAccountController implements Initializable {
 
     public void CreateAction(){
         member.setName(usernameField.getText());
-        myDB.createUser(member.getName());
+        member.setEmail(emailTextField.getText());
+        myDB.createUser(member.getName(),member.getEmail());
 
 
     }
