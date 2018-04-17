@@ -94,6 +94,13 @@ public class DataBase {
             System.out.println("INSERT INTO user"+ "VALUES('"+uName+"','"+eMail+"')");
             e.printStackTrace();
        }
-   }
+   }public void GuestLogIn(){
+       try {
+           st.execute("INSERT INTO guest (guestName) VALUES ('Guest')");
+
+       } catch (SQLException e) {
+           e.printStackTrace();
+       }
+    }
 
 }

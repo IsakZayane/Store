@@ -17,6 +17,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+    DataBase myDB = new DataBase();
+    Main myApp = new Main();
+    ContollerProducts products = new ContollerProducts();
+
     @FXML
     private TextField usernameField;
     @FXML
@@ -50,7 +54,21 @@ public class Controller implements Initializable {
 
     }
 
-    public void GuestAction() {
+    public void GuestAction(ActionEvent event) throws IOException {
+        myDB.GuestLogIn();
+        NameTransfer.getInstance().setName("Guest");
+
+
+
+
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("productssample.fxml"));
+        Parent root = loader.load();
+
+        stage.setTitle("Products");
+        stage.setScene(new Scene(root));
+        stage.show();
 
     }
 
