@@ -28,6 +28,8 @@ public class CreateAccountController implements Initializable {
 
     }
 
+    //TODO UserName, UserEmail, Password. är ordningen i createUser metod under DataBase
+
     public void EnterName() {
         //member.setName(usernameField.getText());
 
@@ -66,6 +68,25 @@ public class CreateAccountController implements Initializable {
     }
     public void ProceedAction(){
     }
+
+    public void passwordEncryption(String password){
+
+        StringBuffer encryptPass = new StringBuffer(password);  //TODO Maybe use StringBuilder instead, it is faster than buffer
+
+
+        for (int i = 0; i <password.length(); i++ ){
+
+            int temp = 0;
+
+            temp = (int) encryptPass.charAt(i);
+            temp = temp*2+5;
+            encryptPass.setCharAt(1, (char) temp);
+
+        }
+
+    }
+
+
 }
 
 

@@ -5,20 +5,60 @@ import java.sql.*;
 public class DataBase {
 
 
-    String url = "jdbc:mysql://den1.mysql6.gear.host/TheStoreDB?user=thestoredb&password=kattmat!"; //githost address
-    Statement st;
+
+    private String url = "jdbc:mysql://den1.mysql6.gear.host/TheStoreDB?user=thestoredb&password=kattmat!"; //githost address
+    private Statement st;
+    private Connection c;
+
+
 
     //TODO planera databasen, hur vill vi ha den (Till en början i alla fall)
 
     public DataBase() {
 
         try {
-            Connection c = DriverManager.getConnection(url);
+            c = DriverManager.getConnection(url);
             st = c.createStatement();
         } catch (SQLException ex) {
             System.out.println("Failed to connect to database!");
         }
     }
+
+
+    public void createUser(String userName,String userEmail, int password){
+
+        try {
+
+            PreparedStatement addUser = c.prepareStatement("INSERT INTO user (userName, userEmail, password) VALUES ( ?, ?, ?)");
+            addUser.setString(1, userName);
+            addUser.setString(2, userEmail);
+            addUser.setInt(3, password);
+
+
+        }catch (Exception ex){
+
+        }
+    }
+    public void createUser(String uName,String eMail){
+        try {
+            System.out.println(uName+eMail);
+            st.execute("INSERT INTO user "+ "(userName , userEmail)"+"VALUES('"+uName+"','"+eMail+"')");
+
+        } catch (SQLException e) {
+            System.out.println("INSERT INTO user"+ "VALUES('"+uName+"','"+eMail+"')");
+            e.printStackTrace();
+        }
+    }public void GuestLogIn(){
+        try {
+            st.execute("INSERT INTO guest (guestName) VALUES ('Guest')");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 
     public void addItem(String name, String type, Integer price){
 
@@ -50,17 +90,7 @@ public class DataBase {
     }
 
 
-    public void getUpdate() {   //test metod
 
-        try {
-
-            st.executeUpdate("UPDATE kattMat SET kattmatvikt='5446' WHERE kattMat_id = '1' ");
-
-        } catch (Exception ex) {
-
-            System.out.println("failed to update");
-        }
-    }
 
     public void getProductId(){
 
@@ -84,23 +114,6 @@ public class DataBase {
         } catch (Exception e) {
 
         }
-    }
-   public void createUser(String uName,String eMail){
-        try {
-            System.out.println(uName+eMail);
-           st.execute("INSERT INTO user "+ "(userName , userEmail)"+"VALUES('"+uName+"','"+eMail+"')");
-
-        } catch (SQLException e) {
-            System.out.println("INSERT INTO user"+ "VALUES('"+uName+"','"+eMail+"')");
-            e.printStackTrace();
-       }
-   }public void GuestLogIn(){
-       try {
-           st.execute("INSERT INTO guest (guestName) VALUES ('Guest')");
-
-       } catch (SQLException e) {
-           e.printStackTrace();
-       }
     }
 
 }
