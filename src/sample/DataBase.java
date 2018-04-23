@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.control.Alert;
+
 import java.sql.*;
 
 public class DataBase {
@@ -29,17 +31,46 @@ public class DataBase {
 
         try {
 
-            PreparedStatement addUser = c.prepareStatement("INSERT INTO user (userName, userEmail, password) VALUES ( ?, ?, ?)");
-            addUser.setString(1, userName);
-            addUser.setString(2, userEmail);
-            addUser.setInt(3, password);
+            ResultSet rs = this.st.executeQuery("SELECT userEmail FROM user");
+
+            if (rs.next()){
+
+                String foundType = rs.getString("userEmail");
+
+                if (foundType.equals(userEmail)) {
+                    System.out.println("ALREADY IN USE");
+
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Email already in use");
+                    alert.setHeaderText("Please use another email");
+                    alert.setContentText(userEmail + " is already in use");
+                    alert.showAndWait();
+
+                }
+                else {
+                PreparedStatement addUser = c.prepareStatement("INSERT INTO user (userName, userEmail, password) VALUES ( ?, ?, ?)");
+
+                addUser.setString(1, userName);
+                addUser.setString(2, userEmail);
+                addUser.setInt(3, password);
+                addUser.execute();
+
+                System.out.println("INSERT INTO user (userName, userEmail, password) VALUES (" + userName + ", " + userEmail + ", " + password + ")");
+            }}
 
 
-        }catch (Exception ex){
+
+
+
+
+        }catch (SQLException ex){
+
+            ex.printStackTrace();
+            System.out.println(ex);
 
         }
     }
-    public void createUser(String uName,String eMail){
+/*    public void createUser(String uName,String eMail){
         try {
             System.out.println(uName+eMail);
             st.execute("INSERT INTO user "+ "(userName , userEmail)"+"VALUES('"+uName+"','"+eMail+"')");
@@ -48,7 +79,9 @@ public class DataBase {
             System.out.println("INSERT INTO user"+ "VALUES('"+uName+"','"+eMail+"')");
             e.printStackTrace();
         }
-    }public void GuestLogIn(){
+    }*/
+
+    public void GuestLogIn(){
         try {
             st.execute("INSERT INTO guest (guestName) VALUES ('Guest')");
 

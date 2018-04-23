@@ -16,7 +16,7 @@
       <Text layoutX="89.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter password" wrappingWidth="72.13671875" />
       <PasswordField fx:id="repasswordField" layoutX="89.0" layoutY="304.0" onAction="#ReEnterPassword" promptText="Password" />
       <Text layoutX="89.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Re-enter password" />
-      <Button fx:id="createbutton" layoutX="412.0" layoutY="176.0" mnemonicParsing="false" onAction="#CreateAction" text="Create Account" />
+      <Button fx:id="createbutton" layoutX="412.0" layoutY="176.0" mnemonicParsing="false" onAction="#createMember" text="Create Account" />
       <Button fx:id="gobackbutton" layoutX="37.0" layoutY="351.0" mnemonicParsing="false" onAction="#GoBackAction" text="Go back to login" />
       <Button fx:id="guestbutton" layoutX="469.0" layoutY="351.0" mnemonicParsing="false" onAction="#ProceedAction" text="Proceed as guest" />
    </children>
