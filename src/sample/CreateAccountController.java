@@ -59,7 +59,7 @@ public class CreateAccountController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = loader.load();
 
-        stage.setTitle("Admin");
+        stage.setTitle("LogIn");
         stage.setScene(new Scene(root));
         stage.show();
 
