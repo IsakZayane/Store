@@ -20,6 +20,7 @@ public class Main extends Application {
         DataBase myDB = new DataBase();
 
 
+
         myDB.showItems();
 
 

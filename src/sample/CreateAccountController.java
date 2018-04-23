@@ -18,15 +18,38 @@ public class CreateAccountController implements Initializable {
     Member member = new Member();
     Main myApp = new Main();
     DataBase myDB = new DataBase();
-    @FXML private TextField usernameField;
-    @FXML private  TextField emailTextField;
     @FXML
+    private TextField usernameField;
+    @FXML
+    private TextField emailTextField;
+    @FXML
+    private TextField passwordField;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
 
+    }
+
+    @FXML
+    public void createMember() {
+
+        String userName = usernameField.getText();
+        String userEmail = emailTextField.getText();
+
+
+        String password = passwordField.getText();
+
+        passwordEncryption(password);
+
+        int encryptedPassword = passwordEncryption(password);
+        System.out.println(userName + userEmail + encryptedPassword);
+
+        myDB.createUser(userName, userEmail, encryptedPassword);
+
 
     }
+
 
     //TODO UserName, UserEmail, Password. är ordningen i createUser metod under DataBase
 
@@ -45,17 +68,18 @@ public class CreateAccountController implements Initializable {
     public void EnterPassword() {
 
     }
-    public void ReEnterPassword(){
+
+    public void ReEnterPassword() {
 
     }
 
-    public void CreateAction(){
-        member.setName(usernameField.getText());
-        member.setEmail(emailTextField.getText());
-        myDB.createUser(member.getName(),member.getEmail());
+    /*    public void CreateAction(){
+            member.setName(usernameField.getText());
+            member.setEmail(emailTextField.getText());
+            myDB.createUser(member.getName(),member.getEmail());
 
 
-    }
+        }*/
     public void GoBackAction(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
@@ -67,23 +91,29 @@ public class CreateAccountController implements Initializable {
         stage.show();
 
     }
-    public void ProceedAction(){
+
+    public void ProceedAction() {
     }
 
-    public void passwordEncryption(String password){
+    public int passwordEncryption(String password) {  //det vi får från den här metoden skall sparas i databasen som password, till rätt user
 
-        StringBuffer encryptPass = new StringBuffer(password);  //TODO Maybe use StringBuilder instead, it is faster than buffer
+        StringBuilder encryptPass = new StringBuilder(password);  //TODO Maybe use StringBuilder instead, it is faster than buffer
 
 
-        for (int i = 0; i <password.length(); i++ ){
+        for (int i = 0; i < password.length(); i++) {
 
             int temp = 0;
 
             temp = (int) encryptPass.charAt(i);
-            temp = temp*2+5;
+            temp = temp * 2 + 5;
             encryptPass.setCharAt(1, (char) temp);
 
+
+            return temp;
+
         }
+
+        return 5;
 
     }
 
