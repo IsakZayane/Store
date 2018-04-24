@@ -2,32 +2,23 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.ListView;
 
 import java.net.URL;
-import java.sql.SQLException;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
-public class ContollerProducts implements Initializable {
+public class ControllerFood implements Initializable {
     DataBase db = new DataBase();
-    @FXML
-    private Label loggedin;
-    @FXML private TextArea itemarea;
-
+    @FXML private ListView itemmenu;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loggedin.setText(NameTransfer.getInstance().getName());
+
+
+
 
     }
-
-    public void FoodAction() {
-        try {
-            itemarea.setText(db.showItems());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
+    public void FoodAction(){
 
     }
 
@@ -50,12 +41,4 @@ public class ContollerProducts implements Initializable {
     public void ExitAction() {
         System.exit(0);
     }
-
-
-    }
-
-
-
-
-
-
+}

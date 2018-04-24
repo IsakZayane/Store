@@ -21,7 +21,7 @@ public class Main extends Application {
 
 
 
-        myDB.showItems();
+
 
 
     }
