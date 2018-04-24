@@ -1,8 +1,10 @@
 package sample;
 
+import com.mysql.jdbc.StringUtils;
 import javafx.scene.control.Alert;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DataBase {
 
@@ -104,23 +106,52 @@ public class DataBase {
         }
     }
 
-    public void showItems() {                                                       //SELECT statement. ResultSet används och executeQuery
+    public ArrayList<String> showItems() {                                                       //SELECT statement. ResultSet används och executeQuery
+        int index = 0;
+        int one = 1;
+        ArrayList<String> items= new ArrayList<>();
+
 
         try {
 
-            ResultSet rs = this.st.executeQuery("SELECT * FROM KATTMAT");
-            System.out.println();
+            boolean test=false;
+            //while (rs.getString("namn").equals(null)) {
+            //ResultSet rs2 = this.st.executeQuery("SELECT * FROM KATTMAT LIMIT "+index+","+one);
 
-            while (rs.next()) {
-                System.out.println(rs.getString(2));                    //Column index = vilken kolumn i databasen
+
+            //while(test==false) {
+            for(int i=0;i<5;i++){
+                ResultSet rs = this.st.executeQuery("SELECT * FROM KATTMAT LIMIT " + index + "," + one);
+
+
+                while (rs.next()) {
+                    // System.out.println(rs.getString(3));                    //Column index = vilken kolumn i databasen
+                    int pris = rs.getInt("pris");
+                    String namn = rs.getString("namn");
+                    System.out.printf(namn + " " + pris);
+
+                    items.add(namn+" "+pris);
+
+                    index++;
+                    test=rs.getString("namn").equals("");
+
+
+                    System.out.println();
+
+
+
+                }
             }
 
 
-        } catch (Exception ex) {
-
-
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        return items;
     }
+
+
+
 
 
 
