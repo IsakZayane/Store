@@ -96,25 +96,31 @@ public class DataBase {
         }
     }
 
-    public String showItems() throws SQLException {//SELECT statement. ResultSet används och executeQuery
-
-            String query = "SELECT * FROM KATTMAT";
-            Statement st = c.createStatement();
-            ResultSet rs = st.executeQuery(query);
-
+    public String showItems()  {//SELECT statement. ResultSet används och executeQuery
+            try {
+            ResultSet rs= this.st.executeQuery("SELECT * FROM KATTMAT");
 
             //ResultSet rs = this.st.executeQuery("SELECT * FROM KATTMAT");
-
-            while (rs.next()) {
+                while (rs.next()) {
                 int pris = rs.getInt("pris");
                 String namn = rs.getString("namn");
                 System.out.printf("%s,%s\n", pris, namn);
 
-                String s = rs.getString("pris") + rs.getString("namn");
+               //tring s = rs.getString("pris") + rs.getString("namn");
 
+          return pris+namn;
 
-         }return rs.getInt("pris")+rs.getString("namn");
-}
+         }
+
+    }catch (SQLException e){
+                e.printStackTrace();
+            }
+            finally {
+        return showItems();
+
+                }
+            }
+
 
             //Column index = vilken kolumn i databasen
 

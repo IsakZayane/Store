@@ -22,11 +22,9 @@ public class ContollerProducts implements Initializable {
     }
 
     public void FoodAction() {
-        try {
+
             itemarea.setText(db.showItems());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
 
 
     }
