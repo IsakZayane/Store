@@ -64,16 +64,53 @@ public class DataBase {
 
         }
     }
-/*    public void createUser(String uName,String eMail){
-        try {
-            System.out.println(uName+eMail);
-            st.execute("INSERT INTO user "+ "(userName , userEmail)"+"VALUES('"+uName+"','"+eMail+"')");
 
-        } catch (SQLException e) {
-            System.out.println("INSERT INTO user"+ "VALUES('"+uName+"','"+eMail+"')");
-            e.printStackTrace();
+    public void memberLogIn(String name) {
+        try {
+            String query = "select username from user where username = ?";
+            PreparedStatement login =c.prepareStatement(query);
+            login.setString(1,name);
+           ResultSet rs = login.executeQuery();
+            String username = null;
+            while (rs.next()){
+                username = rs.getString("userName");
+
+
+
+            }
+            if (username.equals(name)){
+                System.out.println("name found");
+            }
+
+        }catch (SQLException e){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Memeber name and/or password");
+            alert.setHeaderText("Re-enter password and/or Member name");
+            alert.showAndWait();
+
         }
-    }*/
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void GuestLogIn() {
         try {

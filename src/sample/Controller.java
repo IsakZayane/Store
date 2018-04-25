@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -38,8 +39,31 @@ public class Controller implements Initializable {
 
     }
 
-    public void SignInAction() {
+    public void SignInAction(ActionEvent event) throws IOException {
 
+        try {
+
+
+            myDB.memberLogIn(usernameField.getText());
+            NameTransfer.getInstance().setName(usernameField.getText());
+
+
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("productssample.fxml"));
+            Parent root = loader.load();
+
+            stage.setTitle("Products");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Memeber name  not found and/or password incorrect ");
+            alert.setHeaderText("Re-enter password and/or Member name");
+            alert.showAndWait();
+        }
     }
 
     public void RegisterAction(ActionEvent event) throws IOException {
