@@ -28,12 +28,17 @@ public class DataBase {
     public void createUser(String userName, String userEmail, int password) {
 
         try {
+            String query ="SELECT userEmail from user where userEmail = ?";
+            PreparedStatement check = c.prepareStatement(query);
+            check.setString(1,userEmail);
+            String foundType= null;
+            ResultSet rs = check.executeQuery();
 
-            ResultSet rs = this.st.executeQuery("SELECT userEmail FROM user");
 
-            if (rs.next()) {
+            while (rs.next()) {
 
-                String foundType = rs.getString("userEmail");
+                foundType = rs.getString("userEmail");
+            }
 
                 if (foundType.equals(userEmail)) {
                     System.out.println("ALREADY IN USE");
@@ -43,6 +48,7 @@ public class DataBase {
                     alert.setHeaderText("Please use another email");
                     alert.setContentText(userEmail + " is already in use");
                     alert.showAndWait();
+
 
                 } else {
                     PreparedStatement addUser = c.prepareStatement("INSERT INTO user (userName, userEmail, password) VALUES ( ?, ?, ?)");
@@ -54,7 +60,7 @@ public class DataBase {
 
                     System.out.println("INSERT INTO user (userName, userEmail, password) VALUES (" + userName + ", " + userEmail + ", " + password + ")");
                 }
-            }
+
 
 
         } catch (SQLException ex) {
@@ -66,11 +72,17 @@ public class DataBase {
     }
 
     public void memberLogIn(String name,int password) {
+        // query stringen är det "prepareda statementtet"
+        //login.setsstring sätter man in parametern name och den går in på första frågetecknet i queryn och login.setInt
+        // sätter man in  parametern password på andra frågetecknet i queryn.
+        //
+
         try {
             String query = "select username,password from user where username = ? and password = ?";
             PreparedStatement login =c.prepareStatement(query);
             login.setString(1,name);
             login.setInt(2,password);
+            // ResultSet rs ser till så att queryn körs i koden (tror jag)
            ResultSet rs = login.executeQuery();
             String username = null;
             int pass = 0;
