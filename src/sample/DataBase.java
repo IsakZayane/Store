@@ -115,14 +115,18 @@ public class DataBase {
         try {
 
             boolean test=false;
+            int rows=0;
             //while (rs.getString("namn").equals(null)) {
             //ResultSet rs2 = this.st.executeQuery("SELECT * FROM KATTMAT LIMIT "+index+","+one);
             ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM KATTMAT");
-         //   int rows=count.getInt("total");
+            while (count.next()) {
+                rows = count.getInt("total");
+                System.out.println(rows);
+            }
 
 
             //while(test==false) {
-            for(int i=0;i<5;i++){
+            for(int i=0;i<rows;i++){
                 ResultSet rs = this.st.executeQuery("SELECT * FROM KATTMAT LIMIT " + index + "," + one);
 
 
