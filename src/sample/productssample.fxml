@@ -14,7 +14,7 @@
       <Button layoutX="41.0" layoutY="137.0" mnemonicParsing="false" onAction="#WineAction" text="Wine" />
       <Button layoutX="42.0" layoutY="175.0" mnemonicParsing="false" onAction="#KittyLitterAction" text="Kitty litter" />
       <Button layoutX="38.0" layoutY="215.0" mnemonicParsing="false" onAction="#CatNipAction" text="Catnip" />
-      <Button layoutX="441.0" layoutY="349.0" mnemonicParsing="false" onAction="#LogOutAction" text="Log out" />
+      <Button layoutX="48.0" layoutY="349.0" mnemonicParsing="false" onAction="#LogOutAction" text="Go back to Log In" />
       <Button layoutX="521.0" layoutY="349.0" mnemonicParsing="false" onAction="#ExitAction" text="Exit" />
       <Button layoutX="462.0" layoutY="19.0" mnemonicParsing="false" onAction="#CartAction" text="View Shopping cart" />
       <TextArea fx:id="itemarea" editable="false" layoutX="227.0" layoutY="75.0" prefHeight="200.0" prefWidth="200.0" />

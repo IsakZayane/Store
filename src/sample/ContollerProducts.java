@@ -56,7 +56,15 @@ public class ContollerProducts implements Initializable {
     public void CatNipAction() {
     }
 
-    public void LogOutAction() {
+    public void LogOutAction(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
+        Parent root = loader.load();
+
+        stage.setTitle("CatFood!");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     public void CartAction() {
