@@ -65,20 +65,23 @@ public class DataBase {
         }
     }
 
-    public void memberLogIn(String name) {
+    public void memberLogIn(String name,int password) {
         try {
-            String query = "select username from user where username = ?";
+            String query = "select username,password from user where username = ? and password = ?";
             PreparedStatement login =c.prepareStatement(query);
             login.setString(1,name);
+            login.setInt(2,password);
            ResultSet rs = login.executeQuery();
             String username = null;
+            int pass = 0;
             while (rs.next()){
                 username = rs.getString("userName");
+                pass = rs.getInt("password");
 
 
 
             }
-            if (username.equals(name)){
+            if (username.equals(name) && pass==password){
                 System.out.println("name found");
             }
 

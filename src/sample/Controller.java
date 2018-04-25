@@ -32,6 +32,7 @@ public class Controller implements Initializable {
     private Button registerButton;
     @FXML
     private Button guestButton;
+    CreateAccountController pass = new CreateAccountController();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -43,8 +44,9 @@ public class Controller implements Initializable {
 
         try {
 
+           int password = pass.passwordEncryption(passwordField.getText());
 
-            myDB.memberLogIn(usernameField.getText());
+            myDB.memberLogIn(usernameField.getText(),password);
             NameTransfer.getInstance().setName(usernameField.getText());
 
 
