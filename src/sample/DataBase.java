@@ -117,6 +117,8 @@ public class DataBase {
             boolean test=false;
             //while (rs.getString("namn").equals(null)) {
             //ResultSet rs2 = this.st.executeQuery("SELECT * FROM KATTMAT LIMIT "+index+","+one);
+            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM KATTMAT");
+         //   int rows=count.getInt("total");
 
 
             //while(test==false) {
