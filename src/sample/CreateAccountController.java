@@ -15,6 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CreateAccountController implements Initializable {
+    Controller cs = new Controller();
     Member member = new Member();
     Main myApp = new Main();
     DataBase myDB = new DataBase();
@@ -80,15 +81,8 @@ public class CreateAccountController implements Initializable {
 
 
         }*/
-    public void GoBackAction(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
-        Parent root = loader.load();
-
-        stage.setTitle("LogIn");
-        stage.setScene(new Scene(root));
-        stage.show();
+    public void GoBackAction(ActionEvent event) {
+       cs.changeScene(event,"sample.fxml","log in");
 
     }
 

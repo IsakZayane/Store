@@ -112,21 +112,6 @@ public class DataBase {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void GuestLogIn() {
         try {
             st.execute("INSERT INTO guest (guestName) VALUES ('Guest')");
@@ -148,30 +133,11 @@ public class DataBase {
         }
     }
 
-    public String showItems()  {//SELECT statement. ResultSet används och executeQuery
-            try {
-            ResultSet rs= this.st.executeQuery("SELECT * FROM KATTMAT");
+    public void showItems() {//SELECT statement. ResultSet används och executeQuery
+    }
 
-            //ResultSet rs = this.st.executeQuery("SELECT * FROM KATTMAT");
-                while (rs.next()) {
-                int pris = rs.getInt("pris");
-                String namn = rs.getString("namn");
-                System.out.printf("%s,%s\n", pris, namn);
 
-               //tring s = rs.getString("pris") + rs.getString("namn");
 
-          return pris+namn;
-
-         }
-
-    }catch (SQLException e){
-                e.printStackTrace();
-            }
-            finally {
-        return showItems();
-
-                }
-            }
 
 
             //Column index = vilken kolumn i databasen

@@ -44,20 +44,12 @@ public class Controller implements Initializable {
 
         try {
 
-           int password = pass.passwordEncryption(passwordField.getText());
+            int password = pass.passwordEncryption(passwordField.getText());
 
-            myDB.memberLogIn(usernameField.getText(),password);
+            myDB.memberLogIn(usernameField.getText(), password);
             NameTransfer.getInstance().setName(usernameField.getText());
 
-
-            Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("productssample.fxml"));
-            Parent root = loader.load();
-
-            stage.setTitle("Products");
-            stage.setScene(new Scene(root));
-            stage.show();
+            changeScene(event,"productssample.fxml","products");
 
 
         } catch (Exception e) {
@@ -69,32 +61,15 @@ public class Controller implements Initializable {
     }
 
     public void RegisterAction(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateAccountSample.fxml"));
-        Parent root = loader.load();
-
-        stage.setTitle("Create Account");
-        stage.setScene(new Scene(root));
-        stage.show();
-
+       changeScene(event,"CreateAccountSample.fxml","Register");
     }
 
     public void GuestAction(ActionEvent event) throws IOException {
         myDB.GuestLogIn();
         NameTransfer.getInstance().setName("Guest");
 
+        changeScene(event,"productssample.fxml","products");
 
-
-
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("productssample.fxml"));
-        Parent root = loader.load();
-
-        stage.setTitle("Products");
-        stage.setScene(new Scene(root));
-        stage.show();
 
     }
 
@@ -108,5 +83,23 @@ public class Controller implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
 
+    }
+
+    public void changeScene(ActionEvent event, String fxml, String title) {
+        try {
+
+
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            Parent root = loader.load();
+
+            stage.setTitle(title);
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+
+        }
     }
 }
