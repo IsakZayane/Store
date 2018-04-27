@@ -53,12 +53,12 @@ public class FoodListController implements Initializable {
     }
 
 
-    public void GoBackLogIn(ActionEvent event) throws IOException {
+    public void GoBackLogIn(ActionEvent event)  {
 
         cs.changeScene(event,"sample.fxml","log in");
 
     }
-    public void GoBackProducts(ActionEvent event) throws IOException {
+    public void GoBackProducts(ActionEvent event)  {
         cs.changeScene(event,"productssample.fxml","products");
     }
     public void ExitAction(){
