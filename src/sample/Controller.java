@@ -18,9 +18,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    DataBase myDB = new DataBase();
-    Main myApp = new Main();
-    ContollerProducts products = new ContollerProducts();
+    DataBase myDB;
+    //Main myApp = new Main();
+
 
     @FXML
     private TextField usernameField;
@@ -32,16 +32,17 @@ public class Controller implements Initializable {
     private Button registerButton;
     @FXML
     private Button guestButton;
-    CreateAccountController pass = new CreateAccountController();
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
+        myDB = new DataBase();
+        System.out.println("test2");
     }
 
     public void SignInAction(ActionEvent event) throws IOException {
-
+        CreateAccountController pass = new CreateAccountController();
         try {
 
             int password = pass.passwordEncryption(passwordField.getText());

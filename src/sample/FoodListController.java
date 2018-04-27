@@ -58,18 +58,22 @@ public class FoodListController implements Initializable {
 
 
 
-    public void backButton(ActionEvent event) throws IOException {
-        cs.changeScene(event,"productssample.fxml","products");
+    public void GoBackLogIn(ActionEvent event) {
+
+        cs.changeScene(event, "sample.fxml", "log in");
     }
 
 
-        public void GoBackLogIn (ActionEvent event) throws IOException {
+    public void backButton(ActionEvent event) throws IOException {
+        cs.changeScene(event, "productssample.fxml", "products");
+    }
 
-            cs.changeScene(event, "sample.fxml", "log in");
 
-        }
+
 
     public void GoBackProducts(ActionEvent event) throws IOException {
+
+
         cs.changeScene(event,"productssample.fxml","products");
     }
     public void ExitAction() {
