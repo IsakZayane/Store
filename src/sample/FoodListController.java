@@ -19,6 +19,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class FoodListController implements Initializable {
+    Controller cs = new Controller();
 
     @FXML private Label loggedinlabel;
     @FXML
@@ -54,26 +55,11 @@ public class FoodListController implements Initializable {
 
     public void GoBackLogIn(ActionEvent event) throws IOException {
 
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
-        Parent root = loader.load();
-
-        stage.setTitle("CatFood!");
-        stage.setScene(new Scene(root));
-        stage.show();
+        cs.changeScene(event,"sample.fxml","log in");
 
     }
     public void GoBackProducts(ActionEvent event) throws IOException {
-        NameTransfer.getInstance().getName();
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("productssample.fxml"));
-        Parent root = loader.load();
-
-        stage.setTitle("Products");
-        stage.setScene(new Scene(root));
-        stage.show();
+        cs.changeScene(event,"productssample.fxml","products");
     }
     public void ExitAction(){
         System.exit(0);

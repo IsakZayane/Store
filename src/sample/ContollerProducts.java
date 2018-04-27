@@ -20,6 +20,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ContollerProducts implements Initializable {
+    Controller cs = new Controller();
     DataBase db = new DataBase();
     @FXML
     private Label loggedin;
@@ -32,15 +33,8 @@ public class ContollerProducts implements Initializable {
     }
 
 
-    public void FoodAction(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("FoodListSample.fxml"));
-        Parent root = loader.load();
-
-        stage.setTitle("FoodList");
-        stage.setScene(new Scene(root));
-        stage.show();
+    public void FoodAction(ActionEvent event)  {
+        cs.changeScene(event,"FoodlistSample.fxml","Foodlist");
 
 
     }
@@ -57,14 +51,7 @@ public class ContollerProducts implements Initializable {
     }
 
     public void LogOutAction(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
-        Parent root = loader.load();
-
-        stage.setTitle("CatFood!");
-        stage.setScene(new Scene(root));
-        stage.show();
+        cs.changeScene(event,"sample.fxml","login");
     }
 
     public void CartAction() {
