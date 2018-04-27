@@ -101,7 +101,7 @@ public class Controller implements Initializable {
     public void TempAdmin(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("databasesample.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("databaseSample.fxml"));
         Parent root = loader.load();
 
         stage.setTitle("Admin");

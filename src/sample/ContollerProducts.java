@@ -44,17 +44,45 @@ public class ContollerProducts implements Initializable {
 
 
     }
+    public void CatNipAction(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CatNipSample.fxml"));
+        Parent root = loader.load();
+
+        stage.setTitle("FoodList");
+        stage.setScene(new Scene(root));
+        stage.show();
 
 
-    public void WineAction() {
+    }
+    public void KittyLitterAction(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("KittyLitterSample.fxml"));
+        Parent root = loader.load();
+
+        stage.setTitle("FoodList");
+        stage.setScene(new Scene(root));
+        stage.show();
+
+
+    }
+    public void WineAction(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("WineListSample.fxml"));
+        Parent root = loader.load();
+
+        stage.setTitle("FoodList");
+        stage.setScene(new Scene(root));
+        stage.show();
+
 
     }
 
-    public void KittyLitterAction() {
-    }
 
-    public void CatNipAction() {
-    }
+
 
     public void LogOutAction(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
