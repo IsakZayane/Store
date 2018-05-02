@@ -28,9 +28,11 @@ public class FoodListController implements Initializable {
 
     ObservableList<String> list = FXCollections.observableArrayList();
     ObservableList<String> list2 = FXCollections.observableArrayList();
-
+    ArrayList<String> shoppingcart=new ArrayList<>();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
         listView1.setItems(list);
         listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
@@ -45,6 +47,7 @@ public class FoodListController implements Initializable {
         for(int i =0;i<info.size();i++){
             list.add(info.get(i));
         }
+
     }
 
     public void addButton() {
@@ -67,6 +70,17 @@ public class FoodListController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
 
+    }
+    public void addShoppingCartAction(){
+        for (int i =0; i<list2.size();i++) {
+
+            shoppingcart.add(listView2.getItems().get(i));
+        }
+
+
+        Shoppingcartsingleton.getInstance().setShoppingcart(shoppingcart);
+
+        System.out.println(Shoppingcartsingleton.getInstance().getShoppingcart());
     }
 
 }
