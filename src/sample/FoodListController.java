@@ -9,6 +9,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class FoodListController implements Initializable {
@@ -16,6 +17,7 @@ public class FoodListController implements Initializable {
 
     @FXML public ListView<String> listView1;
     @FXML public ListView<String> listView2;
+
 
     ObservableList<String> list= FXCollections.observableArrayList("test1","test2","test3");
     ObservableList<String> list2= FXCollections.observableArrayList();
@@ -28,6 +30,13 @@ public class FoodListController implements Initializable {
 
         listView2.setItems(list2);
         listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+        DataBase db = new DataBase();
+        ArrayList<String> items=new ArrayList<>();
+        items=db.showItems();
+        for(int i=0;i<items.size();i++){
+            list.add(items.get(i));
+        }
 
     }
 

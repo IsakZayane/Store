@@ -34,6 +34,7 @@ public class databaseController implements Initializable {
 
         DataBase db = new DataBase();
 
+
         db.addItem(name,type,price);
 
 
