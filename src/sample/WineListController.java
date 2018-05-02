@@ -40,7 +40,7 @@ public class WineListController implements Initializable {
 
         DataBase myDB = new DataBase();
         ArrayList<String> info= new ArrayList<>();
-        info=myDB.getCatLitter();
+        info=myDB.getCatWine();
 
         for(int i =0;i<info.size();i++){
             list.add(info.get(i));
