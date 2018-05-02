@@ -3,6 +3,7 @@ package sample;
 import javafx.scene.control.Alert;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DataBase {
 
@@ -171,4 +172,53 @@ public class DataBase {
         }
     }
 
+    public ArrayList<String> getCatFood() {                                                       //SELECT statement. ResultSet används och executeQuery
+        int index = 0;
+        int one = 1;
+        ArrayList<String> items= new ArrayList<>();
+
+
+        try {
+
+            boolean test=false;
+            int rows=0;
+            //while (rs.getString("namn").equals(null)) {
+            //ResultSet rs2 = this.st.executeQuery("SELECT * FROM KATTMAT LIMIT "+index+","+one);
+            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM CATFOOD");
+            while (count.next()) {
+                rows = count.getInt("total");
+                System.out.println(rows);
+            }
+
+
+            //while(test==false) {
+            for(int i=0;i<rows;i++){
+                ResultSet rs = this.st.executeQuery("SELECT * FROM CATFOOD LIMIT " + index + "," + one);
+
+
+                while (rs.next()) {
+                    // System.out.println(rs.getString(3));                    //Column index = vilken kolumn i databasen
+                    int pris = rs.getInt("pris");
+                    String namn = rs.getString("namn");
+                    System.out.printf(namn + " " + pris);
+
+                    items.add(namn+" "+pris);
+
+                    index++;
+                    test=rs.getString("namn").equals("");
+
+
+                    System.out.println();
+
+
+
+                }
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return items;
+    }
 }

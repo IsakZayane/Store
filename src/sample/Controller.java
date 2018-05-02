@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -39,6 +40,7 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         myDB = new DataBase();
         System.out.println("test2");
+
     }
 
     public void SignInAction(ActionEvent event) throws IOException {
@@ -103,4 +105,6 @@ public class Controller implements Initializable {
 
         }
     }
+
+
 }

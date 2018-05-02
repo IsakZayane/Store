@@ -25,7 +25,7 @@ public class CatNipController implements Initializable {
     @FXML
     public ListView<String> listView2;
 
-    ObservableList<String> list = FXCollections.observableArrayList("test1", "test2", "test3");
+    ObservableList<String> list = FXCollections.observableArrayList("test3");
     ObservableList<String> list2 = FXCollections.observableArrayList();
 
     @Override

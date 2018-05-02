@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ContollerProducts implements Initializable {
@@ -33,44 +34,23 @@ public class ContollerProducts implements Initializable {
     }
 
 
-    public void FoodAction(ActionEvent event)  {
-        cs.changeScene(event,"FoodlistSample.fxml","Foodlist");
+    public void FoodAction(ActionEvent event) throws IOException {
+        cs.changeScene(event,"FoodListSample.fxml","Food list");
 
 
     }
     public void CatNipAction(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CatNipSample.fxml"));
-        Parent root = loader.load();
-
-        stage.setTitle("FoodList");
-        stage.setScene(new Scene(root));
-        stage.show();
+        cs.changeScene(event,"CatNipSample.fxml","Catnip");
 
 
     }
     public void KittyLitterAction(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("KittyLitterSample.fxml"));
-        Parent root = loader.load();
-
-        stage.setTitle("FoodList");
-        stage.setScene(new Scene(root));
-        stage.show();
+        cs.changeScene(event,"KittyLitterSample.fxml","Kitty litter");
 
 
     }
     public void WineAction(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("WineListSample.fxml"));
-        Parent root = loader.load();
-
-        stage.setTitle("FoodList");
-        stage.setScene(new Scene(root));
-        stage.show();
+        cs.changeScene(event,"WineListSample.fxml","Wine list");
 
 
     }

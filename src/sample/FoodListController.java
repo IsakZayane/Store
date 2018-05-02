@@ -9,19 +9,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class FoodListController implements Initializable {
-    Controller cs = new Controller();
-
-    @FXML private Label loggedinlabel;
 
 
     @FXML
@@ -29,13 +26,11 @@ public class FoodListController implements Initializable {
     @FXML
     public ListView<String> listView2;
 
-
-    ObservableList<String> list = FXCollections.observableArrayList("test1", "test2", "test3");
+    ObservableList<String> list = FXCollections.observableArrayList();
     ObservableList<String> list2 = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loggedinlabel.setText(NameTransfer.getInstance().getName());
         listView1.setItems(list);
         listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
@@ -43,6 +38,14 @@ public class FoodListController implements Initializable {
         listView2.setItems(list2);
         listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
+        DataBase myDB = new DataBase();
+        ArrayList<String> info= new ArrayList<>();
+        info=myDB.getCatFood();
+
+        for(int i =0;i<info.size();i++){
+       //     list.add(info.get(i));
+            System.out.printf(info.get(i));
+        }
     }
 
     public void addButton() {
@@ -51,34 +54,22 @@ public class FoodListController implements Initializable {
     }
 
     public void removeButton() {
-
-
         list2.remove(listView2.getSelectionModel().getSelectedItem());
     }
 
 
-
-    public void GoBackLogIn(ActionEvent event) {
-
-        cs.changeScene(event, "sample.fxml", "log in");
-    }
-
-
     public void backButton(ActionEvent event) throws IOException {
-        cs.changeScene(event, "productssample.fxml", "products");
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("productssample.fxml"));
+        Parent root = loader.load();
+
+        stage.setTitle("Products");
+        stage.setScene(new Scene(root));
+        stage.show();
+
     }
 
-
-
-
-    public void GoBackProducts(ActionEvent event) throws IOException {
-
-
-        cs.changeScene(event,"productssample.fxml","products");
-    }
-    public void ExitAction() {
-        System.exit(0);
-    }
 }
 
 
