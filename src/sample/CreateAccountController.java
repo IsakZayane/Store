@@ -38,10 +38,9 @@ public class CreateAccountController implements Initializable {
         String userName = usernameField.getText();
         String userEmail = emailTextField.getText();
 
-
         String password = passwordField.getText();
 
-        passwordEncryption(password);
+        //passwordEncryption(password);
 
         int encryptedPassword = passwordEncryption(password);
         System.out.println(userName + userEmail + encryptedPassword);

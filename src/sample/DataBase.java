@@ -32,6 +32,7 @@ public class DataBase {
             PreparedStatement check = c.prepareStatement(query);
             check.setString(1,userEmail);
             String foundType= null;
+
             ResultSet rs = check.executeQuery();
 
 
@@ -40,17 +41,10 @@ public class DataBase {
                 foundType = rs.getString("userEmail");
             }
 
-                if (foundType.equals(userEmail)) {
-                    System.out.println("ALREADY IN USE");
-
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Email already in use");
-                    alert.setHeaderText("Please use another email");
-                    alert.setContentText(userEmail + " is already in use");
-                    alert.showAndWait();
+                if (foundType!=userEmail) {
 
 
-                } else {
+
                     PreparedStatement addUser = c.prepareStatement("INSERT INTO user (userName, userEmail, password) VALUES ( ?, ?, ?)");
 
                     addUser.setString(1, userName);
@@ -59,6 +53,15 @@ public class DataBase {
                     addUser.execute();
 
                     System.out.println("INSERT INTO user (userName, userEmail, password) VALUES (" + userName + ", " + userEmail + ", " + password + ")");
+                } else {
+                    System.out.println("ALREADY IN USE---");
+
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Email already in use");
+                    alert.setHeaderText("Please use another email");
+                    alert.setContentText(userEmail + " is already in use");
+                    alert.showAndWait();
+
                 }
 
 
