@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 
 public class ShoppingCartController implements Initializable {
     Controller cs = new Controller();
-    
+
     @FXML TextField cartView;
 
 
