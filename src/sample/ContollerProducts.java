@@ -63,9 +63,12 @@ public class ContollerProducts implements Initializable {
         cs.changeScene(event,"sample.fxml","login");
     }
 
-    public void CartAction(ActionEvent event) {
+    @FXML public void CartAction(ActionEvent event) {
 
         cs.changeScene(event,"ShoppingCartSample.fxml", "Shoppingcart");
+
+        System.out.println("Connected");
+
     }
 
     public void ExitAction() {
