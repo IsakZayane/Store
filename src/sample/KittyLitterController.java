@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class KittyLitterController implements Initializable {
@@ -25,7 +26,7 @@ public class KittyLitterController implements Initializable {
     @FXML
     public ListView<String> listView2;
 
-    ObservableList<String> list = FXCollections.observableArrayList("test1");
+    ObservableList<String> list = FXCollections.observableArrayList();
     ObservableList<String> list2 = FXCollections.observableArrayList();
 
     @Override
@@ -36,6 +37,14 @@ public class KittyLitterController implements Initializable {
 
         listView2.setItems(list2);
         listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+        DataBase myDB = new DataBase();
+        ArrayList<String> info= new ArrayList<>();
+        info=myDB.getCatLitter();
+
+        for(int i =0;i<info.size();i++){
+            list.add(info.get(i));
+        }
 
     }
 

@@ -43,8 +43,7 @@ public class FoodListController implements Initializable {
         info=myDB.getCatFood();
 
         for(int i =0;i<info.size();i++){
-       //     list.add(info.get(i));
-            System.out.printf(info.get(i));
+            list.add(info.get(i));
         }
     }
 

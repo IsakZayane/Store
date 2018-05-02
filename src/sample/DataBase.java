@@ -29,10 +29,10 @@ public class DataBase {
     public void createUser(String userName, String userEmail, int password) {
 
         try {
-            String query ="SELECT userEmail from user where userEmail = ?";
+            String query = "SELECT userEmail from user where userEmail = ?";
             PreparedStatement check = c.prepareStatement(query);
-            check.setString(1,userEmail);
-            String foundType= null;
+            check.setString(1, userEmail);
+            String foundType = null;
 
             ResultSet rs = check.executeQuery();
 
@@ -42,29 +42,27 @@ public class DataBase {
                 foundType = rs.getString("userEmail");
             }
 
-                if (foundType!=userEmail) {
+            if (foundType != userEmail) {
 
 
+                PreparedStatement addUser = c.prepareStatement("INSERT INTO user (userName, userEmail, password) VALUES ( ?, ?, ?)");
 
-                    PreparedStatement addUser = c.prepareStatement("INSERT INTO user (userName, userEmail, password) VALUES ( ?, ?, ?)");
+                addUser.setString(1, userName);
+                addUser.setString(2, userEmail);
+                addUser.setInt(3, password);
+                addUser.execute();
 
-                    addUser.setString(1, userName);
-                    addUser.setString(2, userEmail);
-                    addUser.setInt(3, password);
-                    addUser.execute();
+                System.out.println("INSERT INTO user (userName, userEmail, password) VALUES (" + userName + ", " + userEmail + ", " + password + ")");
+            } else {
+                System.out.println("ALREADY IN USE---");
 
-                    System.out.println("INSERT INTO user (userName, userEmail, password) VALUES (" + userName + ", " + userEmail + ", " + password + ")");
-                } else {
-                    System.out.println("ALREADY IN USE---");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Email already in use");
+                alert.setHeaderText("Please use another email");
+                alert.setContentText(userEmail + " is already in use");
+                alert.showAndWait();
 
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Email already in use");
-                    alert.setHeaderText("Please use another email");
-                    alert.setContentText(userEmail + " is already in use");
-                    alert.showAndWait();
-
-                }
-
+            }
 
 
         } catch (SQLException ex) {
@@ -75,7 +73,7 @@ public class DataBase {
         }
     }
 
-    public void memberLogIn(String name,int password) {
+    public void memberLogIn(String name, int password) {
         // query stringen är det "prepareda statementtet"
         //login.setsstring sätter man in parametern name och den går in på första frågetecknet i queryn och login.setInt
         // sätter man in  parametern password på andra frågetecknet i queryn.
@@ -83,25 +81,24 @@ public class DataBase {
 
         try {
             String query = "select username,password from user where username = ? and password = ?";
-            PreparedStatement login =c.prepareStatement(query);
-            login.setString(1,name);
-            login.setInt(2,password);
+            PreparedStatement login = c.prepareStatement(query);
+            login.setString(1, name);
+            login.setInt(2, password);
             // ResultSet rs ser till så att queryn körs i koden (tror jag)
-           ResultSet rs = login.executeQuery();
+            ResultSet rs = login.executeQuery();
             String username = null;
             int pass = 0;
-            while (rs.next()){
+            while (rs.next()) {
                 username = rs.getString("userName");
                 pass = rs.getInt("password");
 
 
-
             }
-            if (username.equals(name) && pass==password){
+            if (username.equals(name) && pass == password) {
                 System.out.println("name found");
             }
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Memeber name and/or password");
             alert.setHeaderText("Re-enter password and/or Member name");
@@ -110,10 +107,7 @@ public class DataBase {
         }
 
 
-
-
     }
-
 
 
     public void GuestLogIn() {
@@ -141,30 +135,26 @@ public class DataBase {
     }
 
 
+    //Column index = vilken kolumn i databasen
+
+    public void getProductId() {
 
 
+        try {
 
-            //Column index = vilken kolumn i databasen
+            ResultSet rs = this.st.executeQuery("SELECT gc ");
 
-            public void getProductId () {
+        } catch (Exception e) {
 
+        }
 
-                try {
-
-                    ResultSet rs = this.st.executeQuery("SELECT gc ");
-
-                } catch (Exception e) {
-
-                }
-
-            }
-
+    }
 
 
     public void updateProductName(String tabName, String colName, String valueOne, String newValue) {   //TODO metod för att uppdatera ett pris på en produkt, kommer behövas en metod för att få fram id på en produkt,
 
         try {
-            st.execute("UPDATE " + tabName + "SET " + colName  + "='" + valueOne + "'" + " WHERE"   );
+            st.execute("UPDATE " + tabName + "SET " + colName + "='" + valueOne + "'" + " WHERE");
 
 
         } catch (Exception e) {
@@ -172,48 +162,32 @@ public class DataBase {
         }
     }
 
-    public ArrayList<String> getCatFood() {                                                       //SELECT statement. ResultSet används och executeQuery
+
+    public ArrayList<String> getCatFood() {
         int index = 0;
         int one = 1;
-        ArrayList<String> items= new ArrayList<>();
+        int rows = 0;
+        ArrayList<String> items = new ArrayList<>();
 
 
         try {
-
-            boolean test=false;
-            int rows=0;
-            //while (rs.getString("namn").equals(null)) {
-            //ResultSet rs2 = this.st.executeQuery("SELECT * FROM KATTMAT LIMIT "+index+","+one);
-            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM CATFOOD");
+            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'CATFOOD'");
             while (count.next()) {
                 rows = count.getInt("total");
-                System.out.println(rows);
             }
 
-
-            //while(test==false) {
-            for(int i=0;i<rows;i++){
-                ResultSet rs = this.st.executeQuery("SELECT * FROM CATFOOD LIMIT " + index + "," + one);
+            //
+            for (int i = 0; i < rows; i++) {
+                ResultSet rs = this.st.executeQuery("SELECT * FROM PRODUCTS WHERE PRODUCTTYPE= 'CATFOOD' LIMIT " + index + "," + one);
 
 
                 while (rs.next()) {
-                    // System.out.println(rs.getString(3));                    //Column index = vilken kolumn i databasen
-                    int pris = rs.getInt("pris");
-                    String namn = rs.getString("namn");
-                    System.out.printf(namn + " " + pris);
-
-                    items.add(namn+" "+pris);
-
+                    String name=rs.getString("productsName");
+                    items.add(name);
                     index++;
-                    test=rs.getString("namn").equals("");
-
-
-                    System.out.println();
-
-
-
                 }
             }
+
 
 
         } catch (SQLException e) {
@@ -221,4 +195,106 @@ public class DataBase {
         }
         return items;
     }
+
+    public ArrayList<String> getCatNip() {
+        int index = 0;
+        int one = 1;
+        int rows = 0;
+        ArrayList<String> items = new ArrayList<>();
+
+
+        try {
+            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'CATNIP'");
+            while (count.next()) {
+                rows = count.getInt("total");
+            }
+
+            //
+            for (int i = 0; i < rows; i++) {
+                ResultSet rs = this.st.executeQuery("SELECT * FROM PRODUCTS WHERE PRODUCTTYPE= 'CATNIP' LIMIT " + index + "," + one);
+
+
+                while (rs.next()) {
+                    String name=rs.getString("productsName");
+                    items.add(name);
+                    index++;
+                }
+            }
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return items;
+    }
+
+    public ArrayList<String> getCatWine() {
+        int index = 0;
+        int one = 1;
+        int rows = 0;
+        ArrayList<String> items = new ArrayList<>();
+
+
+        try {
+            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'CATWINE'");
+            while (count.next()) {
+                rows = count.getInt("total");
+            }
+
+            //
+            for (int i = 0; i < rows; i++) {
+                ResultSet rs = this.st.executeQuery("SELECT * FROM PRODUCTS WHERE PRODUCTTYPE= 'CATWINE' LIMIT " + index + "," + one);
+
+
+                while (rs.next()) {
+                    String name=rs.getString("productsName");
+                    items.add(name);
+                    index++;
+                }
+            }
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return items;
+    }
+
+    public ArrayList<String> getCatLitter() {
+        int index = 0;
+        int one = 1;
+        int rows = 0;
+        ArrayList<String> items = new ArrayList<>();
+
+
+        try {
+            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'CATLITTER'");
+            while (count.next()) {
+                rows = count.getInt("total");
+            }
+
+            //
+            for (int i = 0; i < rows; i++) {
+                ResultSet rs = this.st.executeQuery("SELECT * FROM PRODUCTS WHERE PRODUCTTYPE= 'CATLITTER' LIMIT " + index + "," + one);
+
+
+                while (rs.next()) {
+                    String name=rs.getString("productsName");
+                    items.add(name);
+                    index++;
+                }
+            }
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return items;
+    }
+
+
 }
+
