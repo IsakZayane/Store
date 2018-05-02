@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ContollerProducts">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ContollerProducts">
    <children>
       <Label fx:id="loggedin" layoutX="94.0" layoutY="14.0" prefHeight="17.0" prefWidth="75.0" />
       <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in  :" />
@@ -16,7 +16,7 @@
       <Button layoutX="38.0" layoutY="215.0" mnemonicParsing="false" onAction="#CatNipAction" text="Catnip" />
       <Button layoutX="48.0" layoutY="349.0" mnemonicParsing="false" onAction="#LogOutAction" text="Go back to Log In" />
       <Button layoutX="521.0" layoutY="349.0" mnemonicParsing="false" onAction="#ExitAction" text="Exit" />
-      <Button layoutX="462.0" layoutY="19.0" mnemonicParsing="false" onAction="#CartAction" text="View Shopping cart" />
+      <Button fx:id="shoppingCartButton" layoutX="462.0" layoutY="19.0" mnemonicParsing="false" onAction="#CartAction" text="View Shopping cart" />
       <TextArea fx:id="itemarea" editable="false" layoutX="227.0" layoutY="75.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

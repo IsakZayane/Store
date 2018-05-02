@@ -32,7 +32,7 @@ public class Controller implements Initializable {
     @FXML
     private Button registerButton;
     @FXML
-    private Button guestButton;
+    private Button guestButton, shoppingCartButton;
 
 
 
@@ -66,6 +66,8 @@ public class Controller implements Initializable {
     public void RegisterAction(ActionEvent event) throws IOException {
        changeScene(event,"CreateAccountSample.fxml","Register");
     }
+
+
 
     public void GuestAction(ActionEvent event) throws IOException {
         myDB.GuestLogIn();
