@@ -50,7 +50,9 @@ public class Controller implements Initializable {
             int password = pass.passwordEncryption(passwordField.getText());
 
             myDB.memberLogIn(usernameField.getText(), password);
+            String email=myDB.Email(usernameField.getText());
             NameTransfer.getInstance().setName(usernameField.getText());
+            NameTransfer.getInstance().setEmail(email);
 
             changeScene(event,"productssample.fxml","products");
 

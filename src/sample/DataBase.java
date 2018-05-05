@@ -182,12 +182,11 @@ public class DataBase {
 
 
                 while (rs.next()) {
-                    String name=rs.getString("productsName");
+                    String name = rs.getString("productsName");
                     items.add(name);
                     index++;
                 }
             }
-
 
 
         } catch (SQLException e) {
@@ -215,12 +214,11 @@ public class DataBase {
 
 
                 while (rs.next()) {
-                    String name=rs.getString("productsName");
+                    String name = rs.getString("productsName");
                     items.add(name);
                     index++;
                 }
             }
-
 
 
         } catch (SQLException e) {
@@ -248,12 +246,11 @@ public class DataBase {
 
 
                 while (rs.next()) {
-                    String name=rs.getString("productsName");
+                    String name = rs.getString("productsName");
                     items.add(name);
                     index++;
                 }
             }
-
 
 
         } catch (SQLException e) {
@@ -281,12 +278,11 @@ public class DataBase {
 
 
                 while (rs.next()) {
-                    String name=rs.getString("productsName");
+                    String name = rs.getString("productsName");
                     items.add(name);
                     index++;
                 }
             }
-
 
 
         } catch (SQLException e) {
@@ -294,6 +290,27 @@ public class DataBase {
         }
         return items;
     }
+    public  String Email (String name){
+        String email=null;
+
+        try {
+
+
+
+
+        String query = "select userEmail from user where userName = ?";
+        PreparedStatement emailsearch=c.prepareStatement(query);
+        emailsearch.setString(1,name);
+        ResultSet rs = emailsearch.executeQuery();
+
+        while (rs.next()){
+            email=rs.getString("userEmail");
+        }
+    }catch (SQLException e){
+            e.printStackTrace();
+        }return email;
+
+        }
 
 
 }

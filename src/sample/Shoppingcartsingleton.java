@@ -10,7 +10,10 @@ public class Shoppingcartsingleton {
     }
     private ArrayList<String> shoppingcart=new ArrayList<>();
 
-    public ArrayList<String> getShoppingcart(){return shoppingcart;}
+    public ArrayList<String> getShoppingcart(){
+
+
+        return shoppingcart;}
 
     public void setShoppingcart(ArrayList<String> shoppingcart){this.shoppingcart = shoppingcart;}
 
