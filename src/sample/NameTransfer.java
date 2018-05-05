@@ -1,6 +1,7 @@
 package sample;
 
 public class NameTransfer {
+    private String email;
     private String name;
     private static NameTransfer ourInstance = new NameTransfer();
 
@@ -17,6 +18,12 @@ public class NameTransfer {
 
     public String getName() {
         return name;
+
+    }public void setEmail(String email){
+        this.email = email;
+
+    }public String getEmail(){
+        return email;
     }
 
     private NameTransfer() {

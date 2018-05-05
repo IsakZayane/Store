@@ -80,7 +80,7 @@ public class FoodListController implements Initializable {
 
         Shoppingcartsingleton.getInstance().setShoppingcart(shoppingcart);
 
-       
+
     }
 
 }

@@ -30,6 +30,11 @@ cartView.setText(String.valueOf(Shoppingcartsingleton.getInstance().getShoppingc
 
 
     }
+    public void orderAction(){
+        Emailsender es = new Emailsender();
+        es.sendEmail(NameTransfer.getInstance().getEmail(), String.valueOf(Shoppingcartsingleton.getInstance().getShoppingcart()));
+
+    }
 
 
 }
