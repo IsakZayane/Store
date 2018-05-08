@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -20,7 +21,7 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     DataBase myDB;
-    //Main myApp = new Main();
+    Main myApp = new Main();
 
 
     @FXML
