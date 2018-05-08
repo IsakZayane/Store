@@ -13,6 +13,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.stage.Stage;
 import sample.Classes.DataBase;
+import sample.Classes.KittyLitter;
 import sample.Classes.PreparedMethods;
 
 import java.io.IOException;

@@ -36,7 +36,7 @@ public class DataBase {
         createFoodObjects();
         createCatnipObjects();
         createWineObjects();
-//fel
+
     }
 
 
@@ -271,7 +271,7 @@ public class DataBase {
             for (int i = 0; i < rows; i++) {
                 ResultSet rs = this.st.executeQuery("SELECT * FROM PRODUCTS WHERE PRODUCTTYPE= 'CATWINE' LIMIT " + index + "," + one);
 
-//fel
+
                 while (rs.next()) {
                     String name = rs.getString("productsName");
                     Double price = rs.getDouble("productsPrice");

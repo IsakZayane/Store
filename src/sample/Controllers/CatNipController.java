@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.stage.Stage;
+import sample.Classes.CatNip;
 import sample.Classes.DataBase;
 import sample.Classes.PreparedMethods;
 

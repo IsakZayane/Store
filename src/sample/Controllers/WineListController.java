@@ -14,6 +14,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.stage.Stage;
 import sample.Classes.DataBase;
 import sample.Classes.PreparedMethods;
+import sample.Classes.Wine;
 
 import java.io.IOException;
 import java.net.URL;
