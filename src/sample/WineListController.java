@@ -20,6 +20,7 @@ import java.util.ResourceBundle;
 
 public class WineListController implements Initializable {
 
+ private   PreparedMethods pm = new PreparedMethods();
 
     @FXML
     public ListView<String> listView1;
@@ -58,15 +59,11 @@ public class WineListController implements Initializable {
     }
 
 
-    public void backButton(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("productssample.fxml"));
-        Parent root = loader.load();
 
-        stage.setTitle("Products");
-        stage.setScene(new Scene(root));
-        stage.show();
+    public void backButton(ActionEvent event) throws IOException {
+
+        pm.changeScene(event,"productssample.fxml","Products" );
+
 
     }
 

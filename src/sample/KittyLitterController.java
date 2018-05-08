@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class KittyLitterController implements Initializable {
+    PreparedMethods pm = new PreparedMethods();
 
 
     @FXML
@@ -59,15 +60,7 @@ public class KittyLitterController implements Initializable {
 
 
     public void backButton(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("productssample.fxml"));
-        Parent root = loader.load();
-
-        stage.setTitle("Products");
-        stage.setScene(new Scene(root));
-        stage.show();
-
+        pm.changeScene(event,"productssample.fxml","Products" );
     }
 
 }

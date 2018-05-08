@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.Properties;
 
 public class Emailsender {
+    PreparedMethods pm = new PreparedMethods();
 
 
     public void sendEmail(String email,String order){
@@ -52,6 +53,9 @@ public class Emailsender {
 
     } catch (Exception e) {
         e.printStackTrace();
+
+        pm.showAlert("Error", "Please register an account", "You must create an account to make an order");
+
     }
 }
 
