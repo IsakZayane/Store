@@ -14,6 +14,11 @@ public class DataBase {
     private Statement st;
     private Connection c;
 
+    private ArrayList<Food> foodList = new ArrayList<>();
+    private ArrayList<Wine> wineList = new ArrayList<>();
+    private ArrayList<KittyLitter> kittylitterList = new ArrayList<>();
+    private ArrayList<CatNip> catnipList = new ArrayList<>();
+
 
     //TODO planera databasen, hur vill vi ha den (Till en början i alla fall)
 
@@ -25,6 +30,11 @@ public class DataBase {
         } catch (SQLException ex) {
             System.out.println("Failed to connect to database!");
         }
+
+        createKittylitterObjects();
+        createFoodObjects();
+        createCatnipObjects();
+        createWineObjects();
     }
 
 
@@ -324,6 +334,199 @@ public class DataBase {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void createFoodObjects(){
+        int index = 0;
+        int one = 1;
+        int rows = 0;
+        Food food = new Food();
+
+        try {
+            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'FOOD'");
+            while (count.next()) {
+                rows = count.getInt("total");
+            }
+
+            for (int i = 0; i < rows; i++) {
+                ResultSet rs = this.st.executeQuery("SELECT * FROM PRODUCTS WHERE PRODUCTTYPE= 'FOOD' LIMIT " + index + "," + one);
+
+
+                while (rs.next()) {
+                    String name = rs.getString("productsName");
+                    Double price = rs.getDouble("productsPrice");
+                    Double weight = rs.getDouble("productsWeight");
+                    String origin = rs.getString("productsOrigin");
+                    String detail = rs.getString("productsDetail");
+                    String ingredients = rs.getString("productsIngredients");
+
+                    food.setName(name);
+                    food.setPrice(price);
+                    food.setWeight(weight);
+                    food.setOrigin(origin);
+                    food.setDetail(detail);
+                    food.setIngredients(ingredients);
+
+                    foodList.add(food);
+
+                    index++;
+                }
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public void createWineObjects(){
+        int index = 0;
+        int one = 1;
+        int rows = 0;
+        Wine wine = new Wine();
+
+        try {
+            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'CATWINE'");
+            while (count.next()) {
+                rows = count.getInt("total");
+            }
+
+            for (int i = 0; i < rows; i++) {
+                ResultSet rs = this.st.executeQuery("SELECT * FROM PRODUCTS WHERE PRODUCTTYPE= 'CATWINE' LIMIT " + index + "," + one);
+
+
+                while (rs.next()) {
+                    String name = rs.getString("productsName");
+                    Double price = rs.getDouble("productsPrice");
+                    Double weight = rs.getDouble("productsWeight");
+                    String origin = rs.getString("productsOrigin");
+                    String detail = rs.getString("productsDetail");
+                    String ingredients = rs.getString("productsIngredients");
+
+                    wine.setName(name+index);
+                    wine.setPrice(price);
+                    wine.setWeight(weight);
+                    wine.setOrigin(origin);
+                    wine.setDetail(detail);
+                    wine.setIngredients(ingredients);
+
+                    wineList.add(wine);
+
+                    index++;
+                }
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    } // slut
+
+    public void createCatnipObjects(){
+        int index = 0;
+        int one = 1;
+        int rows = 0;
+        CatNip catnip = new CatNip();
+
+        try {
+            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'CATNIP'");
+            while (count.next()) {
+                rows = count.getInt("total");
+            }
+
+            for (int i = 0; i < rows; i++) {
+                ResultSet rs = this.st.executeQuery("SELECT * FROM PRODUCTS WHERE PRODUCTTYPE= 'CATNIP' LIMIT " + index + "," + one);
+
+
+                while (rs.next()) {
+                    String name = rs.getString("productsName");
+                    Double price = rs.getDouble("productsPrice");
+                    Double weight = rs.getDouble("productsWeight");
+                    String origin = rs.getString("productsOrigin");
+                    String detail = rs.getString("productsDetail");
+                    String ingredients = rs.getString("productsIngredients");
+
+                    catnip.setName(name);
+                    catnip.setPrice(price);
+                    catnip.setWeight(weight);
+                    catnip.setOrigin(origin);
+                    catnip.setDetail(detail);
+                    catnip.setIngredients(ingredients);
+
+                    catnipList.add(catnip);
+
+                    index++;
+                }
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    } // slut
+
+    public void createKittylitterObjects(){
+        int index = 0;
+        int one = 1;
+        int rows = 0;
+        KittyLitter kittyLitter = new KittyLitter();
+
+        try {
+            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'CATLITTER'");
+            while (count.next()) {
+                rows = count.getInt("total");
+            }
+
+            for (int i = 0; i < rows; i++) {
+                ResultSet rs = this.st.executeQuery("SELECT * FROM PRODUCTS WHERE PRODUCTTYPE= 'CATLITTER' LIMIT " + index + "," + one);
+
+
+                while (rs.next()) {
+                    String name = rs.getString("productsName");
+                    Double price = rs.getDouble("productsPrice");
+                    Double weight = rs.getDouble("productsWeight");
+                    String origin = rs.getString("productsOrigin");
+                    String detail = rs.getString("productsDetail");
+                    String ingredients = rs.getString("productsIngredients");
+
+                    kittyLitter.setName(name);
+                    kittyLitter.setPrice(price);
+                    kittyLitter.setWeight(weight);
+                    kittyLitter.setOrigin(origin);
+                    kittyLitter.setDetail(detail);
+                    kittyLitter.setIngredients(ingredients);
+
+                    kittylitterList.add(kittyLitter);
+
+                    index++;
+                }
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    } // slut
+
+    public ArrayList<Food> getFoodList() {
+        return foodList;
+    }
+
+    public ArrayList<Wine> getWineList() {
+        return wineList;
+    }
+
+    public ArrayList<KittyLitter> getKittylitterList() {
+        return kittylitterList;
+    }
+
+    public ArrayList<CatNip> getCatnipList() {
+        return catnipList;
     }
 }
 

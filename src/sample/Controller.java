@@ -40,7 +40,12 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         myDB = new DataBase();
-        System.out.println("test2");
+        ArrayList<Wine>wine= new ArrayList<>();
+        wine=myDB.getWineList();
+        System.out.println(wine.get(0).getName());
+        System.out.println(wine.get(1).getName());
+
+
 
     }
 

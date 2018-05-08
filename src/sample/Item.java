@@ -4,6 +4,9 @@ public abstract class Item {
     private String name;
     private Double price;
     private Double weight;
+    private String origin;
+    private String detail;
+    private String ingredients;
 
     {
         this.name=name;
@@ -33,5 +36,29 @@ public abstract class Item {
 
     public void setWeight(Double weight) {
         this.weight = weight;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 }
