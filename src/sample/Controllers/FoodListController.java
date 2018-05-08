@@ -45,11 +45,11 @@ public class FoodListController implements Initializable {
         listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         DataBase myDB = new DataBase();
-        ArrayList<String> info= new ArrayList<>();
-        info=myDB.getCatFood();
+        ArrayList<Food> food = new ArrayList<>();
+        food=myDB.getFoodList();
 
-        for(int i =0;i<info.size();i++){
-            list.add(info.get(i));
+        for (int i = 0;i<food.size();i++){
+            list.add(food.get(i).getName());
         }
 
     }
