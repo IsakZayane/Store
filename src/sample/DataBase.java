@@ -4,6 +4,7 @@ import javafx.scene.control.Alert;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DataBase {
 
@@ -113,6 +114,7 @@ public class DataBase {
     public void GuestLogIn() {
         try {
             st.execute("INSERT INTO guest (guestName) VALUES ('Guest')");
+
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -290,28 +292,43 @@ public class DataBase {
         }
         return items;
     }
-    public  String Email (String name){
-        String email=null;
+
+    public String Email(String name) {
+        String email = null;
 
         try {
 
 
+            String query = "select userEmail from user where userName = ?";
+            PreparedStatement emailsearch = c.prepareStatement(query);
+            emailsearch.setString(1, name);
+            ResultSet rs = emailsearch.executeQuery();
 
-
-        String query = "select userEmail from user where userName = ?";
-        PreparedStatement emailsearch=c.prepareStatement(query);
-        emailsearch.setString(1,name);
-        ResultSet rs = emailsearch.executeQuery();
-
-        while (rs.next()){
-            email=rs.getString("userEmail");
-        }
-    }catch (SQLException e){
+            while (rs.next()) {
+                email = rs.getString("userEmail");
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
-        }return email;
-
         }
+        return email;
+
+    }
 
 
+    public void orderDetails(java.sql.Date date, String name) {
+        try {
+            String query = "insert into orders (ordersDate,user_iduser) values (?,(select iduser from user where username = ?))";
+            PreparedStatement order = c.prepareStatement(query);
+            order.setDate(1,date);
+            order.setString(2,name);
+            order.execute();
+            System.out.println("order details");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
+
+
+
 

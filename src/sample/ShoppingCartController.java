@@ -7,6 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.sql.Date;
 import java.util.ResourceBundle;
 
 public class ShoppingCartController implements Initializable {
@@ -31,8 +32,15 @@ cartView.setText(String.valueOf(Shoppingcartsingleton.getInstance().getShoppingc
 
     }
     public void orderAction(){
+        DataBase db = new DataBase();
+        java.util.Date date = new java.util.Date();
         Emailsender es = new Emailsender();
         es.sendEmail(NameTransfer.getInstance().getEmail(), String.valueOf(Shoppingcartsingleton.getInstance().getShoppingcart()));
+        java.sql.Date sqldate = new java.sql.Date(date.getTime());
+        db.orderDetails(sqldate,NameTransfer.getInstance().getName());
+
+
+
 
     }
 
