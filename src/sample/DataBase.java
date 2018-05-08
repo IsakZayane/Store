@@ -35,6 +35,7 @@ public class DataBase {
         createFoodObjects();
         createCatnipObjects();
         createWineObjects();
+//fel
     }
 
 
@@ -172,134 +173,7 @@ public class DataBase {
         }
     }
 
-
-    public ArrayList<String> getCatFood() {
-        int index = 0;
-        int one = 1;
-        int rows = 0;
-        ArrayList<String> items = new ArrayList<>();
-
-
-        try {
-            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'CATFOOD'");
-            while (count.next()) {
-                rows = count.getInt("total");
-            }
-
-            //
-            for (int i = 0; i < rows; i++) {
-                ResultSet rs = this.st.executeQuery("SELECT * FROM PRODUCTS WHERE PRODUCTTYPE= 'CATFOOD' LIMIT " + index + "," + one);
-
-
-                while (rs.next()) {
-                    String name = rs.getString("productsName");
-                    items.add(name);
-                    index++;
-                }
-            }
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return items;
-    }
-
-    public ArrayList<String> getCatNip() {
-        int index = 0;
-        int one = 1;
-        int rows = 0;
-        ArrayList<String> items = new ArrayList<>();
-
-
-        try {
-            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'CATNIP'");
-            while (count.next()) {
-                rows = count.getInt("total");
-            }
-
-            //
-            for (int i = 0; i < rows; i++) {
-                ResultSet rs = this.st.executeQuery("SELECT * FROM PRODUCTS WHERE PRODUCTTYPE= 'CATNIP' LIMIT " + index + "," + one);
-
-
-                while (rs.next()) {
-                    String name = rs.getString("productsName");
-                    items.add(name);
-                    index++;
-                }
-            }
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return items;
-    }
-
-    public ArrayList<String> getCatWine() {
-        int index = 0;
-        int one = 1;
-        int rows = 0;
-        ArrayList<String> items = new ArrayList<>();
-
-
-        try {
-            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'CATWINE'");
-            while (count.next()) {
-                rows = count.getInt("total");
-            }
-
-            //
-            for (int i = 0; i < rows; i++) {
-                ResultSet rs = this.st.executeQuery("SELECT * FROM PRODUCTS WHERE PRODUCTTYPE= 'CATWINE' LIMIT " + index + "," + one);
-
-
-                while (rs.next()) {
-                    String name = rs.getString("productsName");
-                    items.add(name);
-                    index++;
-                }
-            }
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return items;
-    }
-
-    public ArrayList<String> getCatLitter() {
-        int index = 0;
-        int one = 1;
-        int rows = 0;
-        ArrayList<String> items = new ArrayList<>();
-
-
-        try {
-            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'CATLITTER'");
-            while (count.next()) {
-                rows = count.getInt("total");
-            }
-
-            //
-            for (int i = 0; i < rows; i++) {
-                ResultSet rs = this.st.executeQuery("SELECT * FROM PRODUCTS WHERE PRODUCTTYPE= 'CATLITTER' LIMIT " + index + "," + one);
-
-
-                while (rs.next()) {
-                    String name = rs.getString("productsName");
-                    items.add(name);
-                    index++;
-                }
-            }
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return items;
-    }
+    
 
     public String Email(String name) {
         String email = null;
@@ -340,7 +214,6 @@ public class DataBase {
         int index = 0;
         int one = 1;
         int rows = 0;
-        Food food = new Food();
 
         try {
             ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'FOOD'");
@@ -360,6 +233,8 @@ public class DataBase {
                     String detail = rs.getString("productsDetail");
                     String ingredients = rs.getString("productsIngredients");
 
+
+                    Food food = new Food();
                     food.setName(name);
                     food.setPrice(price);
                     food.setWeight(weight);
@@ -385,7 +260,6 @@ public class DataBase {
         int index = 0;
         int one = 1;
         int rows = 0;
-        Wine wine = new Wine();
 
         try {
             ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'CATWINE'");
@@ -396,7 +270,7 @@ public class DataBase {
             for (int i = 0; i < rows; i++) {
                 ResultSet rs = this.st.executeQuery("SELECT * FROM PRODUCTS WHERE PRODUCTTYPE= 'CATWINE' LIMIT " + index + "," + one);
 
-
+//fel
                 while (rs.next()) {
                     String name = rs.getString("productsName");
                     Double price = rs.getDouble("productsPrice");
@@ -405,7 +279,8 @@ public class DataBase {
                     String detail = rs.getString("productsDetail");
                     String ingredients = rs.getString("productsIngredients");
 
-                    wine.setName(name+index);
+                    Wine wine = new Wine();
+                    wine.setName(name);
                     wine.setPrice(price);
                     wine.setWeight(weight);
                     wine.setOrigin(origin);
@@ -414,9 +289,12 @@ public class DataBase {
 
                     wineList.add(wine);
 
+
                     index++;
+
                 }
             }
+
 
 
         } catch (SQLException e) {
@@ -429,7 +307,6 @@ public class DataBase {
         int index = 0;
         int one = 1;
         int rows = 0;
-        CatNip catnip = new CatNip();
 
         try {
             ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'CATNIP'");
@@ -449,6 +326,8 @@ public class DataBase {
                     String detail = rs.getString("productsDetail");
                     String ingredients = rs.getString("productsIngredients");
 
+
+                    CatNip catnip = new CatNip();
                     catnip.setName(name);
                     catnip.setPrice(price);
                     catnip.setWeight(weight);
@@ -473,7 +352,6 @@ public class DataBase {
         int index = 0;
         int one = 1;
         int rows = 0;
-        KittyLitter kittyLitter = new KittyLitter();
 
         try {
             ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'CATLITTER'");
@@ -493,6 +371,8 @@ public class DataBase {
                     String detail = rs.getString("productsDetail");
                     String ingredients = rs.getString("productsIngredients");
 
+
+                    KittyLitter kittyLitter = new KittyLitter();
                     kittyLitter.setName(name);
                     kittyLitter.setPrice(price);
                     kittyLitter.setWeight(weight);

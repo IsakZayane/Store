@@ -45,12 +45,6 @@ public class WineListController implements Initializable {
         listView2.setItems(list2);
         listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        ArrayList<String> info= new ArrayList<>();
-        info=myDB.getCatWine();
-
-//        for(int i =0;i<info.size();i++){
-//            list.add(info.get(i));
-//        }
 
         for (int i = 0;i<wine.size();i++){
             list.add(wine.get(i).getName());

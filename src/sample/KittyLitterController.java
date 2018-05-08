@@ -40,11 +40,11 @@ public class KittyLitterController implements Initializable {
         listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         DataBase myDB = new DataBase();
-        ArrayList<String> info= new ArrayList<>();
-        info=myDB.getCatLitter();
+        ArrayList<KittyLitter> catlitter = new ArrayList<>();
+        catlitter=myDB.getKittylitterList();
 
-        for(int i =0;i<info.size();i++){
-            list.add(info.get(i));
+        for (int i = 0;i<catlitter.size();i++){
+            list.add(catlitter.get(i).getName());
         }
 
     }
