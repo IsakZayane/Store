@@ -20,8 +20,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    DataBase myDB;
-    Main myApp = new Main();
+
+
 
 
     @FXML
@@ -39,15 +39,18 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        myDB = new DataBase();
+
+
         System.out.println("test2");
 
     }
 
     public void SignInAction(ActionEvent event) throws IOException {
+
         CreateAccountController pass = new CreateAccountController();
         try {
 
+            DataBase myDB = new DataBase();
             int password = pass.passwordEncryption(passwordField.getText());
 
             myDB.memberLogIn(usernameField.getText(), password);
@@ -73,6 +76,7 @@ public class Controller implements Initializable {
 
 
     public void GuestAction(ActionEvent event) throws IOException {
+        DataBase myDB = new DataBase();
         myDB.GuestLogIn();
         NameTransfer.getInstance().setName("Guest");
 

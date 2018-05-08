@@ -12,7 +12,7 @@ public class Emailsender {
     PreparedMethods pm = new PreparedMethods();
 
 
-    public void sendEmail(String email,String order){
+    public void sendEmail(String email,String order,int orderid){
         try {
 
         String host = "smtp.gmail.com";
@@ -21,7 +21,7 @@ public class Emailsender {
         String to = email;
         String from = "thecatsstoreproject@gmail.com";
         String subject = "Your order details";
-        String messagetext = order;
+        String messagetext = "You order:"+order+"\n"+"Your order id: "+orderid+"\n"+"Thank you for ordering from The Store!";
         boolean sessiondebug = false;
 
         Properties props = System.getProperties();
@@ -56,7 +56,7 @@ public class Emailsender {
 
         pm.showAlert("Error", "Please register an account", "You must create an account to make an order");
 
-    }
+    }//Source: https://www.youtube.com/watch?v=UMfjndwGwnM&t=189s
 }
 
 

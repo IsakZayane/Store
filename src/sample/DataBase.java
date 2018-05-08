@@ -325,6 +325,27 @@ public class DataBase {
             e.printStackTrace();
         }
     }
+
+ public int getOrderId(String name){
+        int orderid =0;
+        try {
+            String query="select ordersid from orders where user_iduser = (select iduser from user where userName=?) order by ordersid desc";
+            PreparedStatement idorder = c.prepareStatement(query);
+            idorder.setString(1,name);
+            ResultSet rs = idorder.executeQuery();
+            rs.afterLast();
+            while (rs.previous()){
+                orderid =rs.getInt("ordersid");
+
+
+            }
+
+ }catch (SQLException e){
+            e.printStackTrace();
+        }return orderid+1;
+
+
+    }
 }
 
 
