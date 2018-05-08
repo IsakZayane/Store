@@ -7,10 +7,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
 
 public class ShoppingCartController implements Initializable {
     Controller cs = new Controller();
+    PreparedMethods pm = new PreparedMethods();
+
 
 @FXML TextArea cartView;
 
@@ -26,7 +29,7 @@ cartView.setText(String.valueOf(Shoppingcartsingleton.getInstance().getShoppingc
 
     public void goBack(ActionEvent event){
 
-       cs.changeScene(event,"productssample.fxml","products");
+       pm.changeScene(event,"productssample.fxml","products");
 
 
     }

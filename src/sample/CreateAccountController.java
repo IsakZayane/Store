@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CreateAccountController implements Initializable {
-    Controller cs = new Controller();
+    PreparedMethods pm = new PreparedMethods();
     Member member = new Member();
     Main myApp = new Main();
     DataBase myDB = new DataBase();
@@ -81,7 +81,7 @@ public class CreateAccountController implements Initializable {
 
         }*/
     public void GoBackAction(ActionEvent event) {
-       cs.changeScene(event,"sample.fxml","log in");
+       pm.changeScene(event,"sample.fxml","log in");
 
     }
 

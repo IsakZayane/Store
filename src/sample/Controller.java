@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
     DataBase myDB;
     //Main myApp = new Main();
-
+    PreparedMethods pm = new PreparedMethods();
 
     @FXML
     private TextField usernameField;
@@ -54,19 +54,17 @@ public class Controller implements Initializable {
             NameTransfer.getInstance().setName(usernameField.getText());
             NameTransfer.getInstance().setEmail(email);
 
-            changeScene(event,"productssample.fxml","products");
+            pm.changeScene(event,"productssample.fxml","products");
 
 
         } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Memeber name  not found and/or password incorrect ");
-            alert.setHeaderText("Re-enter password and/or Member name");
-            alert.showAndWait();
+            pm.showAlert("Error", "User account and password does not match", "Please re-enter your information or create an account");
+
         }
     }
 
     public void RegisterAction(ActionEvent event) throws IOException {
-       changeScene(event,"CreateAccountSample.fxml","Register");
+       pm.changeScene(event,"CreateAccountSample.fxml","Register");
     }
 
 
@@ -75,40 +73,21 @@ public class Controller implements Initializable {
         myDB.GuestLogIn();
         NameTransfer.getInstance().setName("Guest");
 
-        changeScene(event,"productssample.fxml","products");
+        pm.changeScene(event,"productssample.fxml","products");
 
 
     }
 
     public void TempAdmin(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("databaseSample.fxml"));
-        Parent root = loader.load();
 
-        stage.setTitle("Admin");
-        stage.setScene(new Scene(root));
-        stage.show();
+
+
+        pm.changeScene(event, "databaseSample.fxml", "Admin");
+
 
     }
 
-    public void changeScene(ActionEvent event, String fxml, String title) {
-        try {
 
-
-            Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
-            Parent root = loader.load();
-
-            stage.setTitle(title);
-            stage.setScene(new Scene(root));
-            stage.show();
-
-        } catch (Exception e) {
-
-        }
-    }
 
 
 }

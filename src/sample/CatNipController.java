@@ -20,6 +20,8 @@ import java.util.ResourceBundle;
 
 public class CatNipController implements Initializable {
 
+    PreparedMethods pm = new PreparedMethods();
+
 
     @FXML
     public ListView<String> listView1;
@@ -59,14 +61,8 @@ public class CatNipController implements Initializable {
 
 
     public void backButton(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("productssample.fxml"));
-        Parent root = loader.load();
+        pm.changeScene(event,"productssample.fxml","Products" );
 
-        stage.setTitle("Products");
-        stage.setScene(new Scene(root));
-        stage.show();
 
     }
 

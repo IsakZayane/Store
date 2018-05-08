@@ -6,6 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class DataBase {
+    PreparedMethods pm = new PreparedMethods();
 
 
     private String url = "jdbc:mysql://den1.mysql6.gear.host/TheStoreDB?user=thestoredb&password=kattmat!"; //githost address
@@ -40,9 +41,10 @@ public class DataBase {
             while (rs.next()) {
 
                 foundType = rs.getString("userEmail");
+
             }
 
-            if (foundType != userEmail) {
+            if (foundType == userEmail) {
 
 
                 PreparedStatement addUser = c.prepareStatement("INSERT INTO user (userName, userEmail, password) VALUES ( ?, ?, ?)");
@@ -56,11 +58,8 @@ public class DataBase {
             } else {
                 System.out.println("ALREADY IN USE---");
 
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Email already in use");
-                alert.setHeaderText("Please use another email");
-                alert.setContentText(userEmail + " is already in use");
-                alert.showAndWait();
+                pm.showAlert("Error", "Email already in use", "Please choose another email");
+
 
             }
 
@@ -99,10 +98,9 @@ public class DataBase {
             }
 
         } catch (SQLException e) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Memeber name and/or password");
-            alert.setHeaderText("Re-enter password and/or Member name");
-            alert.showAndWait();
+
+            pm.showAlert("Error", "Member name and/or password does not match", "Re-enter password and/or Member name");
+
 
         }
 
