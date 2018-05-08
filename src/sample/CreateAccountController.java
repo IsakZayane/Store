@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class CreateAccountController implements Initializable {
@@ -26,8 +27,11 @@ public class CreateAccountController implements Initializable {
     @FXML
     private TextField passwordField;
 
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
 
 
     }
