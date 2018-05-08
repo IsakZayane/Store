@@ -92,6 +92,7 @@ public class CreateAccountController implements Initializable {
     }
 
     public void ProceedAction() {
+
     }
 
     public int passwordEncryption(String password) {  //det vi får från den här metoden skall sparas i databasen som password, till rätt user
