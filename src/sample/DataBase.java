@@ -44,7 +44,7 @@ public class DataBase {
 
             }
 
-            if (foundType == userEmail) {
+            if (foundType != userEmail) {
 
 
                 PreparedStatement addUser = c.prepareStatement("INSERT INTO user (userName, userEmail, password) VALUES ( ?, ?, ?)");
