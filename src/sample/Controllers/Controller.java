@@ -14,7 +14,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import sample.Classes.DataBase;
 import sample.Classes.NameTransfer;
-import sample.Classes.PreparedMethods;
 
 
 import java.io.IOException;
@@ -23,8 +22,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    PreparedMethods pm = new PreparedMethods();
-    DataBase myDB;
+
 
 
 
@@ -43,15 +41,18 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        myDB = new DataBase();
+
+
         System.out.println("test2");
 
     }
 
     public void SignInAction(ActionEvent event) throws IOException {
+
         CreateAccountController pass = new CreateAccountController();
         try {
 
+            DataBase myDB = new DataBase();
             int password = pass.passwordEncryption(passwordField.getText());
 
             myDB.memberLogIn(usernameField.getText(), password);
@@ -59,7 +60,7 @@ public class Controller implements Initializable {
             NameTransfer.getInstance().setName(usernameField.getText());
             NameTransfer.getInstance().setEmail(email);
 
-            pm.changeScene(event,"/sample/fxml/productssample.fxml","products");
+            changeScene(event,"productssample.fxml","products");
 
 
         } catch (Exception e) {
@@ -71,16 +72,17 @@ public class Controller implements Initializable {
     }
 
     public void RegisterAction(ActionEvent event) throws IOException {
-       pm.changeScene(event,"/sample/fxml/CreateAccountSample.fxml","Register");
+       changeScene(event,"CreateAccountSample.fxml","Register");
     }
 
 
 
     public void GuestAction(ActionEvent event) throws IOException {
+        DataBase myDB = new DataBase();
         myDB.GuestLogIn();
         NameTransfer.getInstance().setName("Guest");
 
-        pm.changeScene(event,"/sample/fxml/productssample.fxml","products");
+        changeScene(event,"productssample.fxml","products");
 
 
     }
@@ -97,7 +99,23 @@ public class Controller implements Initializable {
 
     }
 
+    public void changeScene(ActionEvent event, String fxml, String title) {
+        try {
 
+
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            Parent root = loader.load();
+
+            stage.setTitle(title);
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+
+        }
+    }
 
 
 }
