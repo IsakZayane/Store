@@ -41,6 +41,14 @@ public class Controller implements Initializable {
         myDB = new DataBase();
         System.out.println("test2");
 
+        ArrayList<Wine>wine = new ArrayList<>();
+        wine = myDB.getWineList();
+        System.out.println(wine.get(0).getWeight());
+        System.out.println(wine.get(0).getPrice());
+        System.out.println(wine.get(0).getOrigin());
+        System.out.println(wine.get(0).getIngredients());
+        System.out.println(wine.get(0).getName());
+        System.out.println(wine.get(0).getDetail());
     }
 
     public void SignInAction(ActionEvent event) throws IOException {
