@@ -17,6 +17,8 @@ public class Main extends Application {
         primaryStage.setTitle("CatFood!");
         Scene scene = new Scene(root);
 
+        primaryStage.setResizable(false);
+
 
         primaryStage.setScene(scene);
         primaryStage.show();
