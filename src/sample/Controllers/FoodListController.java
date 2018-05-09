@@ -11,12 +11,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import sample.Classes.DataBase;
 import sample.Classes.Food;
 import sample.Classes.PreparedMethods;
 import sample.Classes.Shoppingcartsingleton;
 
+import javax.xml.soap.Text;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -30,6 +32,9 @@ public class FoodListController implements Initializable {
     public ListView<String> listView1;
     @FXML
     public ListView<String> listView2;
+    @FXML public TextArea textArea;
+
+    ArrayList<Food> food = new ArrayList<>();
 
     ObservableList<String> list = FXCollections.observableArrayList();
     ObservableList<String> list2 = FXCollections.observableArrayList();
@@ -46,7 +51,7 @@ public class FoodListController implements Initializable {
         listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         DataBase myDB = new DataBase();
-        ArrayList<Food> food = new ArrayList<>();
+
         food=myDB.getFoodList();
 
         for (int i = 0;i<food.size();i++){
@@ -78,6 +83,34 @@ public class FoodListController implements Initializable {
 
         Shoppingcartsingleton.getInstance().setShoppingcart(shoppingcart);
 
+
+    }
+
+    public void showInfo(){
+        String name=listView1.getSelectionModel().getSelectedItem();
+        String info="";
+
+        try {
+
+            for (int i = 0; i < food.size(); i++) {
+                if (name == food.get(i).getName()) {
+
+                    info = "Name: " + name + "\n" +
+                            "Price: " + food.get(i).getPrice() + "\n" +
+                            "Ingredients: " + food.get(i).getIngredients() + "\n" +
+                            "Weight: " + food.get(i).getWeight() + "\n" +
+                            "Origin: " + food.get(i).getOrigin() + "\n" +
+                            "Detail: " + food.get(i).getDetail() + "\n";
+
+                }
+            }
+
+            textArea.setText(info);
+
+        }
+        catch (Exception e){
+
+        }
 
     }
 

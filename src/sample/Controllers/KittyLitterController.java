@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import sample.Classes.DataBase;
 import sample.Classes.KittyLitter;
@@ -29,6 +30,9 @@ public class KittyLitterController implements Initializable {
     public ListView<String> listView1;
     @FXML
     public ListView<String> listView2;
+    @FXML public TextArea textArea;
+
+    ArrayList<KittyLitter> catlitter = new ArrayList<>();
 
     ObservableList<String> list = FXCollections.observableArrayList();
     ObservableList<String> list2 = FXCollections.observableArrayList();
@@ -43,7 +47,6 @@ public class KittyLitterController implements Initializable {
         listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         DataBase myDB = new DataBase();
-        ArrayList<KittyLitter> catlitter = new ArrayList<>();
         catlitter=myDB.getKittylitterList();
 
         for (int i = 0;i<catlitter.size();i++){
@@ -64,6 +67,35 @@ public class KittyLitterController implements Initializable {
 
     public void backButton(ActionEvent event) throws IOException {
         pm.changeScene(event,"/sample/fxml/productssample.fxml","Products" );
+    }
+
+    public void showInfo(){
+        String name=listView1.getSelectionModel().getSelectedItem();
+        String info="";
+
+
+        try {
+
+
+            for (int i = 0; i < catlitter.size(); i++) {
+                if (name == catlitter.get(i).getName()) {
+
+                    info = "Name: " + name + "\n" +
+                            "Price: " + catlitter.get(i).getPrice() + "\n" +
+                            "Ingredients: " + catlitter.get(i).getIngredients() + "\n" +
+                            "Weight: " + catlitter.get(i).getWeight() + "\n" +
+                            "Origin: " + catlitter.get(i).getOrigin() + "\n" +
+                            "Detail: " + catlitter.get(i).getDetail() + "\n";
+
+                }
+            }
+
+            textArea.setText(info);
+        }
+        catch (Exception e){
+
+        }
+
     }
 
 }
