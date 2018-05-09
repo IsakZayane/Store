@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import sample.Classes.DataBase;
 import sample.Classes.NameTransfer;
 import sample.Classes.PreparedMethods;
+import sample.Classes.Wine;
 
 
 import java.io.IOException;
@@ -47,6 +48,14 @@ public class Controller implements Initializable {
 
         System.out.println("test2");
 
+
+
+
+
+    }
+    public void testscene(ActionEvent event) throws IOException{
+        PreparedMethods preparedMethods= new PreparedMethods();
+        preparedMethods.changeScene(event,"/sample/fxml/WineListSample.fxml", "wine");
     }
 
     public void SignInAction(ActionEvent event) throws IOException {
@@ -93,6 +102,8 @@ public class Controller implements Initializable {
         NameTransfer.getInstance().setName("Guest");
 
         pm.changeScene(event,"/sample/fxml/productssample.fxml","products");
+
+
 
 
     }

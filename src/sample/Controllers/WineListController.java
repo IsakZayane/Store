@@ -11,10 +11,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.Classes.DataBase;
 import sample.Classes.PreparedMethods;
-import sample.Classes.Shoppingcartsingleton;
 import sample.Classes.Wine;
 
 import java.io.IOException;
@@ -24,24 +25,25 @@ import java.util.ResourceBundle;
 
 public class WineListController implements Initializable {
 
-    private PreparedMethods pm = new PreparedMethods();
+ private PreparedMethods pm = new PreparedMethods();
 
     @FXML
     public ListView<String> listView1;
     @FXML
     public ListView<String> listView2;
+    public ArrayList<Wine> wine = new ArrayList<>();
+    @FXML public TextArea textArea;
 
     ObservableList<String> list = FXCollections.observableArrayList();
     ObservableList<String> list2 = FXCollections.observableArrayList();
-    ArrayList<String> shoppingcart = new ArrayList<>();
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DataBase myDB = new DataBase();
 
-        ArrayList<Wine> wine = new ArrayList<>();
-        wine = myDB.getWineList();
+
+        wine=myDB.getWineList();
 
         listView1.setItems(list);
         listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -51,9 +53,11 @@ public class WineListController implements Initializable {
         listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
 
-        for (int i = 0; i < wine.size(); i++) {
+        for (int i = 0;i<wine.size();i++){
             list.add(wine.get(i).getName());
         }
+
+
 
     }
 
@@ -67,24 +71,43 @@ public class WineListController implements Initializable {
     }
 
 
+
     public void backButton(ActionEvent event) throws IOException {
 
-        pm.changeScene(event, "/sample/fxml/productssample.fxml", "Products");
+        pm.changeScene(event,"/sample/fxml/productssample.fxml","Products" );
 
 
     }
 
-    public void addShoppingCartAction() {
-        for (int i = 0; i < list2.size(); i++) {
-            Shoppingcartsingleton.getInstance().setShoppingcart(listView2.getItems().get(i));
+    public void showInfo(){
+        String name=listView1.getSelectionModel().getSelectedItem();
+        String info="";
+
+        try {
+
+            for (int i = 0; i < wine.size(); i++) {
+                if (name == wine.get(i).getName()) {
+
+                    info = "Name: " + name + "\n" +
+                            "Price: " + wine.get(i).getPrice() + "\n" +
+                            "Ingredients: " + wine.get(i).getIngredients() + "\n" +
+                            "Weight: " + wine.get(i).getWeight() + "\n" +
+                            "Origin: " + wine.get(i).getOrigin() + "\n" +
+                            "Detail: " + wine.get(i).getDetail() + "\n";
+
+                }
+            }
+
+            textArea.setText(info);
+
+        }
+        catch (Exception e){
+            
 
 
         }
-
-
-
-
     }
+
 }
 
 
