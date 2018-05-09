@@ -132,16 +132,7 @@ public class DataBase {
     }
 
 
-    public void addItem(String name, String type, Integer price) {
 
-
-        try {
-            st.execute("INSERT INTO " + type + "VALUES (" + price + ", " + name + ")");
-        } catch (Exception ex) {
-            System.out.println("something went wrong ");
-
-        }
-    }
 
     public void showItems() {//SELECT statement. ResultSet används och executeQuery
     }
@@ -455,6 +446,29 @@ public class DataBase {
         return adminaccept;
 
     }
+
+public void addItem(String type,String name,String ingridients,double weight,String origin,String detail,int price){
+        try {
+            String query="INSERT into products (productsprice,productsname,productsingredients,productsweight,productsorigin,productsdetail,producttype) values (?,?,?,?,?,?,?)";
+            PreparedStatement addproduct = c.prepareStatement(query);
+            addproduct.setInt(1,price);
+            addproduct.setString(2,name);
+            addproduct.setString(3,ingridients);
+            addproduct.setDouble(4,weight);
+            addproduct.setString(5,origin);
+            addproduct.setString(6,detail);
+            addproduct.setString(7,type);
+            addproduct.execute();
+            System.out.println("all clear in db");
+
+
+        }catch (SQLException e){
+            e.printStackTrace();
+
+        }
+
+}
+
 }
 
 

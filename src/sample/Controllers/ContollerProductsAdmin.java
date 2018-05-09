@@ -46,7 +46,8 @@ public class ContollerProductsAdmin implements Initializable {
 
 
     }
-    public void ModifyAction(){
+    public void ModifyAction(ActionEvent event){
+        pm.changeScene(event,"/sample/fxml/databaseSample.fxml","modifyproducts");
 
     }
 
