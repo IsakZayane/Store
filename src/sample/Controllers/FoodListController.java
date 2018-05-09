@@ -71,12 +71,13 @@ public class FoodListController implements Initializable {
     }
     public void addShoppingCartAction(){
         for (int i =0; i<list2.size();i++) {
+            Shoppingcartsingleton.getInstance().setShoppingcart(listView2.getItems().get(i));
 
-            shoppingcart.add(listView2.getItems().get(i));
+
         }
 
 
-        Shoppingcartsingleton.getInstance().setShoppingcart(shoppingcart);
+
 
 
     }

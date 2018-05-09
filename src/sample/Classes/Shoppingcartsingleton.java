@@ -15,7 +15,9 @@ public class Shoppingcartsingleton {
 
         return shoppingcart;}
 
-    public void setShoppingcart(ArrayList<String> shoppingcart){this.shoppingcart = shoppingcart;}
+    public void setShoppingcart(String addshopping){
+        shoppingcart.add(addshopping);
+        this.shoppingcart = shoppingcart;}
 
     private Shoppingcartsingleton() {
     }

@@ -58,6 +58,9 @@ public class Controller implements Initializable {
             DataBase myDB = new DataBase();
             int password = pass.passwordEncryption(passwordField.getText());
             if (myDB.adminLogin(usernameField.getText(),password)){
+                String email = myDB.Email(usernameField.getText());
+                NameTransfer.getInstance().setName(usernameField.getText());
+                NameTransfer.getInstance().setEmail(email);
                 pm.changeScene(event,"/sample/fxml/productssampleadmin.fxml","Admin");
             }else if (!myDB.adminLogin(usernameField.getText(),password)){
 
