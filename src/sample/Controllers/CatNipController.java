@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.stage.Stage;
+import sample.Classes.CatNip;
 import sample.Classes.DataBase;
 import sample.Classes.PreparedMethods;
 
@@ -43,11 +44,11 @@ public class CatNipController implements Initializable {
         listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         DataBase myDB = new DataBase();
-        ArrayList<String> info= new ArrayList<>();
-        info=myDB.getCatNip();
+        ArrayList<CatNip> catnip = new ArrayList<>();
+        catnip=myDB.getCatnipList();
 
-        for(int i =0;i<info.size();i++){
-            list.add(info.get(i));
+        for (int i = 0;i<catnip.size();i++){
+            list.add(catnip.get(i).getName());
         }
 
     }

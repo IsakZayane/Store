@@ -14,6 +14,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.stage.Stage;
 import sample.Classes.DataBase;
 import sample.Classes.PreparedMethods;
+import sample.Classes.Wine;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,8 +33,14 @@ public class WineListController implements Initializable {
     ObservableList<String> list = FXCollections.observableArrayList();
     ObservableList<String> list2 = FXCollections.observableArrayList();
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        DataBase myDB = new DataBase();
+
+        ArrayList<Wine> wine = new ArrayList<>();
+        wine=myDB.getWineList();
+
         listView1.setItems(list);
         listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
@@ -41,12 +48,9 @@ public class WineListController implements Initializable {
         listView2.setItems(list2);
         listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        DataBase myDB = new DataBase();
-        ArrayList<String> info= new ArrayList<>();
-        info=myDB.getCatWine();
 
-        for(int i =0;i<info.size();i++){
-            list.add(info.get(i));
+        for (int i = 0;i<wine.size();i++){
+            list.add(wine.get(i).getName());
         }
 
     }
