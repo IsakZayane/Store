@@ -174,7 +174,6 @@ public class DataBase {
         }
     }
 
-    
 
     public String Email(String name) {
         String email = null;
@@ -202,8 +201,8 @@ public class DataBase {
         try {
             String query = "insert into orders (ordersDate,user_iduser) values (?,(select iduser from user where username = ?))";
             PreparedStatement order = c.prepareStatement(query);
-            order.setDate(1,date);
-            order.setString(2,name);
+            order.setDate(1, date);
+            order.setString(2, name);
             order.execute();
             System.out.println("order details");
         } catch (SQLException e) {
@@ -211,7 +210,7 @@ public class DataBase {
         }
     }
 
-    public void createFoodObjects(){
+    public void createFoodObjects() {
         int index = 0;
         int one = 1;
         int rows = 0;
@@ -257,7 +256,7 @@ public class DataBase {
 
     }
 
-    public void createWineObjects(){
+    public void createWineObjects() {
         int index = 0;
         int one = 1;
         int rows = 0;
@@ -297,14 +296,13 @@ public class DataBase {
             }
 
 
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     } // slut
 
-    public void createCatnipObjects(){
+    public void createCatnipObjects() {
         int index = 0;
         int one = 1;
         int rows = 0;
@@ -349,7 +347,7 @@ public class DataBase {
 
     } // slut
 
-    public void createKittylitterObjects(){
+    public void createKittylitterObjects() {
         int index = 0;
         int one = 1;
         int rows = 0;
@@ -410,24 +408,51 @@ public class DataBase {
         return catnipList;
     }
 
- public int getOrderId(String name){
-        int orderid =0;
+    public int getOrderId(String name) {
+        int orderid = 0;
         try {
-            String query="select ordersid from orders where user_iduser = (select iduser from user where userName=?) order by ordersid desc";
+            String query = "select ordersid from orders where user_iduser = (select iduser from user where userName=?) order by ordersid desc";
             PreparedStatement idorder = c.prepareStatement(query);
-            idorder.setString(1,name);
+            idorder.setString(1, name);
             ResultSet rs = idorder.executeQuery();
             rs.afterLast();
-            while (rs.previous()){
-                orderid =rs.getInt("ordersid");
+            while (rs.previous()) {
+                orderid = rs.getInt("ordersid");
 
 
             }
 
- }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
-        }return orderid+1;
+        }
+        return orderid + 1;
 
+
+    }
+
+    public boolean adminLogin(String name, int password) {
+        boolean adminaccept = false;
+        try {
+
+            int admincheck = 0;
+            String query = "select admin from user where username = ? and password = ?";
+            PreparedStatement adminsearch = c.prepareStatement(query);
+            adminsearch.setString(1, name);
+            adminsearch.setInt(2, password);
+            ResultSet rs = adminsearch.executeQuery();
+
+            while (rs.next()) {
+                admincheck = rs.getInt("admin");
+            }
+            if (admincheck == 1) {
+                adminaccept = true;
+            }
+
+        } catch (SQLException e) {
+
+
+        }
+        return adminaccept;
 
     }
 }

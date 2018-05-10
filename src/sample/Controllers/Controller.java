@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import sample.Classes.DataBase;
 import sample.Classes.NameTransfer;
 import sample.Classes.PreparedMethods;
+import sample.Classes.Wine;
 
 
 import java.io.IOException;
@@ -47,6 +48,14 @@ public class Controller implements Initializable {
 
         System.out.println("test2");
 
+
+
+
+
+    }
+    public void testscene(ActionEvent event) throws IOException{
+        PreparedMethods preparedMethods= new PreparedMethods();
+        preparedMethods.changeScene(event,"/sample/fxml/WineListSample.fxml", "wine");
     }
 
     public void SignInAction(ActionEvent event) throws IOException {
@@ -54,16 +63,23 @@ public class Controller implements Initializable {
         CreateAccountController pass = new CreateAccountController();
         try {
 
+
             DataBase myDB = new DataBase();
             int password = pass.passwordEncryption(passwordField.getText());
+            if (myDB.adminLogin(usernameField.getText(),password)){
+                String email = myDB.Email(usernameField.getText());
+                NameTransfer.getInstance().setName(usernameField.getText());
+                NameTransfer.getInstance().setEmail(email);
+                pm.changeScene(event,"/sample/fxml/productssampleadmin.fxml","Admin");
+            }else if (!myDB.adminLogin(usernameField.getText(),password)){
 
-            myDB.memberLogIn(usernameField.getText(), password);
-            String email=myDB.Email(usernameField.getText());
-            NameTransfer.getInstance().setName(usernameField.getText());
-            NameTransfer.getInstance().setEmail(email);
+                myDB.memberLogIn(usernameField.getText(), password);
+                String email = myDB.Email(usernameField.getText());
+                NameTransfer.getInstance().setName(usernameField.getText());
+                NameTransfer.getInstance().setEmail(email);
 
-            pm.changeScene(event,"/sample/fxml/productssample.fxml","products");
-
+                pm.changeScene(event, "/sample/fxml/productssample.fxml", "products");
+            }
 
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -74,7 +90,7 @@ public class Controller implements Initializable {
     }
 
     public void RegisterAction(ActionEvent event) throws IOException {
-       pm.changeScene(event,"sample/fxml/CreateAccountSample.fxml","Register");
+       pm.changeScene(event,"/sample/fxml/CreateAccountSample.fxml","Register");
     }
 
 
@@ -86,6 +102,8 @@ public class Controller implements Initializable {
         NameTransfer.getInstance().setName("Guest");
 
         pm.changeScene(event,"/sample/fxml/productssample.fxml","products");
+
+
 
 
     }

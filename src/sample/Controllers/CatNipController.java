@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import sample.Classes.CatNip;
 import sample.Classes.DataBase;
@@ -18,6 +19,7 @@ import sample.Classes.PreparedMethods;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -30,6 +32,9 @@ public class CatNipController implements Initializable {
     public ListView<String> listView1;
     @FXML
     public ListView<String> listView2;
+    @FXML public TextArea textArea;
+
+    ArrayList<CatNip> catnip = new ArrayList<>();
 
     ObservableList<String> list = FXCollections.observableArrayList();
     ObservableList<String> list2 = FXCollections.observableArrayList();
@@ -44,7 +49,6 @@ public class CatNipController implements Initializable {
         listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         DataBase myDB = new DataBase();
-        ArrayList<CatNip> catnip = new ArrayList<>();
         catnip=myDB.getCatnipList();
 
         for (int i = 0;i<catnip.size();i++){
@@ -66,6 +70,33 @@ public class CatNipController implements Initializable {
     public void backButton(ActionEvent event) throws IOException {
         pm.changeScene(event,"/sample/fxml/productssample.fxml","Products" );
 
+
+    }
+
+    public void showInfo(){
+        String name=listView1.getSelectionModel().getSelectedItem();
+        String info="";
+
+        try {
+
+            for (int i = 0; i < catnip.size(); i++) {
+                if (name == catnip.get(i).getName()) {
+
+                    info = "Name: " + name + "\n" +
+                            "Price: " + catnip.get(i).getPrice() + "\n" +
+                            "Ingredients: " + catnip.get(i).getIngredients() + "\n" +
+                            "Weight: " + catnip.get(i).getWeight() + "\n" +
+                            "Origin: " + catnip.get(i).getOrigin() + "\n" +
+                            "Detail: " + catnip.get(i).getDetail() + "\n";
+
+                }
+            }
+
+            textArea.setText(info);
+        }
+        catch (Exception e){
+
+        }
 
     }
 
