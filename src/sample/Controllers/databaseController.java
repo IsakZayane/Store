@@ -46,6 +46,11 @@ public class databaseController implements Initializable {
             e.printStackTrace();
         }
     }
+    public void removeAction(){
+        DataBase mydb= new DataBase();
+        mydb.deleteItem(productype.getSelectionModel().getSelectedItem(),namefield.getText());
+        
+    }
 
     public void goBackAction(ActionEvent event){
         pm.changeScene(event,"/sample/fxml/productssampleadmin.fxml","");

@@ -132,8 +132,6 @@ public class DataBase {
     }
 
 
-
-
     public void showItems() {//SELECT statement. ResultSet används och executeQuery
     }
 
@@ -447,29 +445,45 @@ public class DataBase {
 
     }
 
-public void addItem(String type,String name,String ingridients,double weight,String origin,String detail,int price){
+    public void addItem(String type, String name, String ingridients, double weight, String origin, String detail, int price) {
         try {
-            String query="INSERT into products (productsprice,productsname,productsingredients,productsweight,productsorigin,productsdetail,producttype) values (?,?,?,?,?,?,?)";
+            String query = "INSERT into products (productsprice,productsname,productsingredients,productsweight,productsorigin,productsdetail,producttype) values (?,?,?,?,?,?,?)";
             PreparedStatement addproduct = c.prepareStatement(query);
-            addproduct.setInt(1,price);
-            addproduct.setString(2,name);
-            addproduct.setString(3,ingridients);
-            addproduct.setDouble(4,weight);
-            addproduct.setString(5,origin);
-            addproduct.setString(6,detail);
-            addproduct.setString(7,type);
+            addproduct.setInt(1, price);
+            addproduct.setString(2, name);
+            addproduct.setString(3, ingridients);
+            addproduct.setDouble(4, weight);
+            addproduct.setString(5, origin);
+            addproduct.setString(6, detail);
+            addproduct.setString(7, type);
             addproduct.execute();
             System.out.println("all clear in db");
 
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
 
         }
 
+    }
+
+
+    public void deleteItem(String type, String name) {
+        try {
+
+
+            String query = "DELETE from PRODUCTS where producttype = ? and productsname = ?";
+            PreparedStatement delete = c.prepareStatement(query);
+            delete.setString(1, type);
+            delete.setString(2, name);
+            delete.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+    }
 }
 
-}
 
 
 

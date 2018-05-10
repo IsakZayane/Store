@@ -27,5 +27,6 @@
       <Button layoutX="74.0" layoutY="361.0" mnemonicParsing="false" onAction="#goBackAction" text="Go back" />
       <Button layoutX="160.0" layoutY="361.0" mnemonicParsing="false" onAction="#goBackToLoginAction" text="Go back to login" />
       <Button layoutX="520.0" layoutY="361.0" mnemonicParsing="false" onAction="#exitAction" text="Exit" />
+      <Button layoutX="179.0" layoutY="95.0" mnemonicParsing="false" onAction="#removeAction" text="Remove product" />
    </children>
 </AnchorPane>
