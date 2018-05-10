@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.FoodListController">
+<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.FoodListController">
    <children>
       <ListView fx:id="listView1" layoutX="21.0" layoutY="173.0" prefHeight="200.0" prefWidth="271.0" />
       <Button layoutX="50.0" layoutY="389.0" mnemonicParsing="false" onAction="#addButton" prefHeight="25.0" prefWidth="200.0" text="Add" />
@@ -13,7 +13,7 @@
       <ListView fx:id="listView2" layoutX="313.0" layoutY="173.0" prefHeight="200.0" prefWidth="271.0" />
       <Button layoutX="265.0" layoutY="421.0" mnemonicParsing="false" onAction="#backButton" text="Back" />
       <Button layoutX="432.0" layoutY="27.0" mnemonicParsing="false" onAction="#addShoppingCartAction" text="Add to shoppingcart" />
-      <TextArea layoutX="36.0" layoutY="14.0" prefHeight="147.0" prefWidth="233.0" />
+      <TextArea fx:id="textarea" layoutX="36.0" layoutY="14.0" prefHeight="147.0" prefWidth="233.0" />
       <Button layoutX="306.0" layoutY="63.0" mnemonicParsing="false" onAction="#showInfo" text="Info" />
    </children>
 </AnchorPane>

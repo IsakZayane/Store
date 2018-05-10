@@ -25,6 +25,7 @@ public class PreparedMethods {
             Parent root = loader.load();
 
             stage.setTitle(title);
+            stage.setResizable(false);
             stage.setScene(new Scene(root));
             stage.show();
 

@@ -32,16 +32,17 @@ public class FoodListController implements Initializable {
     public ListView<String> listView1;
     @FXML
     public ListView<String> listView2;
-    @FXML public TextArea textArea;
+    @FXML public TextArea textarea;
 
-    ArrayList<Food> food = new ArrayList<>();
+    public ArrayList<Food> food = new ArrayList<>();
 
     ObservableList<String> list = FXCollections.observableArrayList();
     ObservableList<String> list2 = FXCollections.observableArrayList();
     ArrayList<String> shoppingcart=new ArrayList<>();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        DataBase myDB = new DataBase();
+        food=myDB.getFoodList();
 
         listView1.setItems(list);
         listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -50,9 +51,9 @@ public class FoodListController implements Initializable {
         listView2.setItems(list2);
         listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        DataBase myDB = new DataBase();
 
-        food=myDB.getFoodList();
+
+
 
         for (int i = 0;i<food.size();i++){
             list.add(food.get(i).getName());
@@ -106,7 +107,7 @@ public class FoodListController implements Initializable {
                 }
             }
 
-            textArea.setText(info);
+            textarea.setText(info);
 
         }
         catch (Exception e){
