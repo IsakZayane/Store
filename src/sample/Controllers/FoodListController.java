@@ -9,9 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import sample.Classes.DataBase;
 import sample.Classes.Food;
@@ -25,44 +24,66 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class FoodListController implements Initializable {
-    PreparedMethods pm  = new PreparedMethods();
+    PreparedMethods pm = new PreparedMethods();
 
+    @FXML
+    TableView<Food> tableViewOne, tableViewTwo;
+    @FXML
+    TableColumn nameColOne, nameColTwo, priceColOne, priceColTwo;
 
     @FXML
     public ListView<String> listView1;
     @FXML
     public ListView<String> listView2;
-    @FXML public TextArea textarea;
+    @FXML
+    public TextArea textAreaInfo;
 
     public ArrayList<Food> food = new ArrayList<>();
 
     ObservableList<String> list = FXCollections.observableArrayList();
     ObservableList<String> list2 = FXCollections.observableArrayList();
-    ArrayList<String> shoppingcart=new ArrayList<>();
+    ObservableList<Food> myList = FXCollections.observableArrayList();
+    ObservableList<Food> myListTwo = FXCollections.observableArrayList();
+
+
+    ArrayList<String> shoppingcart = new ArrayList<>();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DataBase myDB = new DataBase();
-        food=myDB.getFoodList();
-
-        listView1.setItems(list);
-        listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        food = myDB.getFoodList();
 
 
-        listView2.setItems(list2);
-        listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        myList.addAll(food);
+
+        nameColOne.setCellValueFactory(new PropertyValueFactory<Food, String>("name"));
+        priceColOne.setCellValueFactory(new PropertyValueFactory<Food, Double>("price"));
 
 
+        //listView1.setItems(list);
+        //listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
 
+//        listView2.setItems(list2);
+        //      listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        for (int i = 0;i<food.size();i++){
-            list.add(food.get(i).getName());
+
+        for (int i = 0; i < food.size(); i++) {
+            tableViewOne.setItems(myList);
         }
 
     }
 
     public void addButton() {
-        list2.add(listView1.getSelectionModel().getSelectedItem());
+
+        System.out.println("Tjoo you just added nothing");
+        myListTwo.add(tableViewOne.getSelectionModel().getSelectedItem());
+        tableViewTwo.setItems(myListTwo);
+
+
+        nameColTwo.setCellValueFactory(new PropertyValueFactory<Food, String>("name"));
+        priceColTwo.setCellValueFactory(new PropertyValueFactory<Food, Double>("price"));
+
 
     }
 
@@ -72,52 +93,46 @@ public class FoodListController implements Initializable {
 
 
     public void backButton(ActionEvent event) throws IOException {
-        pm.changeScene(event,"/sample/fxml/productssample.fxml","Products" );
+        pm.changeScene(event, "/sample/fxml/productssample.fxml", "Products");
 
     }
-    public void addShoppingCartAction(){
-        for (int i =0; i<list2.size();i++) {
-            Shoppingcartsingleton.getInstance().setShoppingcart(listView2.getItems().get(i));
+
+    public void addShoppingCartAction() {
+        for (int i = 0; i < myListTwo.size(); i++) {
+            Shoppingcartsingleton.getInstance().setShoppingcart(tableViewTwo.getItems().get(i).getName());
 
 
         }
 
 
-
-
-
     }
 
-    public void showInfo(){
-        String name=listView1.getSelectionModel().getSelectedItem();
-        String info="";
+    public void showInfo() {
+        //String name = listView1.getSelectionModel().getSelectedItem();
+        System.out.println("innan for");
+        for (int i = 0; i < tableViewOne.getItems().size(); i++) {
+            
 
-        try {
+            String name = tableViewOne.getSelectionModel().getSelectedItem().getName();
 
-            for (int i = 0; i < food.size(); i++) {
-                if (name == food.get(i).getName()) {
+            if (name.equals(food.get(i).getName())) {
 
-                    info = "Name: " + name + "\n" +
-                            "Price: " + food.get(i).getPrice() + "\n" +
-                            "Ingredients: " + food.get(i).getIngredients() + "\n" +
-                            "Weight: " + food.get(i).getWeight() + "\n" +
-                            "Origin: " + food.get(i).getOrigin() + "\n" +
-                            "Detail: " + food.get(i).getDetail() + "\n";
+                String info = "Name: " + tableViewOne.getItems().get(i).getName() + "\n" +
+                        "Price: " + tableViewOne.getItems().get(i).getPrice() + "\n" +
+                        "Ingredients: " + tableViewOne.getItems().get(i).getIngredients() + "\n" +
+                        "Weight: " + tableViewOne.getItems().get(i).getWeight() + "\n" +
+                        "Origin: " + tableViewOne.getItems().get(i).getOrigin() + "\n" +
+                        "Details: " + tableViewOne.getItems().get(i).getDetail();
 
-                }
+
+                textAreaInfo.setText(info);
+
+
             }
-
-            textarea.setText(info);
-
-        }
-        catch (Exception e){
-
         }
 
     }
-
 }
-
 
 
 
