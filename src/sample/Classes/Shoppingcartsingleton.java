@@ -8,14 +8,14 @@ public class Shoppingcartsingleton {
     public static Shoppingcartsingleton getInstance() {
         return ourInstance;
     }
-    private ArrayList<String> shoppingcart=new ArrayList<>();
+    private ArrayList<Item> shoppingcart=new ArrayList<>();
 
-    public ArrayList<String> getShoppingcart(){
+    public ArrayList<Item> getShoppingcart(){
 
 
         return shoppingcart;}
 
-    public void setShoppingcart(String addshopping){
+    public void setShoppingcart(Item addshopping){
         shoppingcart.add(addshopping);
         this.shoppingcart = shoppingcart;}
 

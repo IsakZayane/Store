@@ -27,6 +27,9 @@ public class ShoppingCartController implements Initializable {
 
 
 cartView.setText(String.valueOf(Shoppingcartsingleton.getInstance().getShoppingcart()));
+cartView.setText(Shoppingcartsingleton.getInstance().getShoppingcart());
+
+
 
     }
 

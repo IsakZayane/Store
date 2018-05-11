@@ -81,14 +81,15 @@ public class FoodListController implements Initializable {
         tableViewTwo.setItems(myListTwo);
 
 
-        nameColTwo.setCellValueFactory(new PropertyValueFactory<Food, String>("name"));
+        nameColTwo.setCellValueFactory(new PropertyValueFactory<Food, String>("name")); //hämtar det som finns i objektet under name och price
         priceColTwo.setCellValueFactory(new PropertyValueFactory<Food, Double>("price"));
 
 
     }
 
     public void removeButton() {
-        list2.remove(listView2.getSelectionModel().getSelectedItem());
+        myListTwo.remove(tableViewOne.getSelectionModel().getSelectedItem());
+
     }
 
 
@@ -99,8 +100,8 @@ public class FoodListController implements Initializable {
 
     public void addShoppingCartAction() {
         for (int i = 0; i < myListTwo.size(); i++) {
-            Shoppingcartsingleton.getInstance().setShoppingcart(tableViewTwo.getItems().get(i).getName());
-
+            Shoppingcartsingleton.getInstance().setShoppingcart(tableViewTwo.getItems().get(i));
+            System.out.println(Shoppingcartsingleton.getInstance().getShoppingcart());
 
         }
 
@@ -111,7 +112,7 @@ public class FoodListController implements Initializable {
         //String name = listView1.getSelectionModel().getSelectedItem();
         System.out.println("innan for");
         for (int i = 0; i < tableViewOne.getItems().size(); i++) {
-            
+
 
             String name = tableViewOne.getSelectionModel().getSelectedItem().getName();
 
