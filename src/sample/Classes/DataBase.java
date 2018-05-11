@@ -19,6 +19,7 @@ public class DataBase {
     private ArrayList<Wine> wineList = new ArrayList<>();
     private ArrayList<KittyLitter> kittylitterList = new ArrayList<>();
     private ArrayList<CatNip> catnipList = new ArrayList<>();
+    private ArrayList<Member> memberList = new ArrayList<>();
 
 
     //TODO planera databasen, hur vill vi ha den (Till en början i alla fall)
@@ -397,6 +398,10 @@ public class DataBase {
         return catnipList;
     }
 
+    public ArrayList<Member> getMember() {
+        return memberList;
+    }
+
     public int getOrderId(String name) {
         int orderid = 0;
         try {
@@ -482,8 +487,88 @@ public class DataBase {
 
         }
     }
-}
 
+
+    public void removeMember(String email) {
+        try {
+
+            String query = "DELETE from USER where userEmail = ?";
+            PreparedStatement delete = c.prepareStatement(query);
+            delete.setString(1, email);
+            delete.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void setMemberEmails() {
+        try {
+            ResultSet rs = this.st.executeQuery("SELECT * FROM user");
+            while (rs.next()) {
+                String name = rs.getString("userName");
+                String email = rs.getString("userEmail");
+                int id = rs.getInt("iduser");
+
+                Member member = new Member();
+                member.setName(name);
+                member.setEmail(email);
+                member.setId(id);
+
+                memberList.add(member);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public boolean blockedUser(String name, int password) {
+        boolean isblocked = false;
+        try {
+            int blockcheck = 0;
+            String query = "select admin from user where username = ? and password = ?";
+            PreparedStatement block = c.prepareStatement(query);
+            block.setString(1, name);
+            block.setInt(2, password);
+            ResultSet rs = block.executeQuery();
+            while (rs.next()) {
+                blockcheck = rs.getInt("admin");
+            }
+            if (blockcheck == 2) {
+                isblocked = true;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return isblocked;
+    }
+
+    public void blockMember(String email) {
+        try {
+            String query = "UPDATE user SET admin = 2 where useremail = ?";
+            PreparedStatement block = c.prepareStatement(query);
+            block.setString(1, email);
+            block.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void unblockMemeber(String email) {
+        try {
+            String query = "UPDATE user SET admin = 0 where useremail = ?";
+            PreparedStatement block = c.prepareStatement(query);
+            block.setString(1, email);
+            block.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
 
 

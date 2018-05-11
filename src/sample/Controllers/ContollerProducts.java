@@ -23,6 +23,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ContollerProducts implements Initializable {
    PreparedMethods pm = new PreparedMethods();
@@ -34,6 +35,9 @@ public class ContollerProducts implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loggedin.setText(NameTransfer.getInstance().getName());
+
+
+
 
     }
 
