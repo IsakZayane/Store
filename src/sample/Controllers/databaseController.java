@@ -26,6 +26,7 @@ public class databaseController implements Initializable {
         productype.getItems().add("food");
         productype.getItems().add("CatWine");
         productype.getItems().add("CatNip");
+        
 
 
     }
@@ -49,7 +50,7 @@ public class databaseController implements Initializable {
     public void removeAction(){
         DataBase mydb= new DataBase();
         mydb.deleteItem(productype.getSelectionModel().getSelectedItem(),namefield.getText());
-        
+
     }
 
     public void goBackAction(ActionEvent event){
