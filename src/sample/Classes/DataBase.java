@@ -59,13 +59,16 @@ public class DataBase {
             }
 
             if (foundType != userEmail) {
+                int notadmin=0;
 
 
-                PreparedStatement addUser = c.prepareStatement("INSERT INTO user (userName, userEmail, password) VALUES ( ?, ?, ?)");
+                PreparedStatement addUser = c.prepareStatement("INSERT INTO user (userName, userEmail, password, admin) VALUES ( ?, ?, ?,?)");
 
                 addUser.setString(1, userName);
                 addUser.setString(2, userEmail);
                 addUser.setInt(3, password);
+                addUser.setInt(4,notadmin);
+
                 addUser.execute();
 
                 System.out.println("INSERT INTO user (userName, userEmail, password) VALUES (" + userName + ", " + userEmail + ", " + password + ")");
@@ -504,7 +507,7 @@ public class DataBase {
 
     public void setMemberEmails() {
         try {
-            ResultSet rs = this.st.executeQuery("SELECT * FROM user");
+            ResultSet rs = this.st.executeQuery("SELECT * FROM user where not admin = 1");
             while (rs.next()) {
                 String name = rs.getString("userName");
                 String email = rs.getString("userEmail");
@@ -567,6 +570,25 @@ public class DataBase {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+public boolean allreadyBlocked (String email){
+        boolean isblocked = false;
+        int blocked = 0;
+        try {
+            String query = "Select admin from user where userEmail = ?";
+            PreparedStatement blockcheck = c.prepareStatement(query);
+            blockcheck.setString(1,email);
+            ResultSet rs = blockcheck.executeQuery();
+            while (rs.next()){
+                blocked = rs.getInt("admin");
+            }if (blocked == 2){
+                isblocked = true;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }return isblocked;
+
+
     }
 }
 

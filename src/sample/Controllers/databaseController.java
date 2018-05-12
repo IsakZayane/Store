@@ -43,7 +43,9 @@ public class databaseController implements Initializable {
         memberlist.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         for (int i = 0; i<member.size();i++) {
-            list.add(member.get(i).getEmail());
+           if (db.allreadyBlocked(member.get(i).getEmail()))
+            list.add(member.get(i).getEmail() + ":    Blocked");
+           else list.add(member.get(i).getEmail());
 
 
 
