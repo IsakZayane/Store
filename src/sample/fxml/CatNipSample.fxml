@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="797.0" stylesheets="@../catNipSampleStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.CatNipController">
+<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="788.0" stylesheets="@../catNipSampleStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.CatNipController">
    <children>
       <ListView fx:id="listView1" layoutX="15.0" layoutY="173.0" prefHeight="200.0" prefWidth="154.0" />
       <Button layoutX="27.0" layoutY="390.0" mnemonicParsing="false" onAction="#addButton" prefHeight="18.0" prefWidth="130.0" stylesheets="@../catNipSampleStyle.css" text="Add to Cart">
