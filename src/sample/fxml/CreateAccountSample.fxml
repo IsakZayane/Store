@@ -2,22 +2,41 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.CreateAccountController">
+<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../createAccountStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.CreateAccountController">
    <children>
-      <TextField fx:id="usernameField" layoutX="89.0" layoutY="70.0" onAction="#EnterName" promptText="Username" />
-      <Text layoutX="89.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Username" wrappingWidth="115.13671875" />
-      <Text layoutX="89.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter E-mail address" wrappingWidth="106.13671875" />
-      <TextField fx:id="emailTextField" layoutX="89.0" layoutY="163.0" onAction="#EnterEmail" promptText="E-mail address" />
-      <PasswordField fx:id="passwordField" layoutX="89.0" layoutY="234.0" onAction="#EnterPassword" promptText="Password" />
-      <Text layoutX="89.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter password" wrappingWidth="72.13671875" />
-      <PasswordField fx:id="repasswordField" layoutX="89.0" layoutY="304.0" onAction="#ReEnterPassword" promptText="Password" />
-      <Text layoutX="89.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Re-enter password" />
-      <Button fx:id="createbutton" layoutX="412.0" layoutY="176.0" mnemonicParsing="false" onAction="#createMember" text="Create Account" />
-      <Button fx:id="gobackbutton" layoutX="37.0" layoutY="351.0" mnemonicParsing="false" onAction="#GoBackAction" text="Go back to login" />
-      <Button fx:id="guestbutton" layoutX="469.0" layoutY="351.0" mnemonicParsing="false" onAction="#ProceedAction" text="Proceed as guest" />
+      <TextArea layoutX="52.0" layoutY="158.0" opacity="0.76" prefHeight="313.0" prefWidth="400.0" text="    New user? Register you account here!">
+         <font>
+            <Font name="French Script MT" size="27.0" />
+         </font>
+      </TextArea>
+      <TextField layoutX="103.0" layoutY="221.0" prefHeight="25.0" prefWidth="191.0" promptText="Username" />
+      <PasswordField layoutX="103.0" layoutY="331.0" prefHeight="25.0" prefWidth="191.0" promptText="Password" />
+      <PasswordField layoutX="103.0" layoutY="387.0" prefHeight="25.0" prefWidth="191.0" promptText="Repeat password" />
+      <TextField layoutX="103.0" layoutY="276.0" prefHeight="25.0" prefWidth="191.0" promptText="E-mail" />
+      <Button layoutX="316.0" layoutY="406.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="97.0" text="Create Account">
+         <font>
+            <Font name="French Script MT" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="277.0" layoutY="532.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="214.0" text="Continue as guest">
+         <font>
+            <Font name="French Script MT" size="27.0" />
+         </font>
+      </Button>
+      <Button layoutX="519.0" layoutY="532.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="214.0" text="Contact us">
+         <font>
+            <Font name="French Script MT" size="27.0" />
+         </font>
+      </Button>
+      <Button layoutX="38.0" layoutY="532.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="214.0" text="Return to log in">
+         <font>
+            <Font name="French Script MT" size="27.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

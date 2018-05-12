@@ -4,15 +4,31 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.CatNipController">
+<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="797.0" stylesheets="@../catNipSampleStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.CatNipController">
    <children>
-      <ListView fx:id="listView1" layoutX="15.0" layoutY="173.0" prefHeight="200.0" prefWidth="271.0" />
-      <Button layoutX="50.0" layoutY="390.0" mnemonicParsing="false" onAction="#addButton" prefHeight="25.0" prefWidth="200.0" text="Add" />
-      <Button layoutX="348.0" layoutY="390.0" mnemonicParsing="false" onAction="#removeButton" prefHeight="25.0" prefWidth="200.0" text="Remove" />
-      <ListView fx:id="listView2" layoutX="313.0" layoutY="173.0" prefHeight="200.0" prefWidth="271.0" />
-      <Button layoutX="265.0" layoutY="421.0" mnemonicParsing="false" onAction="#backButton" text="Back" />
-      <TextArea fx:id="textArea" layoutX="33.0" layoutY="14.0" prefHeight="147.0" prefWidth="233.0" />
-      <Button layoutX="313.0" layoutY="63.0" mnemonicParsing="false" onAction="#showInfo" text="Info" />
+      <ListView fx:id="listView1" layoutX="15.0" layoutY="173.0" prefHeight="200.0" prefWidth="154.0" />
+      <Button layoutX="27.0" layoutY="390.0" mnemonicParsing="false" onAction="#addButton" prefHeight="18.0" prefWidth="130.0" stylesheets="@../catNipSampleStyle.css" text="Add to Cart">
+         <font>
+            <Font name="French Script MT" size="18.0" />
+         </font></Button>
+      <Button layoutX="221.0" layoutY="390.0" mnemonicParsing="false" onAction="#removeButton" prefHeight="25.0" prefWidth="130.0" text="Remove from Cart">
+         <font>
+            <Font name="French Script MT" size="18.0" />
+         </font></Button>
+      <ListView fx:id="listView2" layoutX="204.0" layoutY="173.0" prefHeight="200.0" prefWidth="154.0" />
+      <Button layoutX="54.0" layoutY="521.0" mnemonicParsing="false" onAction="#backButton" prefHeight="39.0" prefWidth="186.0" text="Return to Log In">
+         <font>
+            <Font name="French Script MT" size="27.0" />
+         </font></Button>
+      <TextArea fx:id="textArea" layoutX="358.0" layoutY="14.0" opacity="0.71" prefHeight="147.0" prefWidth="233.0" promptText="Welcome! Please Feel Free to Browse Our Catnip Related Products!" styleClass="root" stylesheets="@../catNipSampleStyle.css">
+         <font>
+            <Font name="French Script MT" size="27.0" />
+         </font></TextArea>
+      <Button layoutX="382.0" layoutY="196.0" mnemonicParsing="false" onAction="#showInfo" prefHeight="61.0" prefWidth="136.0" text="Info">
+         <font>
+            <Font name="French Script MT" size="22.0" />
+         </font></Button>
    </children>
 </AnchorPane>
