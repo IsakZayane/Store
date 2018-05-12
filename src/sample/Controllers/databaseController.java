@@ -91,15 +91,43 @@ public void exitAction(){
 public void removeMemberAction(){
     DataBase db = new DataBase();
     db.removeMember(memberlist.getSelectionModel().getSelectedItem());
+    list.clear();
+    memberlist.refresh();
+    for (int i = 0; i<member.size();i++){
+        if(db.allreadyBlocked(member.get(i).getEmail()))
+            list.add(member.get(i).getEmail() + ":    Blocked");
+        else list.add(member.get(i).getEmail());
+    }
 
 }
-public void blockAction(){
+public void blockAction() {
     DataBase db = new DataBase();
     db.blockMember(memberlist.getSelectionModel().getSelectedItem());
 
+    list.clear();
+    memberlist.refresh();
+    for (int i = 0; i < member.size(); i++) {
+        if (db.allreadyBlocked(member.get(i).getEmail()))
+            list.add(member.get(i).getEmail() + ":    Blocked");
+        else list.add(member.get(i).getEmail());
+
+
+    }
 }
-public void unblockAction(){
-    DataBase db = new DataBase();
-    db.unblockMemeber(memberlist.getSelectionModel().getSelectedItem());
-}
+
+    public void unblockAction() {
+        DataBase db = new DataBase();
+        String memberunblock = memberlist.getSelectionModel().getSelectedItem();
+        String memeberunblock2=memberunblock.replace( ":    Blocked","");
+        db.unblockMemeber(memeberunblock2);
+        System.out.println(memeberunblock2);
+        list.clear();
+        memberlist.refresh();
+
+        for (int i = 0; i < member.size(); i++) {
+            if (db.allreadyBlocked(member.get(i).getEmail()))
+                list.add(member.get(i).getEmail() + ":    Blocked");
+            else list.add(member.get(i).getEmail());
+        }
+    }
 }
