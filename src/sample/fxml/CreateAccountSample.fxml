@@ -12,15 +12,15 @@
       <TextField fx:id="emailTextField" layoutX="89.0" layoutY="229.0" onAction="#EnterEmail" prefHeight="38.0" prefWidth="318.0" promptText="E-mail address" />
       <PasswordField fx:id="passwordField" layoutX="89.0" layoutY="288.0" onAction="#EnterPassword" prefHeight="38.0" prefWidth="318.0" promptText="Password" />
       <PasswordField fx:id="repasswordField" layoutX="89.0" layoutY="346.0" onAction="#ReEnterPassword" prefHeight="38.0" prefWidth="318.0" promptText="Re-Enter Password" />
-      <Button fx:id="createbutton" layoutX="195.0" layoutY="397.0" mnemonicParsing="false" onAction="#createMember" text="Create Account" textFill="#cd0909">
+      <Button fx:id="createbutton" layoutX="166.0" layoutY="395.0" mnemonicParsing="false" onAction="#createMember" prefHeight="40.0" prefWidth="164.0" text="Create Account" textFill="#cd0909">
          <font>
             <Font name="French Script MT" size="19.0" />
          </font></Button>
-      <Button fx:id="gobackbutton" layoutX="60.0" layoutY="521.0" mnemonicParsing="false" onAction="#GoBackAction" prefHeight="44.0" prefWidth="168.0" text="Return to Log In" textFill="#cd0909">
+      <Button fx:id="gobackbutton" layoutX="60.0" layoutY="521.0" mnemonicParsing="false" onAction="#GoBackAction" prefHeight="40.0" prefWidth="164.0" text="Return to Log In" textFill="#cd0909">
          <font>
             <Font name="French Script MT" size="22.0" />
          </font></Button>
-      <Button fx:id="guestbutton" layoutX="336.0" layoutY="521.0" mnemonicParsing="false" onAction="#ProceedAction" prefHeight="45.0" prefWidth="168.0" text="Proceed as Guest" textFill="#cd0909">
+      <Button fx:id="guestbutton" layoutX="336.0" layoutY="521.0" mnemonicParsing="false" onAction="#ProceedAction" prefHeight="40.0" prefWidth="164.0" text="Proceed as Guest" textFill="#cd0909">
          <font>
             <Font name="French Script MT" size="22.0" />
          </font></Button>
