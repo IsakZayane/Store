@@ -4,20 +4,27 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.CreateAccountController">
+<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../createAccountStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.CreateAccountController">
    <children>
-      <TextField fx:id="usernameField" layoutX="89.0" layoutY="70.0" onAction="#EnterName" promptText="Username" />
+      <TextField fx:id="usernameField" layoutX="89.0" layoutY="173.0" onAction="#EnterName" prefHeight="38.0" prefWidth="318.0" promptText="Username" />
       <Text layoutX="89.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Username" wrappingWidth="115.13671875" />
-      <Text layoutX="89.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter E-mail address" wrappingWidth="106.13671875" />
-      <TextField fx:id="emailTextField" layoutX="89.0" layoutY="163.0" onAction="#EnterEmail" promptText="E-mail address" />
-      <PasswordField fx:id="passwordField" layoutX="89.0" layoutY="234.0" onAction="#EnterPassword" promptText="Password" />
-      <Text layoutX="89.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter password" wrappingWidth="72.13671875" />
-      <PasswordField fx:id="repasswordField" layoutX="89.0" layoutY="304.0" onAction="#ReEnterPassword" promptText="Password" />
-      <Text layoutX="89.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Re-enter password" />
-      <Button fx:id="createbutton" layoutX="412.0" layoutY="176.0" mnemonicParsing="false" onAction="#createMember" text="Create Account" />
-      <Button fx:id="gobackbutton" layoutX="37.0" layoutY="351.0" mnemonicParsing="false" onAction="#GoBackAction" text="Go back to login" />
-      <Button fx:id="guestbutton" layoutX="469.0" layoutY="351.0" mnemonicParsing="false" onAction="#ProceedAction" text="Proceed as guest" />
+      <TextField fx:id="emailTextField" layoutX="89.0" layoutY="229.0" onAction="#EnterEmail" prefHeight="38.0" prefWidth="318.0" promptText="E-mail address" />
+      <PasswordField fx:id="passwordField" layoutX="89.0" layoutY="288.0" onAction="#EnterPassword" prefHeight="38.0" prefWidth="318.0" promptText="Password" />
+      <PasswordField fx:id="repasswordField" layoutX="89.0" layoutY="346.0" onAction="#ReEnterPassword" prefHeight="38.0" prefWidth="318.0" promptText="Re-Enter Password" />
+      <Button fx:id="createbutton" layoutX="195.0" layoutY="397.0" mnemonicParsing="false" onAction="#createMember" text="Create Account" textFill="#cd0909">
+         <font>
+            <Font name="French Script MT" size="19.0" />
+         </font></Button>
+      <Button fx:id="gobackbutton" layoutX="60.0" layoutY="521.0" mnemonicParsing="false" onAction="#GoBackAction" prefHeight="44.0" prefWidth="168.0" text="Return to Log In" textFill="#cd0909">
+         <font>
+            <Font name="French Script MT" size="22.0" />
+         </font></Button>
+      <Button fx:id="guestbutton" layoutX="336.0" layoutY="521.0" mnemonicParsing="false" onAction="#ProceedAction" prefHeight="45.0" prefWidth="168.0" text="Proceed as Guest" textFill="#cd0909">
+         <font>
+            <Font name="French Script MT" size="22.0" />
+         </font></Button>
    </children>
 </AnchorPane>
