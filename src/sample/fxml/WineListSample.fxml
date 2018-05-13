@@ -4,15 +4,28 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.WineListController">
+<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../wineListStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.WineListController">
    <children>
-      <ListView fx:id="listView1" layoutX="14.0" layoutY="174.0" prefHeight="200.0" prefWidth="271.0" />
-      <Button layoutX="50.0" layoutY="392.0" mnemonicParsing="false" onAction="#addButton" prefHeight="25.0" prefWidth="200.0" text="Add" />
-      <Button layoutX="349.0" layoutY="392.0" mnemonicParsing="false" onAction="#removeButton" prefHeight="25.0" prefWidth="200.0" text="Remove" />
-      <ListView fx:id="listView2" layoutX="306.0" layoutY="174.0" prefHeight="200.0" prefWidth="271.0" />
-      <Button layoutX="265.0" layoutY="422.0" mnemonicParsing="false" onAction="#backButton" text="Back" />
-      <TextArea fx:id="textArea" layoutX="33.0" layoutY="14.0" prefHeight="147.0" prefWidth="233.0" />
-      <Button layoutX="322.0" layoutY="60.0" mnemonicParsing="false" onAction="#showInfo" text="Info" />
+      <ListView fx:id="listView1" layoutX="37.0" layoutY="174.0" prefHeight="200.0" prefWidth="164.0" />
+      <Button layoutX="37.0" layoutY="385.0" mnemonicParsing="false" onAction="#addButton" prefHeight="40.0" prefWidth="164.0" text="Add to Cart" textFill="#cd0909">
+         <font>
+            <Font name="French Script MT" size="20.0" />
+         </font></Button>
+      <Button layoutX="250.0" layoutY="385.0" mnemonicParsing="false" onAction="#removeButton" prefHeight="40.0" prefWidth="164.0" text="Remove from Cart" textFill="#cd0909">
+         <font>
+            <Font name="French Script MT" size="20.0" />
+         </font></Button>
+      <ListView fx:id="listView2" layoutX="250.0" layoutY="174.0" prefHeight="200.0" prefWidth="164.0" />
+      <Button layoutX="142.0" layoutY="518.0" mnemonicParsing="false" onAction="#backButton" prefHeight="40.0" prefWidth="164.0" text="Back to Log In" textFill="#cd0909">
+         <font>
+            <Font name="French Script MT" size="20.0" />
+         </font></Button>
+      <TextArea fx:id="textArea" layoutX="488.0" layoutY="12.0" prefHeight="128.0" prefWidth="228.0" />
+      <Button layoutX="561.0" layoutY="154.0" mnemonicParsing="false" onAction="#showInfo" prefHeight="40.0" prefWidth="83.0" text="Info" textFill="#cd0909">
+         <font>
+            <Font name="French Script MT" size="20.0" />
+         </font></Button>
    </children>
 </AnchorPane>
