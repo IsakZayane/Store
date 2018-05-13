@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="790.0" styleClass="root" stylesheets="@/sample/sampleStyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller">
+<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="790.0" styleClass="root" stylesheets="@/sample/sampleStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller">
    <children>
       <TextArea editable="false" layoutX="62.0" layoutY="163.0" opacity="0.62" prefHeight="233.0" prefWidth="343.0" stylesheets="@/sample/sampleStyle.css" />
       <TextField fx:id="usernameField" layoutX="131.0" layoutY="180.0" prefHeight="36.0" prefWidth="206.0" promptText="               username" stylesheets="@/sample/sampleStyle.css">
@@ -19,17 +19,17 @@
             <Font name="French Script MT" size="18.0" />
          </font>
       </PasswordField>
-      <Button fx:id="signInButton" layoutX="207.0" layoutY="272.0" mnemonicParsing="false" onAction="#SignInAction" stylesheets="@/sample/sampleStyle.css" text="log in">
+      <Button fx:id="signInButton" layoutX="196.0" layoutY="270.0" mnemonicParsing="false" onAction="#SignInAction" stylesheets="@/sample/sampleStyle.css" text="Log In" textFill="#cd0909">
+         <font>
+            <Font name="French Script MT" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="guestButton" layoutX="245.0" layoutY="331.0" mnemonicParsing="false" onAction="#GuestAction" prefHeight="36.0" prefWidth="152.0" stylesheets="@/sample/sampleStyle.css" text="Continue as Guest" textFill="#cd0909">
          <font>
             <Font name="French Script MT" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="guestButton" layoutX="245.0" layoutY="331.0" mnemonicParsing="false" onAction="#GuestAction" prefHeight="36.0" prefWidth="120.0" stylesheets="@/sample/sampleStyle.css" text="continue as guest">
-         <font>
-            <Font name="French Script MT" size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="registerButton" layoutX="97.0" layoutY="331.0" mnemonicParsing="false" onAction="#RegisterAction" prefHeight="36.0" prefWidth="137.0" stylesheets="@/sample/sampleStyle.css" text="click here to register">
+      <Button fx:id="registerButton" layoutX="82.0" layoutY="331.0" mnemonicParsing="false" onAction="#RegisterAction" prefHeight="36.0" prefWidth="152.0" stylesheets="@/sample/sampleStyle.css" text="Click Here to Register" textFill="#cd0909">
          <font>
             <Font name="French Script MT" size="18.0" />
          </font>

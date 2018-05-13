@@ -5,12 +5,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../createAccountStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.CreateAccountController">
    <children>
       <TextField fx:id="usernameField" layoutX="89.0" layoutY="173.0" onAction="#EnterName" prefHeight="38.0" prefWidth="318.0" promptText="Username" />
-      <Text layoutX="89.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Username" wrappingWidth="115.13671875" />
       <TextField fx:id="emailTextField" layoutX="89.0" layoutY="229.0" onAction="#EnterEmail" prefHeight="38.0" prefWidth="318.0" promptText="E-mail address" />
       <PasswordField fx:id="passwordField" layoutX="89.0" layoutY="288.0" onAction="#EnterPassword" prefHeight="38.0" prefWidth="318.0" promptText="Password" />
       <PasswordField fx:id="repasswordField" layoutX="89.0" layoutY="346.0" onAction="#ReEnterPassword" prefHeight="38.0" prefWidth="318.0" promptText="Re-Enter Password" />
