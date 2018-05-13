@@ -9,13 +9,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import sample.Classes.CatNip;
-import sample.Classes.DataBase;
-import sample.Classes.PreparedMethods;
+import sample.Classes.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,74 +29,101 @@ public class CatNipController implements Initializable {
     public ListView<String> listView1;
     @FXML
     public ListView<String> listView2;
-    @FXML public TextArea textArea;
+    @FXML
+    public TextArea textArea;
+    @FXML
+    TableView<CatNip> tableViewOne, tableViewTwo;
+    @FXML
+    TableColumn nameColOne, nameColTwo, priceColOne, priceColTwo;
 
     ArrayList<CatNip> catnip = new ArrayList<>();
 
     ObservableList<String> list = FXCollections.observableArrayList();
     ObservableList<String> list2 = FXCollections.observableArrayList();
+    ObservableList<CatNip> myList = FXCollections.observableArrayList();
+    ObservableList<CatNip> myListTwo = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        listView1.setItems(list);
-        listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-
-        listView2.setItems(list2);
-        listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         DataBase myDB = new DataBase();
-        catnip=myDB.getCatnipList();
+        catnip = myDB.getCatnipList();
+        myList.addAll(catnip);
+        nameColOne.setCellValueFactory(new PropertyValueFactory<CatNip, String>("name"));
+        priceColOne.setCellValueFactory(new PropertyValueFactory<CatNip, Double>("price"));
 
-        for (int i = 0;i<catnip.size();i++){
-            list.add(catnip.get(i).getName());
+
+        for (int i = 0; i < catnip.size(); i++) {
+          //  list.add(catnip.get(i).getName());
+            tableViewOne.setItems(myList);
         }
 
     }
 
     public void addButton() {
-        list2.add(listView1.getSelectionModel().getSelectedItem());
+//        list2.add(listView1.getSelectionModel().getSelectedItem());
+
+        myListTwo.add(tableViewOne.getSelectionModel().getSelectedItem());
+        tableViewTwo.setItems(myListTwo);
+
+        nameColTwo.setCellValueFactory(new PropertyValueFactory<CatNip, String>("name"));
+        priceColTwo.setCellValueFactory(new PropertyValueFactory<CatNip, Double>("price"));
+
 
     }
 
     public void removeButton() {
-        list2.remove(listView2.getSelectionModel().getSelectedItem());
+       // list2.remove(listView2.getSelectionModel().getSelectedItem());
+        myListTwo.remove(tableViewOne.getSelectionModel().getSelectedItem());
     }
 
 
     public void backButton(ActionEvent event) throws IOException {
-        pm.changeScene(event,"/sample/fxml/productssample.fxml","Products" );
+        pm.changeScene(event, "/sample/fxml/productssample.fxml", "Products");
 
 
     }
 
-    public void showInfo(){
-        String name=listView1.getSelectionModel().getSelectedItem();
-        String info="";
+    public void showInfo() {
 
-        try {
 
-            for (int i = 0; i < catnip.size(); i++) {
-                if (name == catnip.get(i).getName()) {
 
-                    info = "Name: " + name + "\n" +
-                            "Price: " + catnip.get(i).getPrice() + "\n" +
-                            "Ingredients: " + catnip.get(i).getIngredients() + "\n" +
-                            "Weight: " + catnip.get(i).getWeight() + "\n" +
-                            "Origin: " + catnip.get(i).getOrigin() + "\n" +
-                            "Detail: " + catnip.get(i).getDetail() + "\n";
+        System.out.println("innan for");
+        for (int i = 0; i < tableViewOne.getItems().size(); i++) {
 
-                }
+
+            String name = tableViewOne.getSelectionModel().getSelectedItem().getName();
+
+            if (name.equals(catnip.get(i).getName())) {
+
+                String info = "Name: " + tableViewOne.getItems().get(i).getName() + "\n" +
+                        "Price: " + tableViewOne.getItems().get(i).getPrice() + "\n" +
+                        "Ingredients: " + tableViewOne.getItems().get(i).getIngredients() + "\n" +
+                        "Weight: " + tableViewOne.getItems().get(i).getWeight() + "\n" +
+                        "Origin: " + tableViewOne.getItems().get(i).getOrigin() + "\n" +
+                        "Details: " + tableViewOne.getItems().get(i).getDetail();
+
+
+                textArea.setText(info);
+
+
             }
-
-            textArea.setText(info);
         }
-        catch (Exception e){
 
-        }
 
     }
 
+    public void addShoppingCartAction() {
+        pm.showAlert("Products added!", "You just added some products to your cart", "Continue shopping or order");
+        for (int i = 0; i < myListTwo.size(); i++) {
+            Shoppingcartsingleton.getInstance().setShoppingcart(tableViewTwo.getItems().get(i));
+            System.out.println(Shoppingcartsingleton.getInstance().getShoppingcart());
+
+        }
+
+
+    }
 }
 
 

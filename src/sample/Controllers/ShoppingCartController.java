@@ -1,33 +1,49 @@
 package sample.Controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import sample.Classes.DataBase;
-import sample.Classes.Emailsender;
-import sample.Classes.NameTransfer;
-import sample.Classes.Shoppingcartsingleton;
-
-import sample.Classes.PreparedMethods;
+import javafx.scene.control.cell.PropertyValueFactory;
+import sample.Classes.*;
 
 import java.net.URL;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ShoppingCartController implements Initializable {
     PreparedMethods pm = new PreparedMethods();
 
 @FXML TextArea cartView;
+@FXML
+TableView<Item> tableArea;
+@FXML TableColumn nameCol, priceCol;
 
+ObservableList<Item> myList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
 
-cartView.setText(String.valueOf(Shoppingcartsingleton.getInstance().getShoppingcart()));
-cartView.setText(Shoppingcartsingleton.getInstance().getShoppingcart());
+//cartView.setText(String.valueOf(Shoppingcartsingleton.getInstance().getShoppingcart()));
+    cartView.setText(String.valueOf(Shoppingcartsingleton.getInstance().getShoppingcart()));
+        ArrayList<Item> myItem = new ArrayList<>();
+        myItem.addAll(Shoppingcartsingleton.getInstance().getShoppingcart());
+
+
+    myList.addAll(Shoppingcartsingleton.getInstance().getShoppingcart());
+
+
+    for (int i =0; i < myList.size(); i ++) {
+        nameCol.setCellValueFactory(new PropertyValueFactory<Item, String>( "name"));
+
+    }
 
 
 
@@ -37,6 +53,7 @@ cartView.setText(Shoppingcartsingleton.getInstance().getShoppingcart());
     public void goBack(ActionEvent event){
 
        pm.changeScene(event,"/sample/fxml/productssample.fxml","products");
+
 
 
     }

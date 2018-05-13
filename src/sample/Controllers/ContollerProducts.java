@@ -50,6 +50,7 @@ public class ContollerProducts implements Initializable {
     }
     public void KittyLitterAction(ActionEvent event) throws IOException {
         pm.changeScene(event,"/sample/fxml/KittyLitterSample.fxml","Kitty litter");
+        System.out.println("tjo kitty");
 
 
     }

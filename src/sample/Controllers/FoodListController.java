@@ -99,13 +99,14 @@ public class FoodListController implements Initializable {
     }
 
     public void addShoppingCartAction() {
+
+
+        pm.showAlert("Products added!", "You just added some products to your cart", "Continue shopping or order");
         for (int i = 0; i < myListTwo.size(); i++) {
             Shoppingcartsingleton.getInstance().setShoppingcart(tableViewTwo.getItems().get(i));
             System.out.println(Shoppingcartsingleton.getInstance().getShoppingcart());
 
         }
-
-
     }
 
     public void showInfo() {
