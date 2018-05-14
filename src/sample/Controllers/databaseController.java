@@ -91,6 +91,8 @@ public void exitAction(){
 public void removeMemberAction(){
     DataBase db = new DataBase();
     db.removeMember(memberlist.getSelectionModel().getSelectedItem());
+    db.setMemberEmails();
+    member = db.getMember();
     list.clear();
     memberlist.refresh();
     for (int i = 0; i<member.size();i++){
