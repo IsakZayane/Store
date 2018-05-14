@@ -7,26 +7,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../catNipStyle.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.CatNipController">
 
     <children>
 
-        <Button layoutX="410.0" layoutY="280.0" mnemonicParsing="false" onAction="#addButton" opacity="0.7" prefHeight="40.0" prefWidth="140.0" text="Add to Cart" textFill="#cd0909">
+        <Button layoutX="410.0" layoutY="240.0" mnemonicParsing="false" onAction="#addButton" opacity="0.7" prefHeight="40.0" prefWidth="140.0" text="Add to Cart" textFill="#cd0909">
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
-        <Button layoutX="607.0" layoutY="280.0" mnemonicParsing="false" onAction="#removeButton" opacity="0.7" prefHeight="40.0" prefWidth="140.0" text="Remove from Cart" textFill="#cd0909">
+        <Button layoutX="607.0" layoutY="240.0" mnemonicParsing="false" onAction="#removeButton" opacity="0.7" prefHeight="40.0" prefWidth="140.0" text="Remove from Cart" textFill="#cd0909">
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
-        <TableView fx:id="tableViewOne" layoutX="597.0" layoutY="43.0" prefHeight="209.0" prefWidth="160.0">
+        <TableView fx:id="tableViewOne" layoutX="597.0" layoutY="14.0" prefHeight="209.0" prefWidth="160.0">
             <columns>
                 <TableColumn fx:id="nameColOne" prefWidth="75.0" text="Name" />
                 <TableColumn fx:id="priceColOne" prefWidth="75.0" text="Price" />
             </columns>
         </TableView>
-        <TableView fx:id="tableViewTwo" layoutX="400.0" layoutY="43.0" prefHeight="209.0" prefWidth="160.0">
+        <TableView fx:id="tableViewTwo" layoutX="400.0" layoutY="14.0" prefHeight="209.0" prefWidth="160.0">
             <columns>
                 <TableColumn fx:id="nameColTwo" prefWidth="75.0" text="Name" />
                 <TableColumn fx:id="priceColTwo" prefWidth="75.0" text="Price" />
@@ -36,16 +35,21 @@
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
-        <TextArea fx:id="textArea" layoutX="498.0" layoutY="379.0" prefHeight="98.0" prefWidth="168.0">
+        <TextArea fx:id="textArea" layoutX="498.0" layoutY="344.0" prefHeight="137.0" prefWidth="168.0">
             <font>
                 <Font size="23.0" />
             </font></TextArea>
-        <Button layoutX="531.0" layoutY="332.0" mnemonicParsing="false" onAction="#showInfo" opacity="0.7" prefHeight="40.0" prefWidth="102.0" text="Info" textFill="#cd0909">
+        <Button layoutX="531.0" layoutY="294.0" mnemonicParsing="false" onAction="#showInfo" opacity="0.7" prefHeight="40.0" prefWidth="102.0" text="Info" textFill="#cd0909">
 
 
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
+      <Button layoutX="476.0" layoutY="502.0" mnemonicParsing="false" onAction="#addShoppingCartAction" opacity="0.7" prefHeight="40.0" prefWidth="201.0" text="Add to shoppingcart" textFill="#cd0909">
+         <font>
+            <Font name="Bodoni MT" size="18.0" />
+         </font>
+      </Button>
     </children>
 
 </AnchorPane>
