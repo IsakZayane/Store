@@ -8,16 +8,30 @@ public class Shoppingcartsingleton {
     public static Shoppingcartsingleton getInstance() {
         return ourInstance;
     }
-    private ArrayList<Item> shoppingcart=new ArrayList<>();
 
-    public ArrayList<Item> getShoppingcart(){
+    private ArrayList<Item> shoppingcart = new ArrayList<>();
+
+    public ArrayList<Item> getShoppingcart() {
 
 
-        return shoppingcart;}
 
-    public void setShoppingcart(Item addshopping){
+
+        return shoppingcart;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Shoppingcartsingleton{" +
+                "shoppingcart=" + shoppingcart +
+                '}';
+    }
+
+    public void setShoppingcart(Item addshopping) {
         shoppingcart.add(addshopping);
-        this.shoppingcart = shoppingcart;}
+        this.shoppingcart = shoppingcart;
+
+    }
 
     private Shoppingcartsingleton() {
     }

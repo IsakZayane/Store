@@ -106,6 +106,7 @@ public class FoodListController implements Initializable {
             Shoppingcartsingleton.getInstance().setShoppingcart(tableViewTwo.getItems().get(i));
             System.out.println(Shoppingcartsingleton.getInstance().getShoppingcart());
 
+
         }
     }
 

@@ -1,5 +1,6 @@
 package sample.Controllers;
 
+import javafx.beans.property.ReadOnlyProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,16 +33,23 @@ ObservableList<Item> myList = FXCollections.observableArrayList();
 
 
 //cartView.setText(String.valueOf(Shoppingcartsingleton.getInstance().getShoppingcart()));
-    cartView.setText(String.valueOf(Shoppingcartsingleton.getInstance().getShoppingcart()));
+    cartView.setText(Shoppingcartsingleton.getInstance().getShoppingcart().toString());
+
+
         ArrayList<Item> myItem = new ArrayList<>();
         myItem.addAll(Shoppingcartsingleton.getInstance().getShoppingcart());
 
 
-    myList.addAll(Shoppingcartsingleton.getInstance().getShoppingcart());
+     myList.addAll(Shoppingcartsingleton.getInstance().getShoppingcart()); 
+
 
 
     for (int i =0; i < myList.size(); i ++) {
-        nameCol.setCellValueFactory(new PropertyValueFactory<Item, String>( "name"));
+        // nameCol.setCellValueFactory();
+        // nameCol.setCellValueFactory();
+
+
+
 
     }
 
