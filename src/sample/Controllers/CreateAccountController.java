@@ -2,20 +2,12 @@ package sample.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import sample.Classes.DataBase;
-import sample.Classes.Main;
 import sample.Classes.Member;
 import sample.Classes.PreparedMethods;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -87,7 +79,7 @@ public class CreateAccountController implements Initializable {
 
         }*/
     public void GoBackAction(ActionEvent event) {
-       pm.changeScene(event,"/sample/fxml/sample.fxml","log in");
+       pm.changeScene(event, "/sample/fxml/Sample.fxml","log in");
 
     }
 

@@ -10,17 +10,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import sample.Classes.DataBase;
 import sample.Classes.NameTransfer;
 import sample.Classes.PreparedMethods;
-import sample.Classes.Wine;
 
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -70,7 +67,7 @@ public class Controller implements Initializable {
                 String email = myDB.Email(usernameField.getText());
                 NameTransfer.getInstance().setName(usernameField.getText());
                 NameTransfer.getInstance().setEmail(email);
-                pm.changeScene(event,"/sample/fxml/productssampleadmin.fxml","Admin");
+                pm.changeScene(event, "/sample/fxml/AdminProductsSample.fxml","Admin");
             }else if (!myDB.adminLogin(usernameField.getText(),password) && !myDB.blockedUser(usernameField.getText(),password)){
 
                 myDB.memberLogIn(usernameField.getText(), password);
@@ -78,7 +75,7 @@ public class Controller implements Initializable {
                 NameTransfer.getInstance().setName(usernameField.getText());
                 NameTransfer.getInstance().setEmail(email);
 
-                pm.changeScene(event, "/sample/fxml/productssample.fxml", "products");
+                pm.changeScene(event, "/sample/fxml/ProductsSample.fxml", "products");
             }else if (!myDB.adminLogin(usernameField.getText(),password) && myDB.blockedUser(usernameField.getText(),password)){
                 pm.showAlert("YOU AR BLOCKED ASSHOLE","FUCKER","GET IT TOGHETHER");
             }
@@ -103,7 +100,7 @@ public class Controller implements Initializable {
         myDB.GuestLogIn();
         NameTransfer.getInstance().setName("Guest");
 
-        pm.changeScene(event,"/sample/fxml/productssample.fxml","products");
+        pm.changeScene(event, "/sample/fxml/ProductsSample.fxml","products");
 
 
 

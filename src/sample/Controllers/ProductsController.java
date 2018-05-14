@@ -2,30 +2,20 @@ package sample.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 
-import javafx.stage.Stage;
-import sample.Classes.DataBase;
 import sample.Classes.NameTransfer;
 import sample.Classes.PreparedMethods;
 
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicInteger;
 
-public class ContollerProducts implements Initializable {
+public class ProductsController implements Initializable {
    PreparedMethods pm = new PreparedMethods();
 
     @FXML
@@ -67,7 +57,7 @@ public class ContollerProducts implements Initializable {
 
 
     public void LogOutAction(ActionEvent event) throws IOException {
-        pm.changeScene(event,"/sample/fxml/sample.fxml","login");
+        pm.changeScene(event, "/sample/fxml/Sample.fxml","login");
     }
 
     @FXML public void CartAction(ActionEvent event) {

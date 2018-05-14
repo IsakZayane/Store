@@ -4,21 +4,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
-import javafx.stage.Stage;
 import sample.Classes.DataBase;
 import sample.Classes.Food;
 import sample.Classes.PreparedMethods;
 import sample.Classes.Shoppingcartsingleton;
 
-import javax.xml.soap.Text;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -72,7 +66,7 @@ public class FoodListController implements Initializable {
 
 
     public void backButton(ActionEvent event) throws IOException {
-        pm.changeScene(event,"/sample/fxml/productssample.fxml","Products" );
+        pm.changeScene(event, "/sample/fxml/ProductsSample.fxml","Products" );
 
     }
     public void addShoppingCartAction(){

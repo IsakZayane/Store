@@ -4,15 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
-import javafx.stage.Stage;
 import sample.Classes.DataBase;
 import sample.Classes.KittyLitter;
 import sample.Classes.PreparedMethods;
@@ -66,7 +61,7 @@ public class KittyLitterController implements Initializable {
 
 
     public void backButton(ActionEvent event) throws IOException {
-        pm.changeScene(event,"/sample/fxml/productssample.fxml","Products" );
+        pm.changeScene(event, "/sample/fxml/ProductsSample.fxml","Products" );
     }
 
     public void showInfo(){

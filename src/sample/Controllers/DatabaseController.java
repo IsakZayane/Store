@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class databaseController implements Initializable {
+public class DatabaseController implements Initializable {
     PreparedMethods pm = new PreparedMethods();
 
     @FXML
@@ -78,11 +78,11 @@ public class databaseController implements Initializable {
     }
 
     public void goBackAction(ActionEvent event){
-        pm.changeScene(event,"/sample/fxml/productssampleadmin.fxml","");
+        pm.changeScene(event, "/sample/fxml/AdminProductsSample.fxml","");
 
     }
 public void goBackToLoginAction(ActionEvent event){
-        pm.changeScene(event,"/sample/fxml/sample.fxml","");
+        pm.changeScene(event, "/sample/fxml/Sample.fxml","");
 
     }
 public void exitAction(){

@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import sample.Classes.DataBase;
 import sample.Classes.Emailsender;
 import sample.Classes.NameTransfer;
@@ -13,7 +12,6 @@ import sample.Classes.Shoppingcartsingleton;
 import sample.Classes.PreparedMethods;
 
 import java.net.URL;
-import java.sql.Date;
 import java.util.ResourceBundle;
 
 public class ShoppingCartController implements Initializable {
@@ -33,7 +31,7 @@ cartView.setText(String.valueOf(Shoppingcartsingleton.getInstance().getShoppingc
 
     public void goBack(ActionEvent event){
 
-       pm.changeScene(event,"/sample/fxml/productssample.fxml","products");
+       pm.changeScene(event, "/sample/fxml/ProductsSample.fxml","products");
 
 
     }

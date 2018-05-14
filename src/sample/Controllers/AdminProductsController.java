@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ContollerProductsAdmin implements Initializable {
+public class AdminProductsController implements Initializable {
    PreparedMethods pm = new PreparedMethods();
 
     @FXML
@@ -55,7 +55,7 @@ public class ContollerProductsAdmin implements Initializable {
 
 
     public void LogOutAction(ActionEvent event) throws IOException {
-        pm.changeScene(event,"/sample/fxml/sample.fxml","login");
+        pm.changeScene(event, "/sample/fxml/Sample.fxml","login");
     }
 
     @FXML public void CartAction(ActionEvent event) {
