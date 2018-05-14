@@ -26,6 +26,8 @@ import java.util.ResourceBundle;
 public class FoodListController implements Initializable {
     PreparedMethods pm = new PreparedMethods();
 
+    @FXML TextField searchField;
+
     @FXML
     TableView<Food> tableViewOne, tableViewTwo;
     @FXML
@@ -96,9 +98,17 @@ public class FoodListController implements Initializable {
 
     public void backButton(ActionEvent event) throws IOException {
 
-        pm.changeScene(event, "/sample/fxml/ProductsSample.fxml","Products" );
+        DataBase db = new DataBase();
 
+        if (db.isAdmin()){
 
+            pm.changeScene(event,"/sample/fxml/AdminProductsSample.fxml", "Products-Admin");
+            System.out.println("still admin");
+        }
+else {
+            pm.changeScene(event, "/sample/fxml/ProductsSample.fxml", "Products");
+            System.out.println("not admin");
+        }
     }
 
     public void addShoppingCartAction() {
@@ -139,6 +149,38 @@ public class FoodListController implements Initializable {
 
 
     }
+    @FXML  public void searchFunction() {
+        String s = searchField.getText();
+
+        DataBase db = new DataBase();
+        ArrayList<Food> myFoodList = db.getFoodList();
+
+
+
+
+
+
+        for (int i = 0; i < myFoodList.size(); i++) {
+            System.out.println(myFoodList.get(i).getName());
+
+            if (s.equals(myFoodList.get(i).getName())){
+                ObservableList<Food> mySearchList = FXCollections.observableArrayList();
+                mySearchList.add(myFoodList.get(i) );
+
+                tableViewOne.setItems(mySearchList);
+                nameColOne.setCellValueFactory(new PropertyValueFactory<Food, String>("name"));
+                priceColOne.setCellValueFactory(new PropertyValueFactory<Food, Double>("price"));
+
+
+
+
+            }
+
+        }
+    }
+
+
+
 }
 
 

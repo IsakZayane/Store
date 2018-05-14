@@ -27,6 +27,8 @@ import java.util.ResourceBundle;
 public class WineListController implements Initializable {
 
  private PreparedMethods pm = new PreparedMethods();
+ @FXML TextField searchField;
+
 
     @FXML
     public ListView<String> listView1;
@@ -96,8 +98,16 @@ public class WineListController implements Initializable {
 
     public void backButton(ActionEvent event) throws IOException {
 
-        pm.changeScene(event, "/sample/fxml/ProductsSample.fxml","Products" );
+        DataBase db = new DataBase();
 
+        if (db.isAdmin()){
+            pm.changeScene(event,"/sample/fxml/AdminProductsSample.fxml", "Products-Admin");
+            System.out.println("still admin");
+        }
+        else {
+            System.out.println(" not admin ");
+            pm.changeScene(event, "/sample/fxml/ProductsSample.fxml", "Products");
+        }
 
     }
 
@@ -137,6 +147,39 @@ public class WineListController implements Initializable {
 
 
     }
+
+
+    @FXML  public void searchFunction() {
+        String s = searchField.getText();
+
+        DataBase db = new DataBase();
+        ArrayList<Wine> myWineList = db.getWineList();
+
+
+
+
+
+
+        for (int i = 0; i < myWineList.size(); i++) {
+            System.out.println(myWineList.get(i).getName());
+
+            if (s.equals(myWineList.get(i).getName())){
+                ObservableList<Wine> mySearchList = FXCollections.observableArrayList();
+                mySearchList.add(myWineList.get(i) );
+
+                tableViewOne.setItems(mySearchList);
+                nameColOne.setCellValueFactory(new PropertyValueFactory<Wine, String>("name"));
+                priceColOne.setCellValueFactory(new PropertyValueFactory<Wine, Double>("price"));
+
+
+
+
+            }
+
+        }
+    }
+
+
 
 }
 

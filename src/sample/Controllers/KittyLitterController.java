@@ -36,6 +36,8 @@ public class KittyLitterController implements Initializable {
     TableColumn nameColOne, nameColTwo, priceColOne, priceColTwo;
     @FXML
     TableView<KittyLitter> tableViewOne, tableViewTwo;
+    @FXML TextField searchField;
+
 
 
     ArrayList<KittyLitter> catlitter = new ArrayList<>();
@@ -78,7 +80,14 @@ public class KittyLitterController implements Initializable {
 
 
     public void backButton(ActionEvent event) throws IOException {
-        pm.changeScene(event, "/sample/fxml/ProductsSample.fxml","Products" );
+        DataBase db = new DataBase();
+        if(db.isAdmin()) {
+            pm.changeScene(event,"/sample/fxml/AdminProductsSample.fxml", "Products-Admin");
+            System.out.println("still admin");
+        }else {
+            System.out.println("not admin");
+            pm.changeScene(event, "/sample/fxml/ProductsSample.fxml", "Products");
+        }
     }
 
     public void showInfo(){
@@ -118,6 +127,36 @@ public class KittyLitterController implements Initializable {
         }
 
 
+    }
+
+  @FXML  public void searchFunction() {
+        String s = searchField.getText();
+
+        DataBase db = new DataBase();
+      ArrayList<KittyLitter> myKittyList = db.getKittylitterList();
+
+
+
+
+
+
+        for (int i = 0; i < myKittyList.size(); i++) {
+            System.out.println(myKittyList.get(i).getName());
+
+            if (s.equals(myKittyList.get(i).getName())){
+                ObservableList<KittyLitter> mySearchList = FXCollections.observableArrayList();
+                mySearchList.add(myKittyList.get(i) );
+
+                tableViewOne.setItems(mySearchList);
+                nameColOne.setCellValueFactory(new PropertyValueFactory<KittyLitter, String>("name"));
+                priceColOne.setCellValueFactory(new PropertyValueFactory<KittyLitter, Double>("price"));
+
+
+
+
+            }
+
+        }
     }
 }
 
