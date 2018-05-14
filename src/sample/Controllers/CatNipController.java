@@ -30,7 +30,7 @@ public class CatNipController implements Initializable {
 
     PreparedMethods pm = new PreparedMethods();
 
-
+    @FXML TextField searchField;
     @FXML
     public ListView<String> listView1;
     @FXML
@@ -87,8 +87,15 @@ public class CatNipController implements Initializable {
 
     public void backButton(ActionEvent event) throws IOException {
 
-        pm.changeScene(event, "/sample/fxml/productsSample.fxml", "Products");
+        DataBase db = new DataBase();
 
+        if (db.isAdmin()) {
+            pm.changeScene(event,"/sample/fxml/AdminProductsSample.fxml", "Products-Admin");
+            System.out.println("still admin");
+        }
+        else {
+            pm.changeScene(event, "/sample/fxml/productsSample.fxml", "Products");
+        }
 
 
     }
@@ -129,6 +136,36 @@ public class CatNipController implements Initializable {
         }
 
 
+    }
+
+    @FXML  public void searchFunction() {
+        String s = searchField.getText();
+
+        DataBase db = new DataBase();
+        ArrayList<CatNip> myCatNipList = db.getCatnipList();
+
+
+
+
+
+
+        for (int i = 0; i < myCatNipList.size(); i++) {
+            System.out.println(myCatNipList.get(i).getName());
+
+            if (s.equals(myCatNipList.get(i).getName())){
+                ObservableList<CatNip> mySearchList = FXCollections.observableArrayList();
+                mySearchList.add(myCatNipList.get(i) );
+
+                tableViewOne.setItems(mySearchList);
+                nameColOne.setCellValueFactory(new PropertyValueFactory<KittyLitter, String>("name"));
+                priceColOne.setCellValueFactory(new PropertyValueFactory<KittyLitter, Double>("price"));
+
+
+
+
+            }
+
+        }
     }
 }
 

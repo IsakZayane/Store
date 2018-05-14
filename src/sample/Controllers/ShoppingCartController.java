@@ -75,8 +75,15 @@ ObservableList<Item> myList = FXCollections.observableArrayList();
 
 
     public void goBack(ActionEvent event){
+        DataBase db = new DataBase();
 
-       pm.changeScene(event, "/sample/fxml/ProductsSample.fxml","products");
+        if (db.isAdmin()){
+
+            pm.changeScene(event, "/sample/fxml/AdminProductsSample.fxml","products");
+        }
+
+      else {
+        }pm.changeScene(event, "/sample/fxml/ProductsSample.fxml","products");
 
 
 

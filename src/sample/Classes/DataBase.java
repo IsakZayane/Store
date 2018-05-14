@@ -453,6 +453,39 @@ public class DataBase {
 
     }
 
+    public boolean isAdmin() {
+        boolean adminaccept = false;
+        try {
+
+            int admincheck = 0;
+            String query = "select admin from user where username = ?";
+            PreparedStatement adminsearch = c.prepareStatement(query);
+            adminsearch.setString(1, NameTransfer.getInstance().getName());
+
+            ResultSet rs = adminsearch.executeQuery();
+
+            while (rs.next()) {
+                admincheck = rs.getInt("admin");
+            }
+            if (admincheck == 1) {
+                adminaccept = true;
+            }
+
+        } catch (SQLException e) {
+
+
+        }
+        return adminaccept;
+
+    }
+
+
+
+
+
+
+
+
     public void addItem(String type, String name, String ingridients, double weight, String origin, String detail, int price) {
         try {
             String query = "INSERT into products (productsprice,productsname,productsingredients,productsweight,productsorigin,productsdetail,producttype) values (?,?,?,?,?,?,?)";

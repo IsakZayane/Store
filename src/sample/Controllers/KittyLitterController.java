@@ -80,7 +80,14 @@ public class KittyLitterController implements Initializable {
 
 
     public void backButton(ActionEvent event) throws IOException {
-        pm.changeScene(event, "/sample/fxml/ProductsSample.fxml","Products" );
+        DataBase db = new DataBase();
+        if(db.isAdmin()) {
+            pm.changeScene(event,"/sample/fxml/AdminProductsSample.fxml", "Products-Admin");
+            System.out.println("still admin");
+        }else {
+            System.out.println("not admin");
+            pm.changeScene(event, "/sample/fxml/ProductsSample.fxml", "Products");
+        }
     }
 
     public void showInfo(){
