@@ -3,8 +3,10 @@ package sample.Classes;
 public  abstract class Person {
     private String name;
     private int id;
+    private String email;
 
     {
+        this.email = email;
         this.name = name;
         this.id = id;
     }
@@ -23,6 +25,14 @@ public  abstract class Person {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
     }
 }
 

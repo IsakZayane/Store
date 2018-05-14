@@ -71,7 +71,7 @@ public class Controller implements Initializable {
                 NameTransfer.getInstance().setName(usernameField.getText());
                 NameTransfer.getInstance().setEmail(email);
                 pm.changeScene(event,"/sample/fxml/productssampleadmin.fxml","Admin");
-            }else if (!myDB.adminLogin(usernameField.getText(),password)){
+            }else if (!myDB.adminLogin(usernameField.getText(),password) && !myDB.blockedUser(usernameField.getText(),password)){
 
                 myDB.memberLogIn(usernameField.getText(), password);
                 String email = myDB.Email(usernameField.getText());
@@ -79,6 +79,8 @@ public class Controller implements Initializable {
                 NameTransfer.getInstance().setEmail(email);
 
                 pm.changeScene(event, "/sample/fxml/productssample.fxml", "products");
+            }else if (!myDB.adminLogin(usernameField.getText(),password) && myDB.blockedUser(usernameField.getText(),password)){
+                pm.showAlert("YOU AR BLOCKED ASSHOLE","FUCKER","GET IT TOGHETHER");
             }
 
         } catch (Exception e) {
