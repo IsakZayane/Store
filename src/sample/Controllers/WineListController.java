@@ -89,7 +89,7 @@ public class WineListController implements Initializable {
     }
 
     public void removeButton() {
-        list2.remove(listView2.getSelectionModel().getSelectedItem());
+        myListTwo.remove(tableViewOne.getSelectionModel().getSelectedItem());
     }
 
 

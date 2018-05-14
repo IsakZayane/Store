@@ -95,8 +95,6 @@ public class CatNipController implements Initializable {
 
     public void showInfo() {
 
-
-
         System.out.println("innan for");
         for (int i = 0; i < tableViewOne.getItems().size(); i++) {
 

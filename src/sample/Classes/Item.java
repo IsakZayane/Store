@@ -12,6 +12,9 @@ public abstract class Item {
         this.name=name;
         this.price=price;
         this.weight=weight;
+        this.origin=origin;
+        this.detail=detail;
+        this.ingredients=ingredients;
     }
 
     public String getName() {
