@@ -5,9 +5,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+
 import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
+
 import javafx.scene.control.TextArea;
+
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+
 import sample.Classes.DataBase;
 import sample.Classes.Food;
 import sample.Classes.PreparedMethods;
@@ -19,99 +24,120 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class FoodListController implements Initializable {
-    PreparedMethods pm  = new PreparedMethods();
+    PreparedMethods pm = new PreparedMethods();
 
+    @FXML
+    TableView<Food> tableViewOne, tableViewTwo;
+    @FXML
+    TableColumn nameColOne, nameColTwo, priceColOne, priceColTwo;
 
     @FXML
     public ListView<String> listView1;
     @FXML
     public ListView<String> listView2;
-    @FXML public TextArea textarea;
+    @FXML
+    public TextArea textAreaInfo;
 
     public ArrayList<Food> food = new ArrayList<>();
 
     ObservableList<String> list = FXCollections.observableArrayList();
     ObservableList<String> list2 = FXCollections.observableArrayList();
-    ArrayList<String> shoppingcart=new ArrayList<>();
+    ObservableList<Food> myList = FXCollections.observableArrayList();
+    ObservableList<Food> myListTwo = FXCollections.observableArrayList();
+
+
+    ArrayList<String> shoppingcart = new ArrayList<>();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DataBase myDB = new DataBase();
-        food=myDB.getFoodList();
-
-        listView1.setItems(list);
-        listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        food = myDB.getFoodList();
 
 
-        listView2.setItems(list2);
-        listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        myList.addAll(food);
+
+        nameColOne.setCellValueFactory(new PropertyValueFactory<Food, String>("name"));
+        priceColOne.setCellValueFactory(new PropertyValueFactory<Food, Double>("price"));
 
 
+        //listView1.setItems(list);
+        //listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
 
+//        listView2.setItems(list2);
+        //      listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        for (int i = 0;i<food.size();i++){
-            list.add(food.get(i).getName());
+
+        for (int i = 0; i < food.size(); i++) {
+            tableViewOne.setItems(myList);
         }
 
     }
 
     public void addButton() {
-        list2.add(listView1.getSelectionModel().getSelectedItem());
+
+        System.out.println("Tjoo you just added nothing");
+        myListTwo.add(tableViewOne.getSelectionModel().getSelectedItem());
+        tableViewTwo.setItems(myListTwo);
+
+
+        nameColTwo.setCellValueFactory(new PropertyValueFactory<Food, String>("name")); //hämtar det som finns i objektet under name och price
+        priceColTwo.setCellValueFactory(new PropertyValueFactory<Food, Double>("price"));
+
 
     }
 
     public void removeButton() {
-        list2.remove(listView2.getSelectionModel().getSelectedItem());
+        myListTwo.remove(tableViewOne.getSelectionModel().getSelectedItem());
+
     }
 
 
     public void backButton(ActionEvent event) throws IOException {
+
         pm.changeScene(event, "/sample/fxml/ProductsSample.fxml","Products" );
 
+
     }
-    public void addShoppingCartAction(){
-        for (int i =0; i<list2.size();i++) {
-            Shoppingcartsingleton.getInstance().setShoppingcart(listView2.getItems().get(i));
+
+    public void addShoppingCartAction() {
+
+
+        pm.showAlert("Products added!", "You just added some products to your cart", "Continue shopping or order");
+        for (int i = 0; i < myListTwo.size(); i++) {
+            Shoppingcartsingleton.getInstance().setShoppingcart(tableViewTwo.getItems().get(i));
+            System.out.println(Shoppingcartsingleton.getInstance().getShoppingcart());
 
 
         }
-
-
-
-
-
     }
 
-    public void showInfo(){
-        String name=listView1.getSelectionModel().getSelectedItem();
-        String info="";
+    public void showInfo() {
+        //String name = listView1.getSelectionModel().getSelectedItem();
+        System.out.println("innan for");
+        for (int i = 0; i < tableViewOne.getItems().size(); i++) {
 
-        try {
 
-            for (int i = 0; i < food.size(); i++) {
-                if (name == food.get(i).getName()) {
+            String name = tableViewOne.getSelectionModel().getSelectedItem().getName();
 
-                    info = "Name: " + name + "\n" +
-                            "Price: " + food.get(i).getPrice() + "\n" +
-                            "Ingredients: " + food.get(i).getIngredients() + "\n" +
-                            "Weight: " + food.get(i).getWeight() + "\n" +
-                            "Origin: " + food.get(i).getOrigin() + "\n" +
-                            "Detail: " + food.get(i).getDetail() + "\n";
+            if (name.equals(food.get(i).getName())) {
 
-                }
+                String info = "Name: " + tableViewOne.getItems().get(i).getName() + "\n" +
+                        "Price: " + tableViewOne.getItems().get(i).getPrice() + "\n" +
+                        "Ingredients: " + tableViewOne.getItems().get(i).getIngredients() + "\n" +
+                        "Weight: " + tableViewOne.getItems().get(i).getWeight() + "\n" +
+                        "Origin: " + tableViewOne.getItems().get(i).getOrigin() + "\n" +
+                        "Details: " + tableViewOne.getItems().get(i).getDetail();
+
+
+                textAreaInfo.setText(info);
+
+
             }
-
-            textarea.setText(info);
-
-        }
-        catch (Exception e){
-
         }
 
     }
-
 }
-
 
 
 

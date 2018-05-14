@@ -5,11 +5,18 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+
 import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
+
 import javafx.scene.control.TextArea;
+
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+
 import sample.Classes.DataBase;
 import sample.Classes.PreparedMethods;
+import sample.Classes.Shoppingcartsingleton;
 import sample.Classes.Wine;
 
 import java.io.IOException;
@@ -27,9 +34,15 @@ public class WineListController implements Initializable {
     public ListView<String> listView2;
     public ArrayList<Wine> wine = new ArrayList<>();
     @FXML public TextArea textArea;
+    @FXML
+    TableView<Wine> tableViewOne, tableViewTwo;
+    @FXML
+    TableColumn nameColOne, nameColTwo, priceColOne, priceColTwo;
 
     ObservableList<String> list = FXCollections.observableArrayList();
     ObservableList<String> list2 = FXCollections.observableArrayList();
+    ObservableList<Wine> myList = FXCollections.observableArrayList();
+    ObservableList<Wine> myListTwo = FXCollections.observableArrayList();
 
 
     @Override
@@ -38,17 +51,23 @@ public class WineListController implements Initializable {
 
 
         wine=myDB.getWineList();
+        myList.addAll(wine);
 
-        listView1.setItems(list);
-        listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        nameColOne.setCellValueFactory(new PropertyValueFactory<Wine, String>("name"));
+        priceColOne.setCellValueFactory(new PropertyValueFactory<Wine, Double>("price"));
 
 
-        listView2.setItems(list2);
-        listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+ //       listView1.setItems(list);
+  //      listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+
+       // listView2.setItems(list2);
+  //      listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
 
         for (int i = 0;i<wine.size();i++){
-            list.add(wine.get(i).getName());
+
+            tableViewOne.setItems(myList);
         }
 
 
@@ -56,7 +75,16 @@ public class WineListController implements Initializable {
     }
 
     public void addButton() {
-        list2.add(listView1.getSelectionModel().getSelectedItem());
+        // list2.add(listView1.getSelectionModel().getSelectedItem());
+        myListTwo.add(tableViewOne.getSelectionModel().getSelectedItem());
+
+        tableViewTwo.setItems(myListTwo);
+
+
+        nameColTwo.setCellValueFactory(new PropertyValueFactory<Wine, String>("name")); //hämtar det som finns i objektet under name och price
+        priceColTwo.setCellValueFactory(new PropertyValueFactory<Wine, Double>("price"));
+
+
 
     }
 
@@ -74,32 +102,40 @@ public class WineListController implements Initializable {
     }
 
     public void showInfo(){
-        String name=listView1.getSelectionModel().getSelectedItem();
-        String info="";
+       // String name=listView1.getSelectionModel().getSelectedItem();
+        // String info="";
+        System.out.println("innan for");
+        for (int i = 0; i < tableViewOne.getItems().size(); i++) {
 
-        try {
 
-            for (int i = 0; i < wine.size(); i++) {
-                if (name == wine.get(i).getName()) {
+         String    name = tableViewOne.getSelectionModel().getSelectedItem().getName();
 
-                    info = "Name: " + name + "\n" +
-                            "Price: " + wine.get(i).getPrice() + "\n" +
-                            "Ingredients: " + wine.get(i).getIngredients() + "\n" +
-                            "Weight: " + wine.get(i).getWeight() + "\n" +
-                            "Origin: " + wine.get(i).getOrigin() + "\n" +
-                            "Detail: " + wine.get(i).getDetail() + "\n";
+            if (name.equals(wine.get(i).getName())) {
 
-                }
+                String info = "Name: " + tableViewOne.getItems().get(i).getName() + "\n" +
+                        "Price: " + tableViewOne.getItems().get(i).getPrice() + "\n" +
+                        "Ingredients: " + tableViewOne.getItems().get(i).getIngredients() + "\n" +
+                        "Weight: " + tableViewOne.getItems().get(i).getWeight() + "\n" +
+                        "Origin: " + tableViewOne.getItems().get(i).getOrigin() + "\n" +
+                        "Details: " + tableViewOne.getItems().get(i).getDetail();
+
+
+                textArea.setText(info);
+
+
             }
+        }
 
-            textArea.setText(info);
+    }
+    public void addShoppingCartAction() {
+        pm.showAlert("Products added!", "You just added some products to your cart", "Continue shopping or order");
+        for (int i = 0; i < myListTwo.size(); i++) {
+            Shoppingcartsingleton.getInstance().setShoppingcart(tableViewTwo.getItems().get(i));
+            System.out.println(Shoppingcartsingleton.getInstance().getShoppingcart());
 
         }
-        catch (Exception e){
-            
 
 
-        }
     }
 
 }
