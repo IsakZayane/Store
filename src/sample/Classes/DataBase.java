@@ -10,7 +10,7 @@ import java.util.Date;
 public class DataBase {
     PreparedMethods pm = new PreparedMethods();
 
-
+//hej
     private String url = "jdbc:mysql://den1.mysql6.gear.host/TheStoreDB?user=thestoredb&password=kattmat!"; //githost address
     private Statement st;
     private Connection c;
