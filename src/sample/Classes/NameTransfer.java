@@ -3,6 +3,7 @@ package sample.Classes;
 public class NameTransfer {
     private String email;
     private String name;
+    private double totalsum;
     private static NameTransfer ourInstance = new NameTransfer();
 
     public static NameTransfer getInstance() {
@@ -25,6 +26,12 @@ public class NameTransfer {
     }public String getEmail(){
         return email;
     }
+
+    public void setTotalsum(double setsum){
+
+        this.totalsum += setsum;
+    }
+   public double getTotalsum(){return totalsum;}
 
     private NameTransfer() {
     }

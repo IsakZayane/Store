@@ -14,10 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 
-import sample.Classes.DataBase;
-import sample.Classes.PreparedMethods;
-import sample.Classes.Shoppingcartsingleton;
-import sample.Classes.Wine;
+import sample.Classes.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -128,6 +125,9 @@ public class WineListController implements Initializable {
 
     }
     public void addShoppingCartAction() {
+        for (int i=0;i<myListTwo.size();i++) {
+            NameTransfer.getInstance().setTotalsum(myListTwo.get(i).getPrice());
+        }
         pm.showAlert("Products added!", "You just added some products to your cart", "Continue shopping or order");
         for (int i = 0; i < myListTwo.size(); i++) {
             Shoppingcartsingleton.getInstance().setShoppingcart(tableViewTwo.getItems().get(i));

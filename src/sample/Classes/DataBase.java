@@ -10,7 +10,7 @@ import java.util.Date;
 public class DataBase {
     PreparedMethods pm = new PreparedMethods();
 
-//hej
+    //hej
     private String url = "jdbc:mysql://den1.mysql6.gear.host/TheStoreDB?user=thestoredb&password=kattmat!"; //githost address
     private Statement st;
     private Connection c;
@@ -59,7 +59,7 @@ public class DataBase {
             }
 
             if (foundType != userEmail) {
-                int notadmin=0;
+                int notadmin = 0;
 
 
                 PreparedStatement addUser = c.prepareStatement("INSERT INTO user (userName, userEmail, password, admin) VALUES ( ?, ?, ?,?)");
@@ -67,7 +67,7 @@ public class DataBase {
                 addUser.setString(1, userName);
                 addUser.setString(2, userEmail);
                 addUser.setInt(3, password);
-                addUser.setInt(4,notadmin);
+                addUser.setInt(4, notadmin);
 
                 addUser.execute();
 
@@ -192,10 +192,11 @@ public class DataBase {
 
     public void orderDetails(java.sql.Date date, String name) {
         try {
-            String query = "insert into orders (ordersDate,user_iduser) values (?,(select iduser from user where username = ?))";
+            String query = "insert into orders (ordersdate,user_iduser,payments_paymentsid) values (?,(select iduser from user where userName = ?),(select max(paymentsid) from payments where user_iduser =(select iduser from user where userName = ?)));";
             PreparedStatement order = c.prepareStatement(query);
             order.setDate(1, date);
             order.setString(2, name);
+            order.setString(3,name);
             order.execute();
             System.out.println("order details");
         } catch (SQLException e) {
@@ -571,26 +572,59 @@ public class DataBase {
             e.printStackTrace();
         }
     }
-public boolean allreadyBlocked (String email){
+
+    public boolean allreadyBlocked(String email) {
         boolean isblocked = false;
         int blocked = 0;
         try {
             String query = "Select admin from user where userEmail = ?";
             PreparedStatement blockcheck = c.prepareStatement(query);
-            blockcheck.setString(1,email);
+            blockcheck.setString(1, email);
             ResultSet rs = blockcheck.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 blocked = rs.getInt("admin");
-            }if (blocked == 2){
+            }
+            if (blocked == 2) {
                 isblocked = true;
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
-        }return isblocked;
+        }
+        return isblocked;
 
 
     }
+public void paymentsInsert(java.sql.Date date,double pay,String name) {
+    try {
+        String query = "INSERT into payments (paymentsdate,paymentsamount,user_iduser) values (?,?,(select iduser from user where username = ?));";
+        PreparedStatement payment = c.prepareStatement(query);
+        payment.setDate(1, date);
+        payment.setDouble(2, pay);
+        payment.setString(3, name);
+        payment.execute();
+    } catch (SQLException e) {
+        e.printStackTrace();
+
+    }
 }
+//public void (String username,String productname,int quantity){
+//        try{
+//            String query ="insert into orderdetails (orders_ordersid,products_productsid,quantityordered) values (\n" +
+//                    "(select ordersId from orders where user_iduser = (select iduser from user where username = ?)\n" +
+//                    "),(select productsid from products where productsName = ?),?)";
+//            PreparedStatement specifics = c.prepareStatement(query);
+//            specifics.setString(1,username);
+//            specifics.setString(2,productname);
+//            specifics.setInt(3,quantity);
+//            specifics.execute();
+//        }catch (SQLException e){
+//            e.printStackTrace();
+//        }
+//    }
+}
+
+
+
 
 
 

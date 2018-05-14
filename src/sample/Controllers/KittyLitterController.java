@@ -13,10 +13,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import sample.Classes.DataBase;
-import sample.Classes.KittyLitter;
-import sample.Classes.PreparedMethods;
-import sample.Classes.Shoppingcartsingleton;
+import sample.Classes.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,7 +28,8 @@ public class KittyLitterController implements Initializable {
     public ListView<String> listView1;
     @FXML
     public ListView<String> listView2;
-    @FXML public TextArea textArea;
+    @FXML
+    public TextArea textArea;
     @FXML
     TableColumn nameColOne, nameColTwo, priceColOne, priceColTwo;
     @FXML
@@ -51,12 +49,12 @@ public class KittyLitterController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         DataBase myDB = new DataBase();
-        catlitter=myDB.getKittylitterList();
+        catlitter = myDB.getKittylitterList();
 
         myList.addAll(catlitter);
 
-       nameColOne.setCellValueFactory(new PropertyValueFactory<KittyLitter, String>("name"));
-       priceColOne.setCellValueFactory(new PropertyValueFactory<KittyLitter, Double>("price"));
+        nameColOne.setCellValueFactory(new PropertyValueFactory<KittyLitter, String>("name"));
+        priceColOne.setCellValueFactory(new PropertyValueFactory<KittyLitter, Double>("price"));
 
         for (int i = 0; i < catlitter.size(); i++) {
             tableViewOne.setItems(myList);
@@ -78,12 +76,12 @@ public class KittyLitterController implements Initializable {
 
 
     public void backButton(ActionEvent event) throws IOException {
-        pm.changeScene(event, "/sample/fxml/ProductsSample.fxml","Products" );
+        pm.changeScene(event, "/sample/fxml/ProductsSample.fxml", "Products");
     }
 
-    public void showInfo(){
-     //   String name=listView1.getSelectionModel().getSelectedItem();
-    //    String info="";
+    public void showInfo() {
+        //   String name=listView1.getSelectionModel().getSelectedItem();
+        //    String info="";
 
 
         for (int i = 0; i < tableViewOne.getItems().size(); i++) {
@@ -110,16 +108,20 @@ public class KittyLitterController implements Initializable {
     }
 
     public void addShoppingCartAction() {
-        pm.showAlert("Products added!", "You just added some products to your cart", "Continue shopping or order");
         for (int i = 0; i < myListTwo.size(); i++) {
-            Shoppingcartsingleton.getInstance().setShoppingcart(tableViewTwo.getItems().get(i));
-            System.out.println(Shoppingcartsingleton.getInstance().getShoppingcart());
+            NameTransfer.getInstance().setTotalsum(myListTwo.get(i).getPrice());
+        }
+            pm.showAlert("Products added!", "You just added some products to your cart", "Continue shopping or order");
+            for (int i = 0; i < myListTwo.size(); i++) {
+                Shoppingcartsingleton.getInstance().setShoppingcart(tableViewTwo.getItems().get(i));
+                System.out.println(Shoppingcartsingleton.getInstance().getShoppingcart());
+
+            }
+
 
         }
-
-
     }
-}
+
 
 
 

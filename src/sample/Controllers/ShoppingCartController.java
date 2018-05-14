@@ -80,13 +80,20 @@ ObservableList<Item> myList = FXCollections.observableArrayList();
 
     }
     public void orderAction(){
+        int quantity = myList.size();
         DataBase db = new DataBase();
         java.util.Date date = new java.util.Date();
-        Emailsender es = new Emailsender();
-        es.sendEmail(NameTransfer.getInstance().getEmail(), String.valueOf(Shoppingcartsingleton.getInstance()
-                .getShoppingcart()),db.getOrderId(NameTransfer.getInstance().getName()));
         java.sql.Date sqldate = new java.sql.Date(date.getTime());
         db.orderDetails(sqldate,NameTransfer.getInstance().getName());
+
+        db.paymentsInsert(sqldate,NameTransfer.getInstance().getTotalsum(),NameTransfer.getInstance().getName());
+        Emailsender es = new Emailsender();
+        es.sendEmail(NameTransfer.getInstance().getEmail(),cartView.getText(),db.getOrderId(NameTransfer.getInstance().getName()),
+                NameTransfer.getInstance().getTotalsum());
+
+        }
+
+
 
 
 
@@ -94,4 +101,4 @@ ObservableList<Item> myList = FXCollections.observableArrayList();
     }
 
 
-}
+
