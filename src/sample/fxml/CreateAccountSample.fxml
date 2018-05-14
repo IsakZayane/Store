@@ -8,19 +8,19 @@
 
 <AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../createAccountStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.CreateAccountController">
    <children>
-      <TextField fx:id="usernameField" layoutX="89.0" layoutY="173.0" onAction="#EnterName" prefHeight="38.0" prefWidth="318.0" promptText="Username" />
-      <TextField fx:id="emailTextField" layoutX="89.0" layoutY="229.0" onAction="#EnterEmail" prefHeight="38.0" prefWidth="318.0" promptText="E-mail address" />
-      <PasswordField fx:id="passwordField" layoutX="89.0" layoutY="288.0" onAction="#EnterPassword" prefHeight="38.0" prefWidth="318.0" promptText="Password" />
-      <PasswordField fx:id="repasswordField" layoutX="89.0" layoutY="346.0" onAction="#ReEnterPassword" prefHeight="38.0" prefWidth="318.0" promptText="Re-Enter Password" />
-      <Button fx:id="createbutton" layoutX="166.0" layoutY="395.0" mnemonicParsing="false" onAction="#createMember" prefHeight="40.0" prefWidth="164.0" text="Create Account" textFill="#cd0909">
+      <TextField fx:id="usernameField" layoutX="431.0" layoutY="93.0" onAction="#EnterName" prefHeight="38.0" prefWidth="318.0" promptText="Username" />
+      <TextField fx:id="emailTextField" layoutX="431.0" layoutY="152.0" onAction="#EnterEmail" prefHeight="38.0" prefWidth="318.0" promptText="E-mail address" />
+      <PasswordField fx:id="passwordField" layoutX="431.0" layoutY="211.0" onAction="#EnterPassword" prefHeight="38.0" prefWidth="318.0" promptText="Password" />
+      <PasswordField fx:id="repasswordField" layoutX="431.0" layoutY="269.0" onAction="#ReEnterPassword" prefHeight="38.0" prefWidth="318.0" promptText="Re-Enter Password" />
+      <Button fx:id="createbutton" layoutX="508.0" layoutY="325.0" mnemonicParsing="false" onAction="#createMember" opacity="0.7" prefHeight="40.0" prefWidth="164.0" text="Create Account" textFill="#cd0909">
          <font>
             <Font name="French Script MT" size="19.0" />
          </font></Button>
-      <Button fx:id="gobackbutton" layoutX="60.0" layoutY="521.0" mnemonicParsing="false" onAction="#GoBackAction" prefHeight="40.0" prefWidth="164.0" text="Return to Log In" textFill="#cd0909">
+      <Button fx:id="gobackbutton" layoutX="400.0" layoutY="395.0" mnemonicParsing="false" onAction="#GoBackAction" opacity="0.7" prefHeight="40.0" prefWidth="164.0" text="Return to Log In" textFill="#cd0909">
          <font>
             <Font name="French Script MT" size="22.0" />
          </font></Button>
-      <Button fx:id="guestbutton" layoutX="336.0" layoutY="521.0" mnemonicParsing="false" onAction="#ProceedAction" prefHeight="40.0" prefWidth="164.0" text="Proceed as Guest" textFill="#cd0909">
+      <Button fx:id="guestbutton" layoutX="622.0" layoutY="395.0" mnemonicParsing="false" onAction="#ProceedAction" opacity="0.7" prefHeight="40.0" prefWidth="164.0" text="Proceed as Guest" textFill="#cd0909">
          <font>
             <Font name="French Script MT" size="22.0" />
          </font></Button>

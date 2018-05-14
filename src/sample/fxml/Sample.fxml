@@ -7,31 +7,31 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="790.0" styleClass="root" stylesheets="@/sample/sampleStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller">
+<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="root" stylesheets="@../sampleStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller">
    <children>
-      <TextArea editable="false" layoutX="62.0" layoutY="163.0" opacity="0.62" prefHeight="233.0" prefWidth="343.0" stylesheets="@/sample/sampleStyle.css" />
-      <TextField fx:id="usernameField" layoutX="131.0" layoutY="180.0" prefHeight="36.0" prefWidth="206.0" promptText="               username" stylesheets="@/sample/sampleStyle.css">
+      <TextArea editable="false" layoutX="397.0" layoutY="130.0" opacity="0.62" prefHeight="340.0" prefWidth="356.0" stylesheets="@/sample/sampleStyle.css" />
+      <TextField fx:id="usernameField" layoutX="466.0" layoutY="165.0" prefHeight="40.0" prefWidth="200.0" promptText="               username" stylesheets="@/sample/sampleStyle.css">
          <font>
             <Font name="French Script MT" size="18.0" />
          </font></TextField>
-      <PasswordField fx:id="passwordField" layoutX="131.0" layoutY="227.0" prefHeight="34.0" prefWidth="206.0" promptText="               password" stylesheets="@/sample/sampleStyle.css">
+      <PasswordField fx:id="passwordField" layoutX="466.0" layoutY="228.0" prefHeight="40.0" prefWidth="200.0" promptText="               password" stylesheets="@/sample/sampleStyle.css">
          <font>
             <Font name="French Script MT" size="18.0" />
          </font>
       </PasswordField>
-      <Button fx:id="signInButton" layoutX="196.0" layoutY="270.0" mnemonicParsing="false" onAction="#SignInAction" stylesheets="@/sample/sampleStyle.css" text="Log In" textFill="#cd0909">
+      <Button fx:id="signInButton" layoutX="486.0" layoutY="300.0" mnemonicParsing="false" onAction="#SignInAction" prefHeight="40.0" prefWidth="160.0" stylesheets="@/sample/sampleStyle.css" text="Log In" textFill="#cd0909">
          <font>
             <Font name="French Script MT" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="guestButton" layoutX="245.0" layoutY="331.0" mnemonicParsing="false" onAction="#GuestAction" prefHeight="36.0" prefWidth="152.0" stylesheets="@/sample/sampleStyle.css" text="Continue as Guest" textFill="#cd0909">
+      <Button fx:id="guestButton" layoutX="580.0" layoutY="402.0" mnemonicParsing="false" onAction="#GuestAction" prefHeight="40.0" prefWidth="160.0" stylesheets="@/sample/sampleStyle.css" text="Continue as Guest" textFill="#cd0909">
          <font>
-            <Font name="French Script MT" size="18.0" />
+            <Font name="French Script MT" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="registerButton" layoutX="82.0" layoutY="331.0" mnemonicParsing="false" onAction="#RegisterAction" prefHeight="36.0" prefWidth="152.0" stylesheets="@/sample/sampleStyle.css" text="Click Here to Register" textFill="#cd0909">
+      <Button fx:id="registerButton" layoutX="406.0" layoutY="402.0" mnemonicParsing="false" onAction="#RegisterAction" prefHeight="40.0" prefWidth="160.0" stylesheets="@/sample/sampleStyle.css" text="Register Account" textFill="#cd0909">
          <font>
-            <Font name="French Script MT" size="18.0" />
+            <Font name="French Script MT" size="20.0" />
          </font>
       </Button>
    </children>
