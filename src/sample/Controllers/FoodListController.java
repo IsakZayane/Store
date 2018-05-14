@@ -36,7 +36,7 @@ public class FoodListController implements Initializable {
     @FXML
     public ListView<String> listView2;
     @FXML
-    public TextArea textAreaInfo;
+    public TextArea textArea;
 
     public ArrayList<Food> food = new ArrayList<>();
 
@@ -85,6 +85,7 @@ public class FoodListController implements Initializable {
         priceColTwo.setCellValueFactory(new PropertyValueFactory<Food, Double>("price"));
 
 
+
     }
 
     public void removeButton() {
@@ -113,7 +114,7 @@ public class FoodListController implements Initializable {
     }
 
     public void showInfo() {
-        //String name = listView1.getSelectionModel().getSelectedItem();
+
         System.out.println("innan for");
         for (int i = 0; i < tableViewOne.getItems().size(); i++) {
 
@@ -130,11 +131,12 @@ public class FoodListController implements Initializable {
                         "Details: " + tableViewOne.getItems().get(i).getDetail();
 
 
-                textAreaInfo.setText(info);
+                textArea.setText(info);
 
 
             }
         }
+
 
     }
 }

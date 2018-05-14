@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../catNipStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.CatNipController">
+<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../catNipStyle.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.CatNipController">
     <children>
 
         <Button layoutX="50.0" layoutY="390.0" mnemonicParsing="false" onAction="#addButton" prefHeight="25.0" prefWidth="200.0" text="Add to Cart" textFill="#cd0909">
@@ -35,10 +34,7 @@
             <font>
                 <Font name="French Script MT" size="20.0" />
             </font></Button>
-        <TextArea fx:id="textArea" layoutX="526.0" layoutY="26.0" prefHeight="147.0" prefWidth="233.0" promptText="Not sure what this is for..?">
-            <font>
-                <Font size="23.0" />
-            </font></TextArea>
+        <TextArea fx:id="textArea" layoutX="518.0" layoutY="14.0" prefHeight="147.0" prefWidth="233.0" />
         <Button layoutX="349.0" layoutY="79.0" mnemonicParsing="false" onAction="#showInfo" prefHeight="40.0" prefWidth="102.0" text="Info" textFill="#cd0909">
             <font>
                 <Font name="French Script MT" size="20.0" />

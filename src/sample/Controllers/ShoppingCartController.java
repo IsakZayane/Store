@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 
+import javafx.scene.control.cell.PropertyValueFactory;
 import sample.Classes.DataBase;
 import sample.Classes.Emailsender;
 import sample.Classes.NameTransfer;
@@ -40,7 +41,7 @@ ObservableList<Item> myList = FXCollections.observableArrayList();
 
 
 //cartView.setText(String.valueOf(Shoppingcartsingleton.getInstance().getShoppingcart()));
-    cartView.setText(Shoppingcartsingleton.getInstance().getShoppingcart().toString());
+    //cartView.setText(Shoppingcartsingleton.getInstance().getShoppingcart().toString());
 
 
         ArrayList<Item> myItem = new ArrayList<>();
@@ -54,6 +55,12 @@ ObservableList<Item> myList = FXCollections.observableArrayList();
     for (int i =0; i < myList.size(); i ++) {
         // nameCol.setCellValueFactory();
         // nameCol.setCellValueFactory();
+
+        //myList.get(i).getName();
+        //tableArea.setItems(myList);
+        cartView.appendText(myList.get(i).getName()+"       "+ myList.get(i).getPrice()+"\n");
+
+
 
 
 

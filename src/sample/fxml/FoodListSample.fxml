@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../foodListStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.FoodListController">
+<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../foodListStyle.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.FoodListController">
    <children>
 
       <Button layoutX="65.0" layoutY="396.0" mnemonicParsing="false" onAction="#addButton" prefHeight="40.0" prefWidth="164.0" text="Add to Cart" textFill="#cd0909">
@@ -35,8 +35,8 @@
             <Font name="French Script MT" size="20.0" />
          </font></Button>
       <Button layoutX="522.0" layoutY="396.0" mnemonicParsing="false" onAction="#addShoppingCartAction" text="Add to shoppingcart" />
-      <TextArea fx:id="textarea" layoutX="453.0" layoutY="51.0" prefHeight="147.0" prefWidth="233.0" />
-      <Button layoutX="435.0" layoutY="277.0" mnemonicParsing="false" onAction="#showInfo" prefHeight="37.0" prefWidth="77.0" text="Info" textFill="#cd0909">
+      <TextArea fx:id="textArea" layoutX="532.0" layoutY="16.0" prefHeight="147.0" prefWidth="233.0" />
+      <Button layoutX="410.0" layoutY="50.0" mnemonicParsing="false" onAction="#showInfo" prefHeight="37.0" prefWidth="77.0" text="Info" textFill="#cd0909">
          <font>
             <Font name="French Script MT" size="20.0" />
          </font></Button>
