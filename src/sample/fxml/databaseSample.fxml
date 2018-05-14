@@ -12,57 +12,57 @@
       <ChoiceBox fx:id="productype" layoutX="506.0" layoutY="82.0" prefHeight="25.0" prefWidth="171.0" />
       <TextField fx:id="namefield" layoutX="512.0" layoutY="126.0" opacity="0.7" prefHeight="40.0" prefWidth="160.0" promptText="Name">
          <font>
-            <Font name="French Script MT" size="20.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font></TextField>
       <TextField fx:id="ingridientfield" layoutX="512.0" layoutY="186.0" opacity="0.7" prefHeight="40.0" prefWidth="160.0" promptText="Ingredients">
          <font>
-            <Font name="French Script MT" size="20.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font></TextField>
       <TextField fx:id="weightfield" layoutX="512.0" layoutY="244.0" opacity="0.7" prefHeight="40.0" prefWidth="160.0" promptText="Weight">
          <font>
-            <Font name="French Script MT" size="20.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font></TextField>
       <TextField fx:id="originfield" layoutX="512.0" layoutY="300.0" opacity="0.7" prefHeight="40.0" prefWidth="160.0" promptText="Origin">
          <font>
-            <Font name="French Script MT" size="20.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font></TextField>
       <TextField fx:id="detailfield" layoutX="512.0" layoutY="365.0" opacity="0.7" prefHeight="40.0" prefWidth="160.0" promptText="Details">
          <font>
-            <Font name="French Script MT" size="20.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font></TextField>
       <TextField fx:id="pricefield" layoutX="512.0" layoutY="425.0" opacity="0.7" prefHeight="40.0" prefWidth="160.0" promptText="Price">
          <font>
-            <Font name="French Script MT" size="20.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font></TextField>
       <Button layoutX="512.0" layoutY="30.0" mnemonicParsing="false" onAction="#addNewProduct" prefHeight="40.0" prefWidth="160.0" text="Add Product" textFill="#cd0909">
          <font>
-            <Font name="French Script MT" size="20.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font></Button>
       <Button layoutX="550.0" layoutY="510.0" mnemonicParsing="false" onAction="#goBackAction" text="Go Back" textFill="#cd0909">
          <font>
-            <Font name="French Script MT" size="20.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font></Button>
       <Button layoutX="82.0" layoutY="504.0" mnemonicParsing="false" onAction="#goBackToLoginAction" prefHeight="52.0" prefWidth="171.0" text="Return to Log In" textFill="#cd0909">
          <font>
-            <Font name="French Script MT" size="20.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font></Button>
       <Button layoutX="710.0" layoutY="14.0" mnemonicParsing="false" onAction="#exitAction" text="Exit" textFill="#cd0909">
          <font>
-            <Font name="French Script MT" size="26.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font></Button>
       <Button layoutX="253.0" layoutY="58.0" mnemonicParsing="false" onAction="#removeAction" text="Remove product" />
       <Button layoutX="216.0" layoutY="214.0" mnemonicParsing="false" onAction="#blockAction" prefHeight="40.0" prefWidth="160.0" text="Block Member" textFill="#cd0909">
          <font>
-            <Font name="French Script MT" size="20.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font></Button>
       <Button layoutX="48.0" layoutY="385.0" mnemonicParsing="false" onAction="#removeMemberAction" prefHeight="40.0" prefWidth="160.0" text="Remove Member" textFill="#cd0909">
          <font>
-            <Font name="French Script MT" size="20.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font></Button>
       <ListView fx:id="memberlist" layoutX="56.0" layoutY="166.0" opacity="0.81" prefHeight="195.0" prefWidth="143.0" />
       <Button layoutX="216.0" layoutY="280.0" mnemonicParsing="false" onAction="#unblockAction" prefHeight="40.0" prefWidth="160.0" text="Unblock Member" textFill="#cd0909">
          <font>
-            <Font name="French Script MT" size="20.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font></Button>
    </children>
 </AnchorPane>

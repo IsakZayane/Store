@@ -14,15 +14,15 @@
       <PasswordField fx:id="repasswordField" layoutX="431.0" layoutY="269.0" onAction="#ReEnterPassword" prefHeight="38.0" prefWidth="318.0" promptText="Re-Enter Password" />
       <Button fx:id="createbutton" layoutX="508.0" layoutY="325.0" mnemonicParsing="false" onAction="#createMember" opacity="0.7" prefHeight="40.0" prefWidth="164.0" text="Create Account" textFill="#cd0909">
          <font>
-            <Font name="French Script MT" size="19.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font></Button>
       <Button fx:id="gobackbutton" layoutX="400.0" layoutY="395.0" mnemonicParsing="false" onAction="#GoBackAction" opacity="0.7" prefHeight="40.0" prefWidth="164.0" text="Return to Log In" textFill="#cd0909">
          <font>
-            <Font name="French Script MT" size="22.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font></Button>
       <Button fx:id="guestbutton" layoutX="622.0" layoutY="395.0" mnemonicParsing="false" onAction="#ProceedAction" opacity="0.7" prefHeight="40.0" prefWidth="164.0" text="Proceed as Guest" textFill="#cd0909">
          <font>
-            <Font name="French Script MT" size="22.0" />
+            <Font name="Bodoni MT" size="18.0" />
          </font></Button>
    </children>
 </AnchorPane>
