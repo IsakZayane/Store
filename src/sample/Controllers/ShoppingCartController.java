@@ -46,7 +46,9 @@ ObservableList<Item> myList = FXCollections.observableArrayList();
 
         ArrayList<Item> myItem = new ArrayList<>();
         myItem.addAll(Shoppingcartsingleton.getInstance().getShoppingcart());
-
+        nameCol.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
+        priceCol.setCellValueFactory(new PropertyValueFactory<Item, Double>("price"));
+        tableArea.setItems(myList);
 
      myList.addAll(Shoppingcartsingleton.getInstance().getShoppingcart()); 
 
