@@ -40,10 +40,9 @@ public class FoodListController implements Initializable {
 
     public ArrayList<Food> food = new ArrayList<>();
 
-    ObservableList<String> list = FXCollections.observableArrayList();
-    ObservableList<String> list2 = FXCollections.observableArrayList();
-    ObservableList<Food> myList = FXCollections.observableArrayList();
-    ObservableList<Food> myListTwo = FXCollections.observableArrayList();
+
+ private   ObservableList<Food> myList = FXCollections.observableArrayList();
+    private ObservableList<Food> myListTwo = FXCollections.observableArrayList();
 
 
     ArrayList<String> shoppingcart = new ArrayList<>();

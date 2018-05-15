@@ -23,48 +23,41 @@ import java.util.ResourceBundle;
 
 public class WineListController implements Initializable {
 
- private PreparedMethods pm = new PreparedMethods();
- @FXML TextField searchField;
+    private PreparedMethods pm = new PreparedMethods();
+    @FXML
+    TextField searchField;
 
-    @FXML Button shoppingCartButton;
+    @FXML
+    Button shoppingCartButton;
     @FXML
     public ListView<String> listView1;
     @FXML
     public ListView<String> listView2;
     public ArrayList<Wine> wine = new ArrayList<>();
-    @FXML public TextArea textArea;
+    @FXML
+    public TextArea textArea;
     @FXML
     TableView<Wine> tableViewOne, tableViewTwo;
     @FXML
     TableColumn nameColOne, nameColTwo, priceColOne, priceColTwo;
 
-    ObservableList<String> list = FXCollections.observableArrayList();
-    ObservableList<String> list2 = FXCollections.observableArrayList();
-    ObservableList<Wine> myList = FXCollections.observableArrayList();
-    ObservableList<Wine> myListTwo = FXCollections.observableArrayList();
+
+    private ObservableList<Wine> myList = FXCollections.observableArrayList();
+    private ObservableList<Wine> myListTwo = FXCollections.observableArrayList();
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DataBase myDB = new DataBase();
 
-
-        wine=myDB.getWineList();
+        wine = myDB.getWineList();
         myList.addAll(wine);
 
         nameColOne.setCellValueFactory(new PropertyValueFactory<Wine, String>("name"));
         priceColOne.setCellValueFactory(new PropertyValueFactory<Wine, Double>("price"));
 
 
- //       listView1.setItems(list);
-  //      listView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
-
-       // listView2.setItems(list2);
-  //      listView2.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
-
-        for (int i = 0;i<wine.size();i++){
+        for (int i = 0; i < wine.size(); i++) {
 
             tableViewOne.setItems(myList);
         }
@@ -75,7 +68,6 @@ public class WineListController implements Initializable {
         shoppingCartButton.setTooltip(new Tooltip("Click to commit to your shoppingcart"));
 
 
-
     }
 
     public void addButton() {
@@ -84,10 +76,8 @@ public class WineListController implements Initializable {
 
         tableViewTwo.setItems(myListTwo);
 
-
         nameColTwo.setCellValueFactory(new PropertyValueFactory<Wine, String>("name")); //hämtar det som finns i objektet under name och price
         priceColTwo.setCellValueFactory(new PropertyValueFactory<Wine, Double>("price"));
-
 
 
     }
@@ -97,30 +87,28 @@ public class WineListController implements Initializable {
     }
 
 
-
     public void backButton(ActionEvent event) throws IOException {
 
         DataBase db = new DataBase();
 
-        if (db.isAdmin()){
-            pm.changeScene(event,"/sample/fxml/AdminProductsSample.fxml", "Products-Admin");
+        if (db.isAdmin()) {
+            pm.changeScene(event, "/sample/fxml/AdminProductsSample.fxml", "Products-Admin");
             System.out.println("still admin");
-        }
-        else {
+        } else {
             System.out.println(" not admin ");
             pm.changeScene(event, "/sample/fxml/ProductsSample.fxml", "Products");
         }
 
     }
 
-    public void showInfo(){
-       // String name=listView1.getSelectionModel().getSelectedItem();
+    public void showInfo() {
+        // String name=listView1.getSelectionModel().getSelectedItem();
         // String info="";
         System.out.println("innan for");
         for (int i = 0; i < tableViewOne.getItems().size(); i++) {
 
 
-         String    name = tableViewOne.getSelectionModel().getSelectedItem().getName();
+            String name = tableViewOne.getSelectionModel().getSelectedItem().getName();
 
             if (name.equals(wine.get(i).getName())) {
 
@@ -139,8 +127,9 @@ public class WineListController implements Initializable {
         }
 
     }
+
     public void addShoppingCartAction() {
-        for (int i=0;i<myListTwo.size();i++) {
+        for (int i = 0; i < myListTwo.size(); i++) {
             NameTransfer.getInstance().setTotalsum(myListTwo.get(i).getPrice());
         }
         pm.showAlert("Products added!", "You just added some products to your cart", "Continue shopping or order");
@@ -154,36 +143,30 @@ public class WineListController implements Initializable {
     }
 
 
-    @FXML  public void searchFunction() {
+    @FXML
+    public void searchFunction() {
         String s = searchField.getText();
 
         DataBase db = new DataBase();
         ArrayList<Wine> myWineList = db.getWineList();
 
 
-
-
-
-
         for (int i = 0; i < myWineList.size(); i++) {
             System.out.println(myWineList.get(i).getName());
 
-            if (s.equals(myWineList.get(i).getName())){
+            if (s.equals(myWineList.get(i).getName())) {
                 ObservableList<Wine> mySearchList = FXCollections.observableArrayList();
-                mySearchList.add(myWineList.get(i) );
+                mySearchList.add(myWineList.get(i));
 
                 tableViewOne.setItems(mySearchList);
                 nameColOne.setCellValueFactory(new PropertyValueFactory<Wine, String>("name"));
                 priceColOne.setCellValueFactory(new PropertyValueFactory<Wine, Double>("price"));
 
 
-
-
             }
 
         }
     }
-
 
 
 }

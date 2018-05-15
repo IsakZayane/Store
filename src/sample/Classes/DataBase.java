@@ -136,36 +136,8 @@ public class DataBase {
     }
 
 
-    public void showItems() {//SELECT statement. ResultSet används och executeQuery
-    }
 
 
-    //Column index = vilken kolumn i databasen
-
-    public void getProductId() {
-
-
-        try {
-
-            ResultSet rs = this.st.executeQuery("SELECT gc ");
-
-        } catch (Exception e) {
-
-        }
-
-    }
-
-
-    public void updateProductName(String tabName, String colName, String valueOne, String newValue) {   //TODO metod för att uppdatera ett pris på en produkt, kommer behövas en metod för att få fram id på en produkt,
-
-        try {
-            st.execute("UPDATE " + tabName + "SET " + colName + "='" + valueOne + "'" + " WHERE");
-
-
-        } catch (Exception e) {
-
-        }
-    }
 
 
     public String Email(String name) {
@@ -482,11 +454,6 @@ public class DataBase {
 
 
 
-
-
-
-
-
     public void addItem(String type, String name, String ingridients, double weight, String origin, String detail, int price) {
         try {
             String query = "INSERT into products (productsprice,productsname,productsingredients,productsweight,productsorigin,productsdetail,producttype) values (?,?,?,?,?,?,?)";
@@ -640,20 +607,8 @@ public void paymentsInsert(java.sql.Date date,double pay,String name) {
 
     }
 }
-//public void (String username,String productname,int quantity){
-//        try{
-//            String query ="insert into orderdetails (orders_ordersid,products_productsid,quantityordered) values (\n" +
-//                    "(select ordersId from orders where user_iduser = (select iduser from user where username = ?)\n" +
-//                    "),(select productsid from products where productsName = ?),?)";
-//            PreparedStatement specifics = c.prepareStatement(query);
-//            specifics.setString(1,username);
-//            specifics.setString(2,productname);
-//            specifics.setInt(3,quantity);
-//            specifics.execute();
-//        }catch (SQLException e){
-//            e.printStackTrace();
-//        }
-//    }
+
+
 }
 
 
