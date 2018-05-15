@@ -128,6 +128,9 @@ public class CatNipController implements Initializable {
     }
 
     public void addShoppingCartAction() {
+        for (int i=0;i<myListTwo.size();i++) {
+            NameTransfer.getInstance().setTotalsum(myListTwo.get(i).getPrice());
+        }
         pm.showAlert("Products added!", "You just added some products to your cart", "Continue shopping or order");
         for (int i = 0; i < myListTwo.size(); i++) {
             Shoppingcartsingleton.getInstance().setShoppingcart(tableViewTwo.getItems().get(i));

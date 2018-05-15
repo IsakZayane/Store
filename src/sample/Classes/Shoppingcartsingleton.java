@@ -20,16 +20,15 @@ public class Shoppingcartsingleton {
 
     }
 
-    @Override
-    public String toString() {
-        return "Shoppingcartsingleton{" +
-                "shoppingcart=" + shoppingcart +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        for (int i = 0; i<shoppingcart.size();i++)
+//        return shoppingcart.get(i).getName()+S
+//    }
 
     public void setShoppingcart(Item addshopping) {
         shoppingcart.add(addshopping);
-        //this.shoppingcart = shoppingcart;
+        this.shoppingcart = shoppingcart;
 
     }
 

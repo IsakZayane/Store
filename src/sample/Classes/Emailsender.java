@@ -12,7 +12,7 @@ public class Emailsender {
     PreparedMethods pm = new PreparedMethods();
 
 
-    public void sendEmail(String email,String order,int orderid){
+    public void sendEmail(String email,String order,int orderid,double totalsum){
         try {
 
         String host = "smtp.gmail.com";
@@ -21,7 +21,7 @@ public class Emailsender {
         String to = email;
         String from = "thecatsstoreproject@gmail.com";
         String subject = "Your order details";
-        String messagetext = "You order:"+order+"\n"+"Your order id: "+orderid+"\n"+"Thank you for ordering from The Store!";
+        String messagetext = "You order:"+order+"\n"+"Your order id: "+orderid+"\n"+"Totalsum: "+totalsum+" SEK"+"\n"+"Thank you for ordering from The Store!";
         boolean sessiondebug = false;
 
         Properties props = System.getProperties();
