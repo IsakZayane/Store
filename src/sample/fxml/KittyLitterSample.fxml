@@ -37,10 +37,10 @@
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
 
-        <Button layoutX="492.0" layoutY="504.0" mnemonicParsing="false" onAction="#addShoppingCartAction" opacity="0.7" text="Add to shoppingcart" textFill="#cd0909">
-         <font>
-            <Font name="Bodoni MT" size="18.0" />
-         </font></Button>
+        <Button fx:id="shoppingCartButton" layoutX="493.0" layoutY="497.0" mnemonicParsing="false" onAction="#addShoppingCartAction" opacity="0.7" text="Add to shoppingcart" textFill="#cd0909">
+            <font>
+                <Font name="Bodoni MT" size="18.0" />
+            </font></Button>
         <TextArea fx:id="textArea" layoutX="476.0" layoutY="347.0" prefHeight="136.0" prefWidth="211.0" />
         <Button layoutX="543.0" layoutY="300.0" mnemonicParsing="false" onAction="#showInfo" opacity="0.7" prefHeight="37.0" prefWidth="77.0" text="Info" textFill="#cd0909">
 

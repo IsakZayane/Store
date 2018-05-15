@@ -26,7 +26,7 @@ public class WineListController implements Initializable {
  private PreparedMethods pm = new PreparedMethods();
  @FXML TextField searchField;
 
-
+    @FXML Button shoppingCartButton;
     @FXML
     public ListView<String> listView1;
     @FXML
@@ -68,6 +68,11 @@ public class WineListController implements Initializable {
 
             tableViewOne.setItems(myList);
         }
+
+        tableViewOne.setTooltip(new Tooltip("Products in store"));
+        tableViewTwo.setTooltip(new Tooltip("Click add to shoppingcart to commit to your shoppingcart!"));
+        searchField.setTooltip(new Tooltip("Search for products by their name! "));
+        shoppingCartButton.setTooltip(new Tooltip("Click to commit to your shoppingcart"));
 
 
 

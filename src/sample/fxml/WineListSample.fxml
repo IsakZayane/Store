@@ -36,7 +36,7 @@
             <Font name="French Script MT" size="20.0" />
          </font></Button>
 
-      <Button layoutX="493.0" layoutY="497.0" mnemonicParsing="false" onAction="#addShoppingCartAction" opacity="0.7" text="Add to shoppingcart" textFill="#cd0909">
+      <Button fx:id="shoppingCartButton" layoutX="493.0" layoutY="497.0" mnemonicParsing="false" onAction="#addShoppingCartAction" opacity="0.7" text="Add to shoppingcart" textFill="#cd0909">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></Button>

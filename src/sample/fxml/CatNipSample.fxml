@@ -46,11 +46,10 @@
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
-      <Button layoutX="476.0" layoutY="502.0" mnemonicParsing="false" onAction="#addShoppingCartAction" opacity="0.7" prefHeight="40.0" prefWidth="201.0" text="Add to shoppingcart" textFill="#cd0909">
-         <font>
-            <Font name="Bodoni MT" size="18.0" />
-         </font>
-      </Button>
+        <Button fx:id="shoppingCartButton" layoutX="493.0" layoutY="497.0" mnemonicParsing="false" onAction="#addShoppingCartAction" opacity="0.7" text="Add to shoppingcart" textFill="#cd0909">
+            <font>
+                <Font name="Bodoni MT" size="18.0" />
+            </font></Button>
       <TextField fx:id="searchField" layoutX="51.0" layoutY="106.0" />
       <Button layoutX="258.0" layoutY="106.0" mnemonicParsing="false" onAction="#searchFunction" text="Search" />
     </children>
