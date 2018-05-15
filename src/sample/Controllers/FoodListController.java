@@ -29,6 +29,7 @@ public class FoodListController implements Initializable {
     TableView<Food> tableViewOne, tableViewTwo;
     @FXML
     TableColumn nameColOne, nameColTwo, priceColOne, priceColTwo;
+    @FXML Button shoppingCartButton;
 
     @FXML
     public ListView<String> listView1;
@@ -70,6 +71,12 @@ public class FoodListController implements Initializable {
         for (int i = 0; i < food.size(); i++) {
             tableViewOne.setItems(myList);
         }
+
+        tableViewOne.setTooltip(new Tooltip("Products in store"));
+        tableViewTwo.setTooltip(new Tooltip("Click add to shoppingcart to commit to your shoppingcart!"));
+        searchField.setTooltip(new Tooltip("Search for products by their name! "));
+        shoppingCartButton.setTooltip(new Tooltip("Click to commit to your shoppingcart"));
+
 
     }
 

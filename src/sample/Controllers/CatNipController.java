@@ -29,7 +29,7 @@ import java.util.ResourceBundle;
 public class CatNipController implements Initializable {
 
     PreparedMethods pm = new PreparedMethods();
-
+    @FXML Button shoppingCartButton;
     @FXML TextField searchField;
     @FXML
     public ListView<String> listView1;
@@ -64,6 +64,13 @@ public class CatNipController implements Initializable {
           //  list.add(catnip.get(i).getName());
             tableViewOne.setItems(myList);
         }
+        tableViewOne.setTooltip(new Tooltip("Products in store"));
+        tableViewTwo.setTooltip(new Tooltip("Click add to shoppingcart to commit to your shoppingcart!"));
+        searchField.setTooltip(new Tooltip("Search for products by their name! "));
+        shoppingCartButton.setTooltip(new Tooltip("Click to commit to your shoppingcart"));
+
+
+
 
     }
 
@@ -170,7 +177,17 @@ public class CatNipController implements Initializable {
 
         }
     }
+
+
+
+
+
+
+
+
 }
+
+
 
 
 

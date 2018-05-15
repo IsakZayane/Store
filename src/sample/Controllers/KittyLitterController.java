@@ -35,7 +35,7 @@ public class KittyLitterController implements Initializable {
     @FXML
     TableView<KittyLitter> tableViewOne, tableViewTwo;
     @FXML TextField searchField;
-
+    @FXML Button shoppingCartButton;
 
 
     ArrayList<KittyLitter> catlitter = new ArrayList<>();
@@ -61,6 +61,13 @@ public class KittyLitterController implements Initializable {
         for (int i = 0; i < catlitter.size(); i++) {
             tableViewOne.setItems(myList);
         }
+        tableViewOne.setTooltip(new Tooltip("Products in store"));
+        tableViewTwo.setTooltip(new Tooltip("Click add to shoppingcart to commit to your shoppingcart!"));
+        searchField.setTooltip(new Tooltip("Search for products by their name! "));
+        shoppingCartButton.setTooltip(new Tooltip("Click to commit to your shoppingcart"));
+
+
+
     }
 
     public void addButton() {
