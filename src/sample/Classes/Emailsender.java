@@ -49,6 +49,7 @@ public class Emailsender {
         transport.close();
         transport.close();
         System.out.print("message sent!");
+        pm.showAlert("Order went Succesful!", "Your order has been confirmed and will be sent soon", "Thanks for using our service! See you soon");
 
 
     } catch (Exception e) {
