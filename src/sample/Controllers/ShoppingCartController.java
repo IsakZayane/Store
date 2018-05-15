@@ -37,13 +37,11 @@ TableView<Item> tableArea;
 
 public ObservableList<Item> myList = FXCollections.observableArrayList();
     public ArrayList<Item> myItem = new ArrayList<>();
-    ArrayList<String> productEmail = new ArrayList<>();
+    String productEmail;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
 
-//cartView.setText(String.valueOf(Shoppingcartsingleton.getInstance().getShoppingcart()));
-    //cartView.setText(Shoppingcartsingleton.getInstance().getShoppingcart().toString());
 
 
 
@@ -58,12 +56,17 @@ public ObservableList<Item> myList = FXCollections.observableArrayList();
 
      myList.addAll(myItem);
 
+        for (int i =0;i<myList.size();i++) {
+            cartView.appendText(myList.get(i).getName() + "       " + myList.get(i).getPrice() + "\n");
+        }
 
 
 
 
 
-    for (int i =0; i < myItem.size(); i ++) {
+
+
+        for (int i =0; i < myItem.size(); i ++) {
 
         tableArea.setItems(myList);
     }
@@ -106,7 +109,7 @@ public ObservableList<Item> myList = FXCollections.observableArrayList();
 
         db.paymentsInsert(sqldate,NameTransfer.getInstance().getTotalsum(),NameTransfer.getInstance().getName());
         Emailsender es = new Emailsender();
-        es.sendEmail(NameTransfer.getInstance().getEmail(),Shoppingcartsingleton.getInstance().getShoppingcart().toString(),db.getOrderId(NameTransfer.getInstance().getName()),
+        es.sendEmail(NameTransfer.getInstance().getEmail(),cartView.getText(),db.getOrderId(NameTransfer.getInstance().getName()),
                 NameTransfer.getInstance().getTotalsum());
 
         }

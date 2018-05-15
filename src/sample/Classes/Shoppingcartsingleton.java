@@ -13,12 +13,15 @@ public class Shoppingcartsingleton {
 
     public ArrayList<Item> getShoppingcart() {
 
-
-
-
         return shoppingcart;
-
     }
+
+
+
+
+
+
+
 
 //    @Override
 //    public String toString() {
