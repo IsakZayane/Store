@@ -21,7 +21,7 @@ public class Emailsender {
         String to = email;
         String from = "thecatsstoreproject@gmail.com";
         String subject = "Your order details";
-        String messagetext = "You order:"+order+"\n"+"Your order id: "+orderid+"\n"+"Totalsum: "+totalsum+" SEK"+"\n"+"Thank you for ordering from The Store!";
+        String messagetext = "You order:\n"+order+"\n"+"Your order id: "+orderid+"\n"+"Totalsum: "+totalsum+" SEK"+"\n"+"Thank you for ordering from The Store!";
         boolean sessiondebug = false;
 
         Properties props = System.getProperties();
@@ -49,6 +49,7 @@ public class Emailsender {
         transport.close();
         transport.close();
         System.out.print("message sent!");
+        pm.showAlert("Order sent","Your order has been sent","Thank you for purchasing from The Store");
 
 
     } catch (Exception e) {
