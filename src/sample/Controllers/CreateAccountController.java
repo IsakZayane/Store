@@ -23,6 +23,7 @@ public class CreateAccountController implements Initializable {
     private TextField emailTextField;
     @FXML
     private TextField passwordField;
+    @FXML private TextField repasswordField;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -32,20 +33,23 @@ public class CreateAccountController implements Initializable {
 
     @FXML
     public void createMember() {
+        if (passwordField.getText().equals(repasswordField.getText())) {
 
-        String userName = usernameField.getText();
-        String userEmail = emailTextField.getText();
+            String userName = usernameField.getText();
+            String userEmail = emailTextField.getText();
 
-        String password = passwordField.getText();
+            String password = passwordField.getText();
 
-        //passwordEncryption(password);
+            //passwordEncryption(password);
 
-        int encryptedPassword = passwordEncryption(password);
-        System.out.println(userName + userEmail + encryptedPassword);
+            int encryptedPassword = passwordEncryption(password);
+            System.out.println(userName + userEmail + encryptedPassword);
 
-        myDB.createUser(userName, userEmail, encryptedPassword);
+            myDB.createUser(userName, userEmail, encryptedPassword);
 
 
+        } else
+            pm.showAlert("Alert", "Passwords dont match", "rewrite password");
     }
 
 

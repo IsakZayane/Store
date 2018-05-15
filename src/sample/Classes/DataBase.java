@@ -47,18 +47,21 @@ public class DataBase {
             String query = "SELECT userEmail from user where userEmail = ?";
             PreparedStatement check = c.prepareStatement(query);
             check.setString(1, userEmail);
-            String foundType = null;
+
 
             ResultSet rs = check.executeQuery();
+            String foundtype=null;
 
 
             while (rs.next()) {
 
-                foundType = rs.getString("userEmail");
+                foundtype = rs.getString("userEmail");
+
+                check.executeQuery();
 
             }
 
-            if (foundType != userEmail) {
+            if ( foundtype!= userEmail) {
                 int notadmin = 0;
 
 
@@ -72,10 +75,6 @@ public class DataBase {
                 addUser.execute();
 
                 System.out.println("INSERT INTO user (userName, userEmail, password) VALUES (" + userName + ", " + userEmail + ", " + password + ")");
-            } else {
-                System.out.println("ALREADY IN USE---");
-
-                pm.showAlert("Error", "Email already in use", "Please choose another email");
 
 
             }
@@ -83,8 +82,7 @@ public class DataBase {
 
         } catch (SQLException ex) {
 
-            ex.printStackTrace();
-            System.out.println(ex);
+            pm.showAlert("Error", "Email already in use", "Please choose another email");
 
         }
     }
