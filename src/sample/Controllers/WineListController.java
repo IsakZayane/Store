@@ -164,6 +164,10 @@ public class WineListController implements Initializable {
 
 
             }
+            else if(s.isEmpty()) {
+                tableViewOne.setItems(myList);
+
+            }
 
         }
     }

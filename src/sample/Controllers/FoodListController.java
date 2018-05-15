@@ -176,7 +176,9 @@ else {
                 priceColOne.setCellValueFactory(new PropertyValueFactory<Food, Double>("price"));
 
 
-
+            }
+            else if(s.isEmpty()) {
+                tableViewOne.setItems(myList);
 
             }
 

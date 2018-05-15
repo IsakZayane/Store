@@ -162,8 +162,9 @@ public class KittyLitterController implements Initializable {
                 nameColOne.setCellValueFactory(new PropertyValueFactory<KittyLitter, String>("name"));
                 priceColOne.setCellValueFactory(new PropertyValueFactory<KittyLitter, Double>("price"));
 
-
-
+            }
+            else if(s.isEmpty()) {
+                tableViewOne.setItems(myList);
 
             }
 

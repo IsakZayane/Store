@@ -170,6 +170,9 @@ public class CatNipController implements Initializable {
 
 
 
+            }
+            else if(s.isEmpty()) {
+                tableViewOne.setItems(myList);
 
             }
 
