@@ -29,7 +29,7 @@ public class Shoppingcartsingleton {
 
     public void setShoppingcart(Item addshopping) {
         shoppingcart.add(addshopping);
-        this.shoppingcart = shoppingcart;
+        //this.shoppingcart = shoppingcart;
 
     }
 

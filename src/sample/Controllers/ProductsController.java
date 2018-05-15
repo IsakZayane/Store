@@ -24,6 +24,7 @@ public class ProductsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        System.out.println("shoppingcart connected");
         loggedin.setText(NameTransfer.getInstance().getName());
 
 
@@ -61,7 +62,7 @@ public class ProductsController implements Initializable {
         pm.changeScene(event, "/sample/fxml/Sample.fxml","login");
     }
 
-    @FXML public void CartAction(ActionEvent event) {
+    @FXML public void cartAction(ActionEvent event) {
 
         pm.changeScene(event,"/sample/fxml/ShoppingCartSample.fxml", "Shoppingcart");
 

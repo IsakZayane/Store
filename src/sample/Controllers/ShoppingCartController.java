@@ -34,8 +34,8 @@ public class ShoppingCartController implements Initializable {
 TableView<Item> tableArea;
 @FXML TableColumn nameCol, priceCol;
 
-ObservableList<Item> myList = FXCollections.observableArrayList();
-
+public ObservableList<Item> myList = FXCollections.observableArrayList();
+    public ArrayList<Item> myItem = new ArrayList<>();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -44,23 +44,21 @@ ObservableList<Item> myList = FXCollections.observableArrayList();
     //cartView.setText(Shoppingcartsingleton.getInstance().getShoppingcart().toString());
 
 
-        ArrayList<Item> myItem = new ArrayList<>();
-        myItem.addAll(Shoppingcartsingleton.getInstance().getShoppingcart());
+
+        myItem = Shoppingcartsingleton.getInstance().getShoppingcart();
         nameCol.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
         priceCol.setCellValueFactory(new PropertyValueFactory<Item, Double>("price"));
         tableArea.setItems(myList);
 
-     myList.addAll(Shoppingcartsingleton.getInstance().getShoppingcart()); 
+     myList.addAll(myItem);
 
 
 
-    for (int i =0; i < myList.size(); i ++) {
-        // nameCol.setCellValueFactory();
-        // nameCol.setCellValueFactory();
+    for (int i =0; i < myItem.size(); i ++) {
 
-        //myList.get(i).getName();
-        //tableArea.setItems(myList);
-        cartView.appendText(myList.get(i).getName()+"       "+ myList.get(i).getPrice()+"\n");
+        tableArea.setItems(myList);
+    }
+
 
 
 
@@ -71,7 +69,7 @@ ObservableList<Item> myList = FXCollections.observableArrayList();
 
 
 
-    }
+
 
 
     public void goBack(ActionEvent event){
