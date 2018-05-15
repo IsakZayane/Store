@@ -20,13 +20,13 @@
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
-        <TableView fx:id="tableViewOne" layoutX="597.0" layoutY="14.0" prefHeight="209.0" prefWidth="160.0">
+        <TableView fx:id="tableViewOne" layoutX="400.0" layoutY="14.0" prefHeight="209.0" prefWidth="160.0">
             <columns>
                 <TableColumn fx:id="nameColOne" prefWidth="75.0" text="Name" />
                 <TableColumn fx:id="priceColOne" prefWidth="75.0" text="Price" />
             </columns>
         </TableView>
-        <TableView fx:id="tableViewTwo" layoutX="400.0" layoutY="14.0" prefHeight="209.0" prefWidth="160.0">
+        <TableView fx:id="tableViewTwo" layoutX="586.0" layoutY="14.0" prefHeight="209.0" prefWidth="160.0">
             <columns>
                 <TableColumn fx:id="nameColTwo" prefWidth="75.0" text="Name" />
                 <TableColumn fx:id="priceColTwo" prefWidth="75.0" text="Price" />
@@ -50,7 +50,7 @@
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
-      <TextField fx:id="searchField" layoutX="51.0" layoutY="106.0" />
+      <TextField fx:id="searchField" layoutX="51.0" layoutY="106.0" promptText="Search for products!" />
       <Button layoutX="258.0" layoutY="106.0" mnemonicParsing="false" onAction="#searchFunction" text="Search" />
     </children>
 

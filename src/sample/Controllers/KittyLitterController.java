@@ -40,11 +40,10 @@ public class KittyLitterController implements Initializable {
 
     ArrayList<KittyLitter> catlitter = new ArrayList<>();
 
-    ObservableList<String> list = FXCollections.observableArrayList();
-    ObservableList<String> list2 = FXCollections.observableArrayList();
 
-    ObservableList<KittyLitter> myList = FXCollections.observableArrayList();
-    ObservableList<KittyLitter> myListTwo = FXCollections.observableArrayList();
+
+  private  ObservableList<KittyLitter> myList = FXCollections.observableArrayList();
+    private ObservableList<KittyLitter> myListTwo = FXCollections.observableArrayList();
 
 
     @Override

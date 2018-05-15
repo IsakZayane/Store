@@ -42,12 +42,10 @@ public class CatNipController implements Initializable {
     @FXML
     TableColumn nameColOne, nameColTwo, priceColOne, priceColTwo;
 
-    ArrayList<CatNip> catnip = new ArrayList<>();
+    private ArrayList<CatNip> catnip = new ArrayList<>();
 
-    ObservableList<String> list = FXCollections.observableArrayList();
-    ObservableList<String> list2 = FXCollections.observableArrayList();
-    ObservableList<CatNip> myList = FXCollections.observableArrayList();
-    ObservableList<CatNip> myListTwo = FXCollections.observableArrayList();
+ private   ObservableList<CatNip> myList = FXCollections.observableArrayList();
+    private ObservableList<CatNip> myListTwo = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
