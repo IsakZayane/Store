@@ -40,7 +40,6 @@ public class CreateAccountController implements Initializable {
 
             String password = passwordField.getText();
 
-            //passwordEncryption(password);
 
             int encryptedPassword = passwordEncryption(password);
             System.out.println(userName + userEmail + encryptedPassword);
@@ -55,33 +54,12 @@ public class CreateAccountController implements Initializable {
 
     //TODO UserName, UserEmail, Password. är ordningen i createUser metod under DataBase
 
-    public void EnterName() {
-        //member.setName(usernameField.getText());
 
 
-    }
 
 
-    public void EnterEmail() {
-        //member.setEmail(emailTextField.getText());
-
-    }
-
-    public void EnterPassword() {
-
-    }
-
-    public void ReEnterPassword() {
-
-    }
-
-    /*    public void CreateAction(){
-            member.setName(usernameField.getText());
-            member.setEmail(emailTextField.getText());
-            myDB.createUser(member.getName(),member.getEmail());
 
 
-        }*/
     public void GoBackAction(ActionEvent event) {
        pm.changeScene(event, "/sample/fxml/Sample.fxml","log in");
 

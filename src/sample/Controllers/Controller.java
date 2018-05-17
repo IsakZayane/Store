@@ -50,10 +50,8 @@ public class Controller implements Initializable {
 
 
     }
-    public void testscene(ActionEvent event) throws IOException{
-        PreparedMethods preparedMethods= new PreparedMethods();
-        preparedMethods.changeScene(event,"/sample/fxml/WineListSample.fxml", "wine");
-    }
+
+
 
     public void SignInAction(ActionEvent event) throws IOException {
 
@@ -77,7 +75,7 @@ public class Controller implements Initializable {
 
                 pm.changeScene(event, "/sample/fxml/ProductsSample.fxml", "products");
             }else if (!myDB.adminLogin(usernameField.getText(),password) && myDB.blockedUser(usernameField.getText(),password)){
-                pm.showAlert("YOU AR BLOCKED ASSHOLE","FUCKER","GET IT TOGHETHER");
+                pm.showAlert("You have been blocked","Please contact administrator","thecatstoreproject@gmail.com");
             }
 
         } catch (Exception e) {
@@ -107,20 +105,10 @@ public class Controller implements Initializable {
 
     }
 
-    public void TempAdmin(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("databaseSample.fxml"));
-        Parent root = loader.load();
-
-        stage.setTitle("Admin");
-        stage.setScene(new Scene(root));
-        stage.show();
-
     }
 
 
-        }
+
 
 
 

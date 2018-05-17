@@ -93,6 +93,14 @@ public class ShoppingCartController implements Initializable {
         Emailsender es = new Emailsender();
         es.sendEmail(NameTransfer.getInstance().getEmail(), cartView.getText(), db.getOrderId(NameTransfer.getInstance().getName()),
                 NameTransfer.getInstance().getTotalsum());
+        Shoppingcartsingleton.getInstance().clearShoppincart();
+        NameTransfer.getInstance().clearTotalsum();
+        cartView.clear();
+        myList.clear();
+        tableArea.getItems().clear();
+        tableArea.refresh();
+
+
 
     }
 

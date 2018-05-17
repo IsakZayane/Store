@@ -33,6 +33,10 @@ public class NameTransfer {
     }
    public double getTotalsum(){return totalsum;}
 
+   public void clearTotalsum(){
+       totalsum = 0;
+   }
+
     private NameTransfer() {
     }
 }
