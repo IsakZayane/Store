@@ -58,17 +58,46 @@ public class DatabaseController implements Initializable {
     @FXML
     public void addNewProduct() {
         try {
+            String type =productype.getSelectionModel().getSelectedItem();
+            String name = namefield.getText();
+            String ingredients = ingridientfield.getText();
+            Double weight = Double.parseDouble(weightfield.getText());
+            String origin = originfield.getText();
+            String details = detailfield.getText();
+            int price = Integer.parseInt(pricefield.getText());
+
+            if ( price < 0 ) {
+                pm.showAlert("Wrong price format", "You need to have a positive number as a price", "Please try again");
+                throw new IllegalArgumentException();
+            }
+            else if (weight < 0 ){
+                pm.showAlert("Wrong weight format", "Weight cannot be negative", "Please try again");
+                throw new IllegalArgumentException();
+
+            } else if (namefield.getText().isEmpty()){
+                pm.showAlert("Name entry got wrong","Please enter the name of your product","Please try again " );
+                throw new IllegalArgumentException();
+            }else if (productype.getValue().isEmpty()){
+                pm.showAlert("Please chose a product type", "Chose a product type to proceed", "Please try again");
+                throw new IllegalArgumentException();
+
+            }
+
 
 
             DataBase mydb = new DataBase();
-            mydb.addItem(productype.getSelectionModel().getSelectedItem(), namefield.getText(), ingridientfield.getText(),
-                    Double.parseDouble(weightfield.getText()), originfield.getText(), detailfield.getText(),
-                    Integer.parseInt(pricefield.getText()));
+            mydb.addItem(type,name,ingredients, weight, origin,details, price);
+
+
             System.out.println("added in dbcontroller");
 
 
-        }catch (Exception e){
+
+        }catch (NumberFormatException e){
+            pm.showAlert("Must use correct values","Sup duderino","xD");
+
             e.printStackTrace();
+
         }
     }
     public void removeAction(){

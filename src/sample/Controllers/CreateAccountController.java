@@ -23,7 +23,8 @@ public class CreateAccountController implements Initializable {
     private TextField emailTextField;
     @FXML
     private TextField passwordField;
-    @FXML private TextField repasswordField;
+    @FXML
+    private TextField repasswordField;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -34,6 +35,21 @@ public class CreateAccountController implements Initializable {
     @FXML
     public void createMember() {
         if (passwordField.getText().equals(repasswordField.getText())) {
+
+            if (usernameField.getText().isEmpty()) {
+                pm.showAlert("Please enter a account name", "Account name cannot be empty", "Please try again");
+                throw new IllegalArgumentException();
+
+            } else if (emailTextField.getText().isEmpty()) {
+                pm.showAlert("Please enter your email adress here", "Email adress cannot be empty", "Please try again");
+
+                throw new IllegalArgumentException();
+            } else if (passwordField.getText().isEmpty()) {
+                pm.showAlert("Pleaase enter a password", "Password field cannot be empty", "Please try again");
+
+                throw new IllegalArgumentException();
+            }
+
 
             String userName = usernameField.getText();
             String userEmail = emailTextField.getText();
@@ -61,7 +77,7 @@ public class CreateAccountController implements Initializable {
 
 
     public void GoBackAction(ActionEvent event) {
-       pm.changeScene(event, "/sample/fxml/Sample.fxml","log in");
+        pm.changeScene(event, "/sample/fxml/Sample.fxml", "log in");
 
     }
 
