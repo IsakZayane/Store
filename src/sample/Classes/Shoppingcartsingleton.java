@@ -21,6 +21,9 @@ public class Shoppingcartsingleton {
         shoppingcart.add(addshopping);
         this.shoppingcart = shoppingcart;
 
+    }public void clearShoppincart(){
+        for (int i=0;i<shoppingcart.size();i++)
+        shoppingcart.remove(i);
     }
 
     private Shoppingcartsingleton() {

@@ -17,7 +17,7 @@ public class AdminProductsController implements Initializable {
 
     @FXML
     private Label loggedin;
-    @FXML private TextArea itemarea;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -59,7 +59,7 @@ public class CatNipController implements Initializable {
 
 
         for (int i = 0; i < catnip.size(); i++) {
-          //  list.add(catnip.get(i).getName());
+
             tableViewOne.setItems(myList);
         }
         tableViewOne.setTooltip(new Tooltip("Products in store"));
@@ -73,7 +73,7 @@ public class CatNipController implements Initializable {
     }
 
     public void addButton() {
-//        list2.add(listView1.getSelectionModel().getSelectedItem());
+
 
         myListTwo.add(tableViewOne.getSelectionModel().getSelectedItem());
         tableViewTwo.setItems(myListTwo);
@@ -85,7 +85,7 @@ public class CatNipController implements Initializable {
     }
 
     public void removeButton() {
-       // list2.remove(listView2.getSelectionModel().getSelectedItem());
+
         myListTwo.remove(tableViewOne.getSelectionModel().getSelectedItem());
     }
 

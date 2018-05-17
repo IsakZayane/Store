@@ -45,6 +45,12 @@ public class PreparedMethods {
 
 
     }
+    public void clearUserInfo(){
+        NameTransfer.getInstance().setName("");
+        NameTransfer.getInstance().setEmail("");
+        Shoppingcartsingleton.getInstance().clearShoppincart();
+        NameTransfer.getInstance().clearTotalsum();
+    }
 
 
 }

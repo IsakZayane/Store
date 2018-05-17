@@ -9,6 +9,7 @@ import javafx.scene.control.TextArea;
 
 import sample.Classes.NameTransfer;
 import sample.Classes.PreparedMethods;
+import sample.Classes.Shoppingcartsingleton;
 
 
 import java.io.IOException;
@@ -59,6 +60,9 @@ public class ProductsController implements Initializable {
 
 
     public void LogOutAction(ActionEvent event) throws IOException {
+        pm.clearUserInfo();
+
+
         pm.changeScene(event, "/sample/fxml/Sample.fxml","login");
     }
 
