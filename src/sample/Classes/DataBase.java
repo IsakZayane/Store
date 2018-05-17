@@ -317,13 +317,13 @@ public class DataBase {
         int rows = 0;
 
         try {
-            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'CATLITTER'");
+            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM PRODUCTS WHERE PRODUCTTYPE = 'KITTYLITTER'");
             while (count.next()) {
                 rows = count.getInt("total");
             }
 
             for (int i = 0; i < rows; i++) {
-                ResultSet rs = this.st.executeQuery("SELECT * FROM PRODUCTS WHERE PRODUCTTYPE= 'CATLITTER' LIMIT " + index + "," + one);
+                ResultSet rs = this.st.executeQuery("SELECT * FROM PRODUCTS WHERE PRODUCTTYPE= 'KITTYLITTER' LIMIT " + index + "," + one);
 
 
                 while (rs.next()) {
