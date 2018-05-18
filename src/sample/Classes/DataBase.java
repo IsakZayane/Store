@@ -475,14 +475,14 @@ public class DataBase {
     }
 
 
-    public void deleteItem(String type, String name) {
+    public void deleteItem(String name) {
         try {
 
 
-            String query = "DELETE from PRODUCTS where producttype = ? and productsname = ?";
+            String query = "DELETE from PRODUCTS where productsname = ?";
             PreparedStatement delete = c.prepareStatement(query);
-            delete.setString(1, type);
-            delete.setString(2, name);
+            delete.setString(1, name);
+
             delete.execute();
         } catch (SQLException e) {
             e.printStackTrace();

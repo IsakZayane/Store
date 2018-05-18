@@ -6,7 +6,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import sample.Classes.DataBase;
+import sample.Classes.Item;
 import sample.Classes.Member;
 import sample.Classes.PreparedMethods;
 
@@ -17,14 +19,15 @@ import java.util.ResourceBundle;
 public class DatabaseController implements Initializable {
     PreparedMethods pm = new PreparedMethods();
 
-    @FXML
-    private TextField namefield, ingridientfield, weightfield, originfield, detailfield, pricefield;
-    @FXML
-    private ChoiceBox<String> productype = new ChoiceBox<>();
-    @FXML
-    private ListView <String> memberlist;
+    @FXML private TextField namefield, ingridientfield, weightfield, originfield, detailfield, pricefield;
+    @FXML private ChoiceBox<String> productype = new ChoiceBox<>();
+    @FXML private ListView <String> memberlist;
     private ArrayList<Member> member = new ArrayList<>();
     ObservableList<String> list = FXCollections.observableArrayList();
+    @FXML private TableColumn namecol,pricecol;
+    @FXML private TableView <Item> producttable;
+    private ObservableList <Item> productList = FXCollections.observableArrayList();
+     ArrayList<Item> everyitem =new ArrayList<>();
 
 
     @Override
@@ -46,14 +49,33 @@ public class DatabaseController implements Initializable {
            if (db.allreadyBlocked(member.get(i).getEmail()))
             list.add(member.get(i).getEmail() + ":    Blocked");
            else list.add(member.get(i).getEmail());
+        }
+        everyitem.addAll(db.getCatnipList());
+        everyitem.addAll(db.getFoodList());
+        everyitem.addAll(db.getKittylitterList());
+        everyitem.addAll(db.getWineList());
 
+        productList.addAll(everyitem);
 
+        namecol.setCellValueFactory(new PropertyValueFactory<Item,String>("Name"));
+        pricecol.setCellValueFactory(new PropertyValueFactory<Item,Double>("Prie"));
 
+        for (int i =0;i<everyitem.size();i++){
+            producttable.setItems(productList);
         }
 
 
 
+
     }
+
+
+
+
+
+
+
+
 
     @FXML
     public void addNewProduct() {
@@ -101,10 +123,28 @@ public class DatabaseController implements Initializable {
         }
     }
     public void removeAction(){
-        DataBase mydb= new DataBase();
-        mydb.deleteItem(productype.getSelectionModel().getSelectedItem(),namefield.getText());
+        DataBase db= new DataBase();
+       // String removeitem= namecol.getTypeSelector();
+        db.deleteItem(producttable.getSelectionModel().getSelectedItem().getName());
+        producttable.getItems().clear();
+        productList.removeAll();
+        for (int i =0;i<everyitem.size();i++){
+            everyitem.remove(i);
+        }
 
+        everyitem.addAll(db.getCatnipList());
+        everyitem.addAll(db.getFoodList());
+        everyitem.addAll(db.getKittylitterList());
+        everyitem.addAll(db.getWineList());
+
+        productList.addAll(everyitem);
+
+        for (int i =0;i<everyitem.size();i++) {
+            producttable.setItems(productList);
+        }
+        producttable.refresh();
     }
+
 
     public void goBackAction(ActionEvent event){
         pm.changeScene(event, "/sample/fxml/AdminProductsSample.fxml","");
