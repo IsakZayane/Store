@@ -24,6 +24,7 @@ import sample.Classes.*;
 
 import java.util.ArrayList;
 
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 public class ShoppingCartController implements Initializable {
@@ -85,7 +86,7 @@ public class ShoppingCartController implements Initializable {
 
 
         DataBase db = new DataBase();
-        java.util.Date date = new java.util.Date();
+       java.util.Date date = new java.util.Date();
         java.sql.Date sqldate = new java.sql.Date(date.getTime());
         db.orderDetails(sqldate, NameTransfer.getInstance().getName());
 
@@ -93,19 +94,24 @@ public class ShoppingCartController implements Initializable {
         Emailsender es = new Emailsender();
         es.sendEmail(NameTransfer.getInstance().getEmail(), cartView.getText(), db.getOrderId(NameTransfer.getInstance().getName()),
                 NameTransfer.getInstance().getTotalsum());
-        Shoppingcartsingleton.getInstance().clearShoppincart();
-        NameTransfer.getInstance().clearTotalsum();
-        cartView.clear();
-        myList.clear();
-        tableArea.getItems().clear();
-        tableArea.refresh();
+        for (int i = 0; i < myItem.size(); i++) {
+            db.orderSpecifics(NameTransfer.getInstance().getName(), myItem.get(i).getName(),
+                 Collections.frequency(myItem,myItem.get(i)));
+        }
 
+            Shoppingcartsingleton.getInstance().clearShoppincart();
+            NameTransfer.getInstance().clearTotalsum();
+            cartView.clear();
+            myList.clear();
+            tableArea.getItems().clear();
+            tableArea.refresh();
+
+
+        }
 
 
     }
 
-
-}
 
 
 

@@ -606,7 +606,19 @@ public void paymentsInsert(java.sql.Date date,double pay,String name) {
     }
 }
 
+public void orderSpecifics(String username,String productname,int quantity){
+        try {
+            String query = "insert into orderdetails (orders_ordersid,products_productsid,quantityordered) values ((select max(ordersid) from orders where user_iduser = (select iduser from user where username = ?)),(select productsid from products where productsName = ?),?)";
+            PreparedStatement specifics = c.prepareStatement(query);
+            specifics.setString(1,username);
+            specifics.setString(2,productname);
+            specifics.setInt(3,quantity);
+            specifics.execute();
+        }catch (SQLException e){
 
+        }
+
+}
 }
 
 
