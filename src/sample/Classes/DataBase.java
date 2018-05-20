@@ -20,6 +20,7 @@ public class DataBase {
     private ArrayList<KittyLitter> kittylitterList = new ArrayList<>();
     private ArrayList<CatNip> catnipList = new ArrayList<>();
     private ArrayList<Member> memberList = new ArrayList<>();
+    private ArrayList<Member> memberList2 = new ArrayList<>();
 
 
     //TODO planera databasen, hur vill vi ha den (Till en början i alla fall)
@@ -37,6 +38,7 @@ public class DataBase {
         createFoodObjects();
         createCatnipObjects();
         createWineObjects();
+        createMemberObject();
 
     }
 
@@ -376,6 +378,10 @@ public class DataBase {
         return memberList;
     }
 
+    public ArrayList<Member> getMemberList2() {
+        return memberList2;
+    }
+
     public int getOrderId(String name) {
         int orderid = 0;
         try {
@@ -617,8 +623,49 @@ public void orderSpecifics(String username,String productname,int quantity){
         }catch (SQLException e){
 
         }
-
 }
+
+    public void createMemberObject() {
+        int index = 0;
+        int one = 1;
+        int rows = 0;
+
+        try {
+            ResultSet count = this.st.executeQuery("SELECT COUNT(*) AS total FROM USER");
+            while (count.next()) {
+                rows = count.getInt("total");
+            }
+
+            for (int i = 0; i < rows; i++) {
+                ResultSet rs = this.st.executeQuery("SELECT * FROM USER LIMIT " + index + "," + one);
+
+
+                while (rs.next()) {
+                    String name = rs.getString("userName");
+                    String password = rs.getString("password");
+                    String email = rs.getString("userEmail");
+
+                    Member member = new Member();
+                    member.setName(name);
+                    member.setPassword(password);
+                    member.setEmail(email);
+
+                    memberList2.add(member);
+
+
+                    index++;
+
+                }
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 }
 
 

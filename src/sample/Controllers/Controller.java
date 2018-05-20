@@ -12,16 +12,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.Classes.DataBase;
+import sample.Classes.Member;
 import sample.Classes.NameTransfer;
 import sample.Classes.PreparedMethods;
 
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     PreparedMethods pm = new PreparedMethods();
+    DataBase myDB = new DataBase();
 
 
 
@@ -101,6 +104,23 @@ public class Controller implements Initializable {
         NameTransfer.getInstance().setName("Guest");
 
         pm.changeScene(event, "/sample/fxml/ProductsSample.fxml","products");
+
+
+
+
+    }
+
+    public void forgotPassword(ActionEvent event) throws IOException {
+
+        ArrayList<Member>member= new ArrayList<>();
+        member=myDB.getMemberList2();
+        for(int i=0;i<member.size();i++){
+            if(usernameField.getText().equals(member.get(i).getName())){
+                String pass = "Encrypted password: "+member.get(i).getPassword();
+                pm.showAlert("Forgotten password",pass,"I don't know how to decrypt");
+            }
+        }
+
 
 
 

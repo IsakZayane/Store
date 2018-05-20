@@ -31,10 +31,7 @@ public class FoodListController implements Initializable {
     TableColumn nameColOne, nameColTwo, priceColOne, priceColTwo;
     @FXML Button shoppingCartButton;
 
-    @FXML
-    public ListView<String> listView1;
-    @FXML
-    public ListView<String> listView2;
+
     @FXML
     public TextArea textArea;
 

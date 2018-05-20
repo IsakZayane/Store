@@ -24,10 +24,7 @@ public class KittyLitterController implements Initializable {
     PreparedMethods pm = new PreparedMethods();
 
 
-    @FXML
-    public ListView<String> listView1;
-    @FXML
-    public ListView<String> listView2;
+
     @FXML
     public TextArea textArea;
     @FXML

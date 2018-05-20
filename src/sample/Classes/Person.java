@@ -4,11 +4,13 @@ public  abstract class Person {
     private String name;
     private int id;
     private String email;
+    private String password;
 
     {
         this.email = email;
         this.name = name;
         this.id = id;
+        this.password=password;
     }
 
     public String getName() {
@@ -33,6 +35,14 @@ public  abstract class Person {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
 

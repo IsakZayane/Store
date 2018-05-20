@@ -31,10 +31,7 @@ public class CatNipController implements Initializable {
     PreparedMethods pm = new PreparedMethods();
     @FXML Button shoppingCartButton;
     @FXML TextField searchField;
-    @FXML
-    public ListView<String> listView1;
-    @FXML
-    public ListView<String> listView2;
+
     @FXML
     public TextArea textArea;
     @FXML

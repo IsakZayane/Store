@@ -29,10 +29,7 @@ public class WineListController implements Initializable {
 
     @FXML
     Button shoppingCartButton;
-    @FXML
-    public ListView<String> listView1;
-    @FXML
-    public ListView<String> listView2;
+
     public ArrayList<Wine> wine = new ArrayList<>();
     @FXML
     public TextArea textArea;

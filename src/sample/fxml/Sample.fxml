@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="root" stylesheets="@../sampleStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller">
+<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="root" stylesheets="@../sampleStyle.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Controller">
    <children>
       <TextArea editable="false" layoutX="397.0" layoutY="130.0" opacity="0.62" prefHeight="340.0" prefWidth="356.0" stylesheets="@/sample/sampleStyle.css" />
       <TextField fx:id="usernameField" layoutX="466.0" layoutY="165.0" prefHeight="40.0" prefWidth="200.0" promptText="               username" stylesheets="@/sample/sampleStyle.css">
@@ -19,7 +19,7 @@
             <Font name="French Script MT" size="18.0" />
          </font>
       </PasswordField>
-      <Button fx:id="signInButton" layoutX="486.0" layoutY="300.0" mnemonicParsing="false" onAction="#SignInAction" prefHeight="40.0" prefWidth="160.0" stylesheets="@/sample/sampleStyle.css" text="Log In" textFill="#cd0909">
+      <Button fx:id="signInButton" layoutX="486.0" layoutY="289.0" mnemonicParsing="false" onAction="#SignInAction" prefHeight="40.0" prefWidth="160.0" stylesheets="@/sample/sampleStyle.css" text="Log In" textFill="#cd0909">
          <font>
             <Font name="French Script MT" size="20.0" />
          </font>
@@ -34,5 +34,9 @@
             <Font name="French Script MT" size="20.0" />
          </font>
       </Button>
+      <Button layoutX="505.0" layoutY="344.0" mnemonicParsing="false" onAction="#forgotPassword" text="Forgot password" textFill="#cd0909">
+         <font>
+            <Font name="French Script MT" size="20.0" />
+         </font></Button>
    </children>
 </AnchorPane>
