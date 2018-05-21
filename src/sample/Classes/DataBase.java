@@ -491,6 +491,7 @@ public class DataBase {
 
             delete.execute();
         } catch (SQLException e) {
+
             e.printStackTrace();
 
         }
@@ -505,6 +506,7 @@ public class DataBase {
             delete.setString(1, email);
             delete.execute();
         } catch (SQLException e) {
+            pm.showAlert("Error","Can not remove user with orders and/or payments on hold","");
             e.printStackTrace();
         }
 
