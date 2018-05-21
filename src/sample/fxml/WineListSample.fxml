@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../wineListStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.WineListController">
+<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../wineListStyle.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.WineListController">
    <children>
 
       <Button layoutX="402.0" layoutY="240.0" mnemonicParsing="false" onAction="#addButton" opacity="0.7" prefHeight="40.0" prefWidth="164.0" text="Add to Cart" textFill="#cd0909">
@@ -27,16 +27,16 @@
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></Button>
-      <TableView fx:id="tableViewOne" layoutX="404.0" layoutY="14.0" prefHeight="200.0" prefWidth="160.0">
+      <TableView fx:id="tableViewOne" layoutX="404.0" layoutY="14.0" opacity="0.8" prefHeight="200.0" prefWidth="160.0">
          <columns>
             <TableColumn fx:id="nameColOne" prefWidth="75.0" text="Name" />
-            <TableColumn fx:id="priceColOne" prefWidth="75.0" text="Price" />
+            <TableColumn fx:id="priceColOne" prefWidth="83.0" text="Price" />
          </columns>
       </TableView>
-      <TableView fx:id="tableViewTwo" layoutX="602.0" layoutY="14.0" prefHeight="200.0" prefWidth="160.0">
+      <TableView fx:id="tableViewTwo" layoutX="602.0" layoutY="14.0" opacity="0.8" prefHeight="200.0" prefWidth="160.0">
          <columns>
             <TableColumn fx:id="nameColTwo" prefWidth="75.0" text="Name" />
-            <TableColumn fx:id="priceColTwo" prefWidth="75.0" text="Price" />
+            <TableColumn fx:id="priceColTwo" prefWidth="83.0" text="Price" />
          </columns>
       </TableView>
 
@@ -45,7 +45,7 @@
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></Button>
-      <TextArea fx:id="textArea" layoutX="477.0" layoutY="351.0" prefHeight="132.0" prefWidth="211.0" />
+      <TextArea fx:id="textArea" layoutX="477.0" layoutY="351.0" opacity="0.8" prefHeight="132.0" prefWidth="211.0" />
       <Button layoutX="544.0" layoutY="300.0" mnemonicParsing="false" onAction="#showInfo" opacity="0.7" prefHeight="37.0" prefWidth="77.0" text="Info" textFill="#cd0909">
 
          <font>
