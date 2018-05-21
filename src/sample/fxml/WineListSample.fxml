@@ -19,6 +19,14 @@
          <font>
             <Font name="French Script MT" size="20.0" />
          </font></Button>
+      <Button layoutX="621.0" layoutY="541.0" mnemonicParsing="false" onAction="#goBackAction" opacity="0.7" text="Go Back" textFill="#cd0909">
+         <font>
+            <Font name="Bodoni MT" size="18.0" />
+         </font></Button>
+      <Button layoutX="184.0" layoutY="538.0" mnemonicParsing="false" onAction="#backLogInAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Back to Log In" textFill="#cd0909">
+         <font>
+            <Font name="Bodoni MT" size="18.0" />
+         </font></Button>
       <TableView fx:id="tableViewOne" layoutX="404.0" layoutY="14.0" prefHeight="200.0" prefWidth="160.0">
          <columns>
             <TableColumn fx:id="nameColOne" prefWidth="75.0" text="Name" />
@@ -31,10 +39,7 @@
             <TableColumn fx:id="priceColTwo" prefWidth="75.0" text="Price" />
          </columns>
       </TableView>
-      <Button layoutX="184.0" layoutY="538.0" mnemonicParsing="false" onAction="#backButton" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Back to Log In" textFill="#cd0909">
-         <font>
-            <Font name="French Script MT" size="20.0" />
-         </font></Button>
+
 
       <Button fx:id="shoppingCartButton" layoutX="493.0" layoutY="497.0" mnemonicParsing="false" onAction="#addShoppingCartAction" opacity="0.7" text="Add to shoppingcart" textFill="#cd0909">
          <font>

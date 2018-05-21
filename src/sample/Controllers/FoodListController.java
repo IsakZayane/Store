@@ -96,7 +96,7 @@ public class FoodListController implements Initializable {
     }
 
 
-    public void backButton(ActionEvent event) throws IOException {
+    public void goBackAction(ActionEvent event) throws IOException {
 
         DataBase db = new DataBase();
 
@@ -109,6 +109,12 @@ else {
             pm.changeScene(event, "/sample/fxml/ProductsSample.fxml", "Products");
             System.out.println("not admin");
         }
+    }
+    public void backLogInAction(ActionEvent event){
+        pm.clearUserInfo();
+
+
+        pm.changeScene(event, "/sample/fxml/Sample.fxml","login");
     }
 
     public void addShoppingCartAction() {

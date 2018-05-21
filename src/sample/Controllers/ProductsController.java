@@ -74,7 +74,7 @@ public class ProductsController implements Initializable {
 
     }
 
-    public void ExitAction() {
+    public void exitAction() {
         System.exit(0);
     }
 

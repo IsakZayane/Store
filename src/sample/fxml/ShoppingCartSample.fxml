@@ -5,13 +5,28 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ShoppingCartController">
+<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../ShoppinCartStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ShoppingCartController">
     <children>
-    
-      <Button layoutX="427.0" layoutY="325.0" mnemonicParsing="false" onAction="#goBack" text="&lt; Back" />
-      <Button layoutX="431.0" layoutY="56.0" mnemonicParsing="false" onAction="#orderAction" text="Order Products" />
-      <TableView fx:id="tableArea" layoutX="327.0" layoutY="92.0" prefHeight="200.0" prefWidth="200.0">
+
+        <Button layoutX="621.0" layoutY="541.0" mnemonicParsing="false" onAction="#goBackAction" opacity="0.7" text="Go Back" textFill="#cd0909">
+            <font>
+                <Font name="Bodoni MT" size="18.0" />
+            </font></Button>
+      <Button layoutX="595.0" layoutY="315.0" mnemonicParsing="false" onAction="#orderAction" opacity="0.7" text="Order Products" textFill="#cd0909">
+         <font>
+            <Font name="Bodoni MT" size="18.0" />
+         </font></Button>
+        <Button layoutX="184.0" layoutY="538.0" mnemonicParsing="false" onAction="#backLogInAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Back to Log In" textFill="#cd0909">
+            <font>
+                <Font name="Bodoni MT" size="18.0" />
+            </font></Button>
+      <Button fx:id="exitAction" layoutX="670.0" layoutY="14.0" mnemonicParsing="false" onAction="#exitAction" opacity="0.7" text="Exit" textFill="#cd0909">
+        <font>
+          <Font name="Bodoni MT" size="18.0" />
+        </font></Button>
+      <TableView fx:id="tableArea" layoutX="555.0" layoutY="88.0" opacity="0.7" prefHeight="200.0" prefWidth="200.0">
         <columns>
           <TableColumn fx:id="nameCol" prefWidth="75.0" text="Name" />
           <TableColumn fx:id="priceCol" prefWidth="75.0" text="Price" />

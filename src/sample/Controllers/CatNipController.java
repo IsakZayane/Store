@@ -68,6 +68,19 @@ public class CatNipController implements Initializable {
 
 
     }
+    public void goBackAction(ActionEvent event){
+        DataBase db = new DataBase();
+
+        if (db.isAdmin()){
+
+            pm.changeScene(event,"/sample/fxml/AdminProductsSample.fxml", "Products-Admin");
+            System.out.println("still admin");
+        }
+        else {
+            pm.changeScene(event, "/sample/fxml/ProductsSample.fxml", "Products");
+            System.out.println("not admin");
+        }
+    }
 
     public void addButton() {
 
@@ -87,17 +100,11 @@ public class CatNipController implements Initializable {
     }
 
 
-    public void backButton(ActionEvent event) throws IOException {
+    public void backLogInAction(ActionEvent event) throws IOException {
+        pm.clearUserInfo();
 
-        DataBase db = new DataBase();
 
-        if (db.isAdmin()) {
-            pm.changeScene(event,"/sample/fxml/AdminProductsSample.fxml", "Products-Admin");
-            System.out.println("still admin");
-        }
-        else {
-            pm.changeScene(event, "/sample/fxml/productsSample.fxml", "Products");
-        }
+        pm.changeScene(event, "/sample/fxml/Sample.fxml","login");
 
 
     }

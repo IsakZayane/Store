@@ -69,7 +69,7 @@ public class ShoppingCartController implements Initializable {
     }
 
 
-    public void goBack(ActionEvent event) {
+    public void goBackAction(ActionEvent event) {
         DataBase db = new DataBase();
 
         if (db.isAdmin()) {
@@ -80,6 +80,15 @@ public class ShoppingCartController implements Initializable {
         pm.changeScene(event, "/sample/fxml/ProductsSample.fxml", "products");
 
 
+    }
+    public void backLogInAction(ActionEvent event){
+        pm.clearUserInfo();
+
+
+        pm.changeScene(event, "/sample/fxml/Sample.fxml","login");
+    }
+    public void exitAction(){
+        System.exit(0);
     }
 
     public void orderAction() {

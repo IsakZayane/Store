@@ -80,7 +80,7 @@ public class KittyLitterController implements Initializable {
     }
 
 
-    public void backButton(ActionEvent event) throws IOException {
+    public void goBackAction(ActionEvent event) throws IOException {
 
         DataBase db = new DataBase();
         if(db.isAdmin()) {
@@ -91,6 +91,12 @@ public class KittyLitterController implements Initializable {
             pm.changeScene(event, "/sample/fxml/ProductsSample.fxml", "Products");
         }
 
+    }
+    public void backLogInAction(ActionEvent event){
+        pm.clearUserInfo();
+
+
+        pm.changeScene(event, "/sample/fxml/Sample.fxml","login");
     }
 
     public void showInfo() {
