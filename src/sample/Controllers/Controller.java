@@ -65,7 +65,7 @@ public class Controller implements Initializable {
 
 
             DataBase myDB = new DataBase();
-            int password = pass.passwordEncryption(passwordField.getText());
+            String password = pass.passwordEncryption(passwordField.getText());
             if (myDB.adminLogin(usernameField.getText(),password)){
                 String email = myDB.Email(usernameField.getText());
                 NameTransfer.getInstance().setName(usernameField.getText());
@@ -116,8 +116,27 @@ public class Controller implements Initializable {
         member=myDB.getMemberList2();
         for(int i=0;i<member.size();i++){
             if(usernameField.getText().equals(member.get(i).getName())){
+                String password=member.get(i).getPassword();
+                System.out.println("check encrypted password: "+password);
+
+                StringBuilder encryptPass = new StringBuilder(password);  //TODO Maybe use StringBuilder instead, it is faster than buffer
+                System.out.println("pass from db: "+encryptPass.toString());
+
+
+                for (int e = 0; e < password.length(); e++) {
+
+                    int temp = 0;
+
+                    temp = (int) encryptPass.charAt(e);
+                    temp = temp / 9;
+                    encryptPass.setCharAt(e, (char) temp);
+
+
+
+                }
+                System.out.println("new pass: "+encryptPass.toString());
                 String pass = "Encrypted password: "+member.get(i).getPassword();
-                pm.showAlert("Forgotten password",pass,"I don't know how to decrypt");
+                pm.showAlert("Forgotten password","decrypted pass: "+encryptPass.toString(),"I don't know how to decrypt");
             }
         }
 
