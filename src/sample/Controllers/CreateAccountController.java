@@ -62,6 +62,12 @@ public class CreateAccountController implements Initializable {
 
             myDB.createUser(userName, userEmail, encryptedPassword);
 
+            pm.showAlert("Info","Account created","");
+
+            usernameField.clear();
+            passwordField.clear();
+            emailTextField.clear();
+            repasswordField.clear();
 
         } else
             pm.showAlert("Alert", "Passwords dont match", "rewrite password");
