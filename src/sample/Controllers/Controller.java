@@ -11,10 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import sample.Classes.DataBase;
-import sample.Classes.Member;
-import sample.Classes.NameTransfer;
-import sample.Classes.PreparedMethods;
+import sample.Classes.*;
 
 
 import java.io.IOException;
@@ -111,7 +108,8 @@ public class Controller implements Initializable {
     }
 
     public void forgotPassword(ActionEvent event) throws IOException {
-
+        Emailsender forgot = new Emailsender();
+        String email=myDB.Email(usernameField.getText());
         ArrayList<Member>member= new ArrayList<>();
         member=myDB.getMemberList2();
         for(int i=0;i<member.size();i++){
@@ -135,8 +133,9 @@ public class Controller implements Initializable {
 
                 }
                 System.out.println("new pass: "+encryptPass.toString());
-                String pass = "Encrypted password: "+member.get(i).getPassword();
-                pm.showAlert("Forgotten password","decrypted pass: "+encryptPass.toString(),"I don't know how to decrypt");
+                
+                forgot.forgotPassword(email,encryptPass.toString());
+
             }
         }
 
