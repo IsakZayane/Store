@@ -662,9 +662,7 @@ public void orderSpecifics(String username,String productname,int quantity){
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
-
 
 }
 

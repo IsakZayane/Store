@@ -159,7 +159,10 @@ public void exitAction(){
 }
 public void removeMemberAction(){
     DataBase db = new DataBase();
-    db.removeMember(memberlist.getSelectionModel().getSelectedItem());
+    String remove = memberlist.getSelectionModel().getSelectedItem();
+    String removereplace=remove.replace(":    Blocked","");
+
+    db.removeMember(removereplace);
     db.setMemberEmails();
     member = db.getMember();
     list.clear();

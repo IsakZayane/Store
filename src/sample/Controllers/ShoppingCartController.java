@@ -97,12 +97,13 @@ public class ShoppingCartController implements Initializable {
         DataBase db = new DataBase();
        java.util.Date date = new java.util.Date();
         java.sql.Date sqldate = new java.sql.Date(date.getTime());
-        db.orderDetails(sqldate, NameTransfer.getInstance().getName());
+
 
         db.paymentsInsert(sqldate, NameTransfer.getInstance().getTotalsum(), NameTransfer.getInstance().getName());
-        Emailsender es = new Emailsender();
-        es.sendEmail(NameTransfer.getInstance().getEmail(), cartView.getText(), db.getOrderId(NameTransfer.getInstance().getName()),
-                NameTransfer.getInstance().getTotalsum());
+        db.orderDetails(sqldate, NameTransfer.getInstance().getName());
+       // Emailsender es = new Emailsender();
+      //  es.sendEmail(NameTransfer.getInstance().getEmail(), cartView.getText(), db.getOrderId(NameTransfer.getInstance().getName()),
+       //         NameTransfer.getInstance().getTotalsum());
         for (int i = 0; i < myItem.size(); i++) {
             db.orderSpecifics(NameTransfer.getInstance().getName(), myItem.get(i).getName(),
                  Collections.frequency(myItem,myItem.get(i)));
