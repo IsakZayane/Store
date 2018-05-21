@@ -10,23 +10,23 @@
     <children>
         <Label fx:id="loggedin" layoutX="77.0" layoutY="6.0" prefHeight="17.0" prefWidth="75.0" textFill="#ebe8e8" />
         <Text fill="#ebe8e8" layoutX="7.0" layoutY="11.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in  :" />
-        <Button layoutX="465.0" layoutY="115.0" mnemonicParsing="false" onAction="#FoodAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Food" textFill="#cd0909">
+        <Button layoutX="465.0" layoutY="131.0" mnemonicParsing="false" onAction="#FoodAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Food" textFill="#cd0909">
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
-        <Button layoutX="465.0" layoutY="227.0" mnemonicParsing="false" onAction="#WineAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Wine" textFill="#cd0909">
+        <Button layoutX="465.0" layoutY="240.0" mnemonicParsing="false" onAction="#WineAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Wine" textFill="#cd0909">
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
-        <Button layoutX="465.0" layoutY="172.0" mnemonicParsing="false" onAction="#KittyLitterAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Kitty Litter" textFill="#cd0909">
+        <Button layoutX="465.0" layoutY="185.0" mnemonicParsing="false" onAction="#KittyLitterAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Kitty Litter" textFill="#cd0909">
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
-        <Button layoutX="465.0" layoutY="57.0" mnemonicParsing="false" onAction="#CatNipAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Catnip" textFill="#cd0909">
+        <Button layoutX="465.0" layoutY="77.0" mnemonicParsing="false" onAction="#CatNipAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Catnip" textFill="#cd0909">
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
-        <Button layoutX="14.0" layoutY="212.0" mnemonicParsing="false" onAction="#LogOutAction" opacity="0.7" prefHeight="45.0" prefWidth="173.0" text="Return to Log In" textFill="#cd0909">
+        <Button layoutX="14.0" layoutY="501.0" mnemonicParsing="false" onAction="#LogOutAction" opacity="0.7" prefHeight="40.0" prefWidth="168.0" text="Return to Log In" textFill="#cd0909">
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
@@ -34,7 +34,7 @@
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
-      <Button layoutX="461.0" layoutY="312.0" mnemonicParsing="false" onAction="#cartAction" opacity="0.7" text="View Shoppingcart" textFill="#cd0909">
+      <Button layoutX="461.0" layoutY="312.0" mnemonicParsing="false" onAction="#cartAction" opacity="0.7" text="View Shopping Cart" textFill="#cd0909">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font>

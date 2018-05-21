@@ -19,22 +19,22 @@
             <Font name="Bodoni MT" size="18.0" />
          </font>
       </PasswordField>
-      <Button fx:id="signInButton" layoutX="495.0" layoutY="288.0" mnemonicParsing="false" onAction="#SignInAction" prefHeight="40.0" prefWidth="160.0" stylesheets="@/sample/sampleStyle.css" text="Log In" textFill="#cd0909">
+      <Button fx:id="signInButton" layoutX="495.0" layoutY="288.0" mnemonicParsing="false" onAction="#SignInAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" stylesheets="@/sample/sampleStyle.css" text="Log In" textFill="#cd0909">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="guestButton" layoutX="579.0" layoutY="402.0" mnemonicParsing="false" onAction="#GuestAction" prefHeight="40.0" prefWidth="175.0" stylesheets="@/sample/sampleStyle.css" text="Continue as Guest" textFill="#cd0909">
+      <Button fx:id="guestButton" layoutX="579.0" layoutY="402.0" mnemonicParsing="false" onAction="#GuestAction" opacity="0.7" prefHeight="40.0" prefWidth="175.0" stylesheets="@/sample/sampleStyle.css" text="Continue as Guest" textFill="#cd0909">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="registerButton" layoutX="392.0" layoutY="402.0" mnemonicParsing="false" onAction="#RegisterAction" prefHeight="40.0" prefWidth="175.0" stylesheets="@/sample/sampleStyle.css" text="Register Account" textFill="#cd0909">
+      <Button fx:id="registerButton" layoutX="392.0" layoutY="402.0" mnemonicParsing="false" onAction="#RegisterAction" opacity="0.7" prefHeight="40.0" prefWidth="175.0" stylesheets="@/sample/sampleStyle.css" text="Register Account" textFill="#cd0909">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="499.0" layoutY="340.0" mnemonicParsing="false" onAction="#forgotPassword" prefHeight="40.0" prefWidth="160.0" text="Forgot password" textFill="#cd0909">
+      <Button layoutX="495.0" layoutY="340.0" mnemonicParsing="false" onAction="#forgotPassword" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Forgot Password?" textFill="#cd0909">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></Button>

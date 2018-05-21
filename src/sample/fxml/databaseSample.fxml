@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../databaseStyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.DatabaseController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="751.0" stylesheets="@../databaseStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.DatabaseController">
    <children>
       <ChoiceBox fx:id="productype" layoutX="390.0" layoutY="81.0" prefHeight="25.0" prefWidth="171.0" />
       <TextField fx:id="namefield" layoutX="390.0" layoutY="126.0" opacity="0.7" prefHeight="40.0" prefWidth="160.0" promptText="Name">
@@ -36,37 +36,40 @@
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></TextField>
-      <Button layoutX="390.0" layoutY="28.0" mnemonicParsing="false" onAction="#addNewProduct" prefHeight="40.0" prefWidth="160.0" text="Add Product" textFill="#cd0909">
+      <Button layoutX="390.0" layoutY="28.0" mnemonicParsing="false" onAction="#addNewProduct" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Add Product" textFill="#cd0909">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></Button>
-      <Button layoutX="550.0" layoutY="510.0" mnemonicParsing="false" onAction="#goBackAction" text="Go Back" textFill="#cd0909">
+      <Button layoutX="593.0" layoutY="487.0" mnemonicParsing="false" onAction="#goBackAction" opacity="0.7" prefHeight="40.0" prefWidth="94.0" text="Go Back" textFill="#cd0909">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></Button>
-      <Button layoutX="82.0" layoutY="504.0" mnemonicParsing="false" onAction="#goBackToLoginAction" prefHeight="52.0" prefWidth="171.0" text="Return to Log In" textFill="#cd0909">
+      <Button layoutX="20.0" layoutY="484.0" mnemonicParsing="false" onAction="#goBackToLoginAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Return to Log In" textFill="#cd0909">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></Button>
-      <Button layoutX="710.0" layoutY="14.0" mnemonicParsing="false" onAction="#exitAction" text="Exit" textFill="#cd0909">
+      <Button layoutX="658.0" layoutY="28.0" mnemonicParsing="false" onAction="#exitAction" opacity="0.7" text="Exit" textFill="#cd0909">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></Button>
-      <Button layoutX="606.0" layoutY="373.0" mnemonicParsing="false" onAction="#removeAction" text="Remove product" />
-      <Button layoutX="183.0" layoutY="166.0" mnemonicParsing="false" onAction="#blockAction" prefHeight="40.0" prefWidth="160.0" text="Block Member" textFill="#cd0909">
+      <Button layoutX="568.0" layoutY="377.0" mnemonicParsing="false" onAction="#removeAction" opacity="0.7" text="Remove Product" textFill="#cd0909">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></Button>
-      <Button layoutX="48.0" layoutY="385.0" mnemonicParsing="false" onAction="#removeMemberAction" prefHeight="40.0" prefWidth="160.0" text="Remove Member" textFill="#cd0909">
+      <Button layoutX="20.0" layoutY="186.0" mnemonicParsing="false" onAction="#blockAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Block Member" textFill="#cd0909">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></Button>
-      <ListView fx:id="memberlist" layoutX="25.0" layoutY="137.0" opacity="0.81" prefHeight="195.0" prefWidth="143.0" />
-      <Button layoutX="183.0" layoutY="244.0" mnemonicParsing="false" onAction="#unblockAction" prefHeight="40.0" prefWidth="160.0" text="Unblock Member" textFill="#cd0909">
+      <Button layoutX="20.0" layoutY="300.0" mnemonicParsing="false" onAction="#removeMemberAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Remove Member" textFill="#cd0909">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></Button>
-      <TableView fx:id="producttable" layoutX="558.0" layoutY="146.0" prefHeight="200.0" prefWidth="200.0">
+      <ListView fx:id="memberlist" layoutX="25.0" layoutY="15.0" opacity="0.7" prefHeight="158.0" prefWidth="150.0" />
+      <Button layoutX="20.0" layoutY="244.0" mnemonicParsing="false" onAction="#unblockAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Unblock Member" textFill="#cd0909">
+         <font>
+            <Font name="Bodoni MT" size="18.0" />
+         </font></Button>
+      <TableView fx:id="producttable" layoutX="558.0" layoutY="146.0" prefHeight="200.0" prefWidth="171.0">
         <columns>
           <TableColumn fx:id="namecol" prefWidth="75.0" text="Name" />
           <TableColumn fx:id="pricecol" prefWidth="75.0" text="Price" />

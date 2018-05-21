@@ -34,7 +34,7 @@
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></Button>
-      <Button layoutX="464.0" layoutY="386.0" mnemonicParsing="false" onAction="#CartAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="View Shopping Cart" textFill="#cd0909">
+      <Button layoutX="454.0" layoutY="383.0" mnemonicParsing="false" onAction="#CartAction" opacity="0.7" prefHeight="40.0" prefWidth="190.0" text="View Shopping Cart" textFill="#cd0909">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></Button>

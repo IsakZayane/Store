@@ -12,11 +12,11 @@
 
     <children>
 
-        <Button layoutX="410.0" layoutY="240.0" mnemonicParsing="false" onAction="#addButton" opacity="0.7" prefHeight="40.0" prefWidth="140.0" text="Add to Cart" textFill="#cd0909">
+        <Button layoutX="396.0" layoutY="240.0" mnemonicParsing="false" onAction="#addButton" opacity="0.7" prefHeight="40.0" prefWidth="168.0" text="Add to Cart" textFill="#cd0909">
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
-        <Button layoutX="607.0" layoutY="240.0" mnemonicParsing="false" onAction="#removeButton" opacity="0.7" prefHeight="40.0" prefWidth="140.0" text="Remove from Cart" textFill="#cd0909">
+        <Button layoutX="582.0" layoutY="240.0" mnemonicParsing="false" onAction="#removeButton" opacity="0.7" prefHeight="40.0" prefWidth="168.0" text="Remove from Cart" textFill="#cd0909">
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
@@ -32,30 +32,33 @@
                 <TableColumn fx:id="priceColTwo" prefWidth="75.0" text="Price" />
             </columns>
         </TableView>
-        <Button layoutX="621.0" layoutY="541.0" mnemonicParsing="false" onAction="#goBackAction" opacity="0.7" text="Go Back" textFill="#cd0909">
+        <Button layoutX="526.0" layoutY="541.0" mnemonicParsing="false" onAction="#goBackAction" opacity="0.7" text="Go Back" textFill="#cd0909">
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
-        <Button layoutX="184.0" layoutY="538.0" mnemonicParsing="false" onAction="#backLogInAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Back to Log In" textFill="#cd0909">
+        <Button layoutX="184.0" layoutY="538.0" mnemonicParsing="false" onAction="#backLogInAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Return to Log In" textFill="#cd0909">
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
-        <TextArea fx:id="textArea" layoutX="498.0" layoutY="344.0" prefHeight="137.0" prefWidth="168.0">
+        <TextArea fx:id="textArea" layoutX="486.0" layoutY="344.0" prefHeight="137.0" prefWidth="168.0">
             <font>
                 <Font size="23.0" />
             </font></TextArea>
-        <Button layoutX="531.0" layoutY="294.0" mnemonicParsing="false" onAction="#showInfo" opacity="0.7" prefHeight="40.0" prefWidth="102.0" text="Info" textFill="#cd0909">
+        <Button layoutX="519.0" layoutY="292.0" mnemonicParsing="false" onAction="#showInfo" opacity="0.7" prefHeight="40.0" prefWidth="102.0" text="Info" textFill="#cd0909">
 
 
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
-        <Button fx:id="shoppingCartButton" layoutX="493.0" layoutY="497.0" mnemonicParsing="false" onAction="#addShoppingCartAction" opacity="0.7" text="Add to shoppingcart" textFill="#cd0909">
+        <Button fx:id="shoppingCartButton" layoutX="481.0" layoutY="497.0" mnemonicParsing="false" onAction="#addShoppingCartAction" opacity="0.7" text="Add to shoppingcart" textFill="#cd0909">
             <font>
                 <Font name="Bodoni MT" size="18.0" />
             </font></Button>
-      <TextField fx:id="searchField" layoutX="51.0" layoutY="106.0" promptText="Search for products!" />
-      <Button layoutX="258.0" layoutY="106.0" mnemonicParsing="false" onAction="#searchFunction" text="Search" />
+      <TextField fx:id="searchField" layoutX="28.0" layoutY="198.0" promptText="Search for products!" />
+      <Button layoutX="63.0" layoutY="240.0" mnemonicParsing="false" onAction="#searchFunction" prefHeight="34.0" prefWidth="80.0" text="Search" textFill="#cd0909">
+         <font>
+            <Font name="Bodoni MT" size="18.0" />
+         </font></Button>
     </children>
 
 </AnchorPane>
