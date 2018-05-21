@@ -57,7 +57,7 @@ public class CreateAccountController implements Initializable {
             String password = passwordField.getText();
 
 
-            int encryptedPassword = passwordEncryption(password);
+            String encryptedPassword = passwordEncryption(password);
             System.out.println(userName + userEmail + encryptedPassword);
 
             myDB.createUser(userName, userEmail, encryptedPassword);
@@ -85,7 +85,7 @@ public class CreateAccountController implements Initializable {
 
     }
 
-    public int passwordEncryption(String password) {  //det vi får från den här metoden skall sparas i databasen som password, till rätt user
+    public String passwordEncryption(String password) {  //det vi får från den här metoden skall sparas i databasen som password, till rätt user
 
         StringBuilder encryptPass = new StringBuilder(password);  //TODO Maybe use StringBuilder instead, it is faster than buffer
 
@@ -95,15 +95,26 @@ public class CreateAccountController implements Initializable {
             int temp = 0;
 
             temp = (int) encryptPass.charAt(i);
-            temp = temp * 2 + 5;
-            encryptPass.setCharAt(1, (char) temp);
+            temp = temp * 9;
+            encryptPass.setCharAt(i, (char) temp);
 
-
-            return temp;
 
         }
+        System.out.println("new pass: "+encryptPass.toString());
+//        for (int i = 0; i < password.length(); i++) {
+//
+//            int temp = 0;
+//
+//            temp = (int) encryptPass.charAt(i);
+//            temp = temp / 9;
+//            encryptPass.setCharAt(i, (char) temp);
+//
+//
+//
+//        }
+//        System.out.println("old pass: "+encryptPass.toString());
 
-        return 5;
+        return encryptPass.toString();
 
     }
 

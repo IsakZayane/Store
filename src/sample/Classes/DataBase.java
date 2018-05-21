@@ -43,7 +43,7 @@ public class DataBase {
     }
 
 
-    public void createUser(String userName, String userEmail, int password) {
+    public void createUser(String userName, String userEmail, String password) {
 
         try {
             String query = "SELECT userEmail from user where userEmail = ?";
@@ -71,7 +71,7 @@ public class DataBase {
 
                 addUser.setString(1, userName);
                 addUser.setString(2, userEmail);
-                addUser.setInt(3, password);
+                addUser.setString(3, password);
                 addUser.setInt(4, notadmin);
 
                 addUser.execute();
@@ -89,7 +89,7 @@ public class DataBase {
         }
     }
 
-    public void memberLogIn(String name, int password) {
+    public void memberLogIn(String name, String password) {
         // query stringen är det "prepareda statementtet"
         //login.setsstring sätter man in parametern name och den går in på första frågetecknet i queryn och login.setInt
         // sätter man in  parametern password på andra frågetecknet i queryn.
@@ -99,18 +99,18 @@ public class DataBase {
             String query = "select username,password from user where username = ? and password = ?";
             PreparedStatement login = c.prepareStatement(query);
             login.setString(1, name);
-            login.setInt(2, password);
+            login.setString(2, password);
             // ResultSet rs ser till så att queryn körs i koden (tror jag)
             ResultSet rs = login.executeQuery();
             String username = null;
-            int pass = 0;
+            String pass;
             while (rs.next()) {
                 username = rs.getString("userName");
-                pass = rs.getInt("password");
+                pass = rs.getString("password");
 
 
             }
-            if (username.equals(name) && pass == password) {
+            if (username.equals(name) && username.equals(password)) {
                 System.out.println("name found");
             }
 
@@ -404,7 +404,7 @@ public class DataBase {
 
     }
 
-    public boolean adminLogin(String name, int password) {
+    public boolean adminLogin(String name, String password) {
         boolean adminaccept = false;
         try {
 
@@ -412,7 +412,7 @@ public class DataBase {
             String query = "select admin from user where username = ? and password = ?";
             PreparedStatement adminsearch = c.prepareStatement(query);
             adminsearch.setString(1, name);
-            adminsearch.setInt(2, password);
+            adminsearch.setString(2, password);
             ResultSet rs = adminsearch.executeQuery();
 
             while (rs.next()) {
@@ -532,14 +532,14 @@ public class DataBase {
 
     }
 
-    public boolean blockedUser(String name, int password) {
+    public boolean blockedUser(String name, String password) {
         boolean isblocked = false;
         try {
             int blockcheck = 0;
             String query = "select admin from user where username = ? and password = ?";
             PreparedStatement block = c.prepareStatement(query);
             block.setString(1, name);
-            block.setInt(2, password);
+            block.setString(2, password);
             ResultSet rs = block.executeQuery();
             while (rs.next()) {
                 blockcheck = rs.getInt("admin");
