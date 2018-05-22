@@ -9,21 +9,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
-
 import javafx.scene.control.cell.PropertyValueFactory;
-import sample.Classes.DataBase;
-import sample.Classes.Emailsender;
-import sample.Classes.NameTransfer;
-import sample.Classes.Shoppingcartsingleton;
-
-import sample.Classes.PreparedMethods;
-
-import java.net.URL;
-
 import sample.Classes.*;
 
+import java.net.URL;
 import java.util.ArrayList;
-
 import java.util.Collections;
 import java.util.ResourceBundle;
 
@@ -70,9 +60,10 @@ public class ShoppingCartController implements Initializable {
 
 
     public void goBackAction(ActionEvent event) {
-        DataBase db = new DataBase();
+        //NNA: We could use the Singleton directly instead of first assigning it to a variable.
+        //DataBase db = new DataBase();
 
-        if (db.isAdmin()) {
+        if (DatabaseSingleton.getInstance().getDb().isAdmin()) {
 
             pm.changeScene(event, "/sample/fxml/AdminProductsSample.fxml", "products");
         } else {
@@ -94,7 +85,8 @@ public class ShoppingCartController implements Initializable {
     public void orderAction() {
 
 
-        DataBase db = new DataBase();
+        // NNA: Here we fetch the database object from the Singleton as the object will be used repeatedly.
+        DataBase db = DatabaseSingleton.getInstance().getDb();
        java.util.Date date = new java.util.Date();
         java.sql.Date sqldate = new java.sql.Date(date.getTime());
 

@@ -1,11 +1,7 @@
 package sample.Classes;
 
-import javafx.scene.control.Alert;
-
-
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class DataBase {
     PreparedMethods pm = new PreparedMethods();
@@ -27,6 +23,10 @@ public class DataBase {
 
     public DataBase() {
 
+        //NNA: The reason the application was so slow was that objects of this class was created over,
+        //     and over again. Each time, the constructor with all the calls to the database was executed.
+        
+        
         try {
             c = DriverManager.getConnection(url);
             st = c.createStatement();

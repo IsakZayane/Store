@@ -5,15 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
-import javafx.scene.control.ListView;
-
-import javafx.scene.control.TextArea;
-
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
-
 import sample.Classes.*;
 
 import java.io.IOException;
@@ -41,11 +34,14 @@ public class WineListController implements Initializable {
 
     private ObservableList<Wine> myList = FXCollections.observableArrayList();
     private ObservableList<Wine> myListTwo = FXCollections.observableArrayList();
-
+    
+    //NNA: Fetch the database object from the Singleton to avoid re-initialize the database
+    private DataBase myDB = DatabaseSingleton.getInstance().getDb();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        DataBase myDB = new DataBase();
+        //NNA: No need for this as we have an instance variable
+        //DataBase myDB = new DataBase();
 
         wine = myDB.getWineList();
         myList.addAll(wine);
@@ -85,10 +81,11 @@ public class WineListController implements Initializable {
 
 
     public void goBackAction(ActionEvent event) throws IOException {
+    
+        //NNA: No need for this as we have an instance variable
+        //DataBase db = new DataBase();
 
-        DataBase db = new DataBase();
-
-        if (db.isAdmin()) {
+        if (myDB.isAdmin()) {
             pm.changeScene(event, "/sample/fxml/AdminProductsSample.fxml", "Products-Admin");
             System.out.println("still admin");
         } else {
@@ -149,9 +146,10 @@ public class WineListController implements Initializable {
     @FXML
     public void searchFunction() {
         String s = searchField.getText();
-
-        DataBase db = new DataBase();
-        ArrayList<Wine> myWineList = db.getWineList();
+    
+        //NNA: No need for this as we have an instance variable
+        //DataBase db = new DataBase();
+        ArrayList<Wine> myWineList = myDB.getWineList();
 
 
         for (int i = 0; i < myWineList.size(); i++) {
