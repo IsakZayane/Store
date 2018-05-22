@@ -9,7 +9,7 @@ package sample.Classes;
  * Used to store the database object created from the class Database.
  * The reason for this Singleton to exist is to avoid having to create
  * the costly Database objects over and over again.
- * 
+ *
  * @author Andreas Nilsson (andreas.nilsson@hkr.se)
  */
 public class DatabaseSingleton {

@@ -1,5 +1,6 @@
 package sample.Controllers;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,8 +17,8 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
     PreparedMethods pm = new PreparedMethods();
     
-    // NNA: Fetch the database object from the Singleton to avoid re-initializing the database
-    DataBase myDB = DatabaseSingleton.getInstance().getDb();
+    // NNA: Declare an instance variable so that we can access the database object in this class
+    DataBase myDB;
     
     
     @FXML
@@ -37,7 +38,11 @@ public class Controller implements Initializable {
         
         
         System.out.println("test2");
-        
+    
+        //NNA: As this is the first controller to be loaded we want to make sure
+        //     the creation and storing of the database object is complete before
+        //     fetching it from the Singleton.
+        Platform.runLater(() -> myDB = DatabaseSingleton.getInstance().getDb());
     }
     
     
