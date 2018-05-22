@@ -34,11 +34,11 @@
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></Button>
-      <Button layoutX="454.0" layoutY="383.0" mnemonicParsing="false" onAction="#CartAction" opacity="0.7" prefHeight="40.0" prefWidth="190.0" text="View Shopping Cart" textFill="#cd0909">
+      <Button layoutX="449.0" layoutY="381.0" mnemonicParsing="false" onAction="#CartAction" opacity="0.7" prefHeight="40.0" prefWidth="190.0" text="View Shopping Cart" textFill="#cd0909">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></Button>
-      <Button layoutX="465.0" layoutY="321.0" mnemonicParsing="false" onAction="#ModifyAction" opacity="0.7" prefHeight="40.0" prefWidth="160.0" text="Modify Products" textFill="#cd0909">
+      <Button layoutX="411.0" layoutY="324.0" mnemonicParsing="false" onAction="#ModifyAction" opacity="0.7" prefHeight="40.0" prefWidth="269.0" text="Modify Products And Members" textFill="#cd0909">
          <font>
             <Font name="Bodoni MT" size="18.0" />
          </font></Button>

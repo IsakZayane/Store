@@ -58,7 +58,7 @@ public class DatabaseController implements Initializable {
         productList.addAll(everyitem);
 
         namecol.setCellValueFactory(new PropertyValueFactory<Item,String>("Name"));
-        pricecol.setCellValueFactory(new PropertyValueFactory<Item,Double>("Prie"));
+        pricecol.setCellValueFactory(new PropertyValueFactory<Item,Double>("Price"));
 
         for (int i =0;i<everyitem.size();i++){
             producttable.setItems(productList);
@@ -124,7 +124,7 @@ public class DatabaseController implements Initializable {
     }
     public void removeAction(){
         DataBase db= new DataBase();
-       // String removeitem= namecol.getTypeSelector();
+       
         db.deleteItem(producttable.getSelectionModel().getSelectedItem().getName());
         producttable.getItems().clear();
         productList.removeAll();
